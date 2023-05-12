@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LanguageController;
 
 /*
@@ -16,4 +17,4 @@ use App\Http\Controllers\LanguageController;
 
 Route::get("lang/{locale}", [LanguageController::class, "index"]);
 
-Route::get('/', function() { return view('example'); });
+Route::get("/", [HomeController::class, "index"]);
