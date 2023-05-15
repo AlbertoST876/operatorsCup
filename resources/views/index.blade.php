@@ -54,22 +54,22 @@
         <main class="lg:ml-80 p-4">
             <h1 class="block text-center text-4xl sm:text-6xl font-black">OPERATOR'S CUP<br>SEASON 3</h1>
 
-            <div id="carousel" class="relative w-auto my-8" data-carousel="slide">
-                <div class="relative h-36 sm:h-52 md:h-64 lg:h-60 xl:h-80 2xl:h-96 overflow-hidden rounded-lg">
+            <div id="carousel" class="relative w-auto h-36 sm:h-52 md:h-64 lg:h-80 xl:h-96 2xl:h-[500px] my-8" data-carousel="slide">
+                <div class="relative h-full overflow-hidden rounded-lg">
                     <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                        <img src="{{ asset("storage/images/Banner1.jpg") }}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Operator's Cup Banner">
+                        <img src="{{ asset("storage/images/Banner1.jpg") }}" class="absolute block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Operator's Cup Banner">
                     </div>
 
                     <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                        <img src="{{ asset("storage/images/Banner2.jpg") }}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Rainbow Six Siege">
+                        <img src="{{ asset("storage/images/Banner2.jpg") }}" class="absolute block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Rainbow Six Siege">
                     </div>
 
                     <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                        <img src="{{ asset("storage/images/Banner3.jpg") }}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Operation Commanding Force">
+                        <img src="{{ asset("storage/images/Banner3.jpg") }}" class="absolute block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Operation Commanding Force">
                     </div>
 
                     <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                        <img src="{{ asset("storage/images/Banner4.jpg") }}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Brava">
+                        <img src="{{ asset("storage/images/Banner4.jpg") }}" class="absolute block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Brava">
                     </div>
                 </div>
 
