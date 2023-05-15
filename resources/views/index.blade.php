@@ -132,7 +132,7 @@
             </div>
         </main>
 
-        <footer class="block mt-8 lg:ml-80 p-4 bg-gray-100 rounded-lg shadow">
+        <footer class="block mt-4 lg:ml-80 p-4 bg-gray-100 rounded-lg shadow">
             <div class="block w-full md:flex md:items-center md:justify-between">
                 <span class="text-lg font-medium text-black sm:text-center">&copy;{{ date("Y") }} <a href="{{ route("index") }}" class="hover:underline">Operator's Cup</a>. All Rights Reserved.</span>
 
