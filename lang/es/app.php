@@ -20,7 +20,7 @@ return [
     "contact" => "Contacto",
     "whats_new_in" => "Novedades de",
     "new_operation" => "Nueva Operación Dread Factor",
-    "operation_description" => "¿Se te han puesto los pelos de punta? Fenrir, nuevo defensor de Suecia, trae su intimidante dispositivo a Operation Dread Factor. Esta temporada también llegará el rediseño tan esperado de uno de los mapas más antiguos de Siege, Consulado, además de características y mejoras al campo de tiro y la lista de arcade permanente.",
+    "operation_description" => "¿Se te han puesto los pelos de punta? Fenrir, el nuevo defensor de Suecia, trae su intimidante dispositivo a la Operación Dread Factor. Esta temporada también llegará el rediseño tan esperado de uno de los mapas más antiguos de Rainbow Six Siege, Consulado, además de características y mejoras al campo de tiro y la lista de arcade permanente.",
     "new_operator" => "Nuevo Operador Fenrir",
     "operator_resume" => "Emil Fenrir Svensson es un operador defensor introducido en la Operación Dread Factor.",
     "operator_description" => "El único dispositivo de Fenrir es la F-Natt Dread Mine, es un dispositivo arrojadizo que se adhiere a las paredes, por lo que puede ocultarse en lugares donde el miedo puede enconarse. Fenrir viene equipado con 5 minas y puede activar 3 a la vez en cualquier parte del mapa.",

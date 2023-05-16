@@ -17,5 +17,8 @@ use App\Http\Controllers\LanguageController;
 
 Route::get("lang/{locale}", [LanguageController::class, "index"]);
 
-Route::get("/", [HomeController::class, "index"]) -> name("index");
-Route::get("/rules", [HomeController::class, "rules"]) -> name("rules");
+Route::controller(HomeController::class) -> group(function()
+{
+    Route::get("/", "index") -> name("index");
+    Route::get("/rules", "rules") -> name("rules");
+});

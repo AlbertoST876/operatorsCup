@@ -24,6 +24,6 @@ class HomeController extends Controller
      */
     public function rules()
     {
-        return response() -> file("storage/ReglamentoV1.pdf");
+        return file("storage/ReglamentoV1.pdf");
     }
 }
