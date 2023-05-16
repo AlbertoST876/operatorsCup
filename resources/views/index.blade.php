@@ -61,8 +61,8 @@
                     <div class="relative h-full overflow-hidden rounded-lg">
                         <div class="hidden duration-700 ease-in-out" data-carousel-item><img src="{{ asset("storage/images/Banner1.jpg") }}" class="absolute block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Operator's Cup Banner"></div>
                         <div class="hidden duration-700 ease-in-out" data-carousel-item><img src="{{ asset("storage/images/Banner2.jpg") }}" class="absolute block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Rainbow Six Siege"></div>
-                        <div class="hidden duration-700 ease-in-out" data-carousel-item><img src="{{ asset("storage/images/Banner3.jpg") }}" class="absolute block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Operation Commanding Force"></div>
-                        <div class="hidden duration-700 ease-in-out" data-carousel-item><img src="{{ asset("storage/images/Banner4.jpg") }}" class="absolute block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Brava"></div>
+                        <div class="hidden duration-700 ease-in-out" data-carousel-item><img src="{{ asset("storage/images/Banner3.jpg") }}" class="absolute block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Operation Dread Factor"></div>
+                        <div class="hidden duration-700 ease-in-out" data-carousel-item><img src="{{ asset("storage/images/Banner4.jpg") }}" class="absolute block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Fenrir"></div>
                     </div>
 
                     <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-3 left-1/2">
@@ -101,7 +101,7 @@
                     <h3 class="block my-4 text-xl sm:text-2xl font-black">@lang("app.new_operator")</h3>
 
                     <div class="md:flex md:items-center">
-                        <img class="block mx-auto w-56 md:ml-0 md:mr-8" src="{{ asset("storage/images/Brava.png") }}" alt="Brava">
+                        <img class="block mx-auto w-56 md:ml-0 md:mr-8" src="{{ asset("storage/images/Fenrir.png") }}" alt="Fenrir">
 
                         <div>
                             <p class="my-4 text-md text-justify">@lang("app.operator_resume")</p>
