@@ -18,3 +18,4 @@ use App\Http\Controllers\LanguageController;
 Route::get("lang/{locale}", [LanguageController::class, "index"]);
 
 Route::get("/", [HomeController::class, "index"]) -> name("index");
+Route::get("/rules", [HomeController::class, "rules"]) -> name("rules");

@@ -37,7 +37,7 @@
 
                     <ul class="my-8 space-y-2 font-bold">
                         <li class="transition-all duration-500 hover:bg-white"><a href="{{ route("index") }}" class="flex items-center px-8 py-4 text-xl text-white rounded-lg hover:text-black">{{ mb_strtoupper(__("app.home")) }}</a></li>
-                        <li class="transition-all duration-500 hover:bg-white"><a href="{{ route("index") }}" class="flex items-center px-8 py-4 text-xl text-white rounded-lg hover:text-black">{{ mb_strtoupper(__("app.rules")) }}</a></li>
+                        <li class="transition-all duration-500 hover:bg-white"><a href="{{ route("rules") }}" class="flex items-center px-8 py-4 text-xl text-white rounded-lg hover:text-black">{{ mb_strtoupper(__("app.rules")) }}</a></li>
                         <li class="transition-all duration-500 hover:bg-white"><a href="{{ route("index") }}" class="flex items-center px-8 py-4 text-xl text-white rounded-lg hover:text-black">{{ mb_strtoupper(__("app.teams")) }}</a></li>
                         <li class="transition-all duration-500 hover:bg-white"><a href="{{ route("index") }}" class="flex items-center px-8 py-4 text-xl text-white rounded-lg hover:text-black">{{ mb_strtoupper(__("app.calendar")) }}</a></li>
                         <li class="transition-all duration-500 hover:bg-white"><a href="{{ route("index") }}" class="flex items-center px-8 py-4 text-xl text-white rounded-lg hover:text-black">{{ mb_strtoupper(__("app.ranking")) }}</a></li>
