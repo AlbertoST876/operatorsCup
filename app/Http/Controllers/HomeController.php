@@ -24,6 +24,46 @@ class HomeController extends Controller
      */
     public function rules()
     {
-        return file("storage/ReglamentoV1.pdf");
+        return view("rules");
+    }
+
+    /**
+     * Return view teams
+     *
+     * @return Response
+     */
+    public function teams()
+    {
+        return view("teams");
+    }
+
+    /**
+     * Undocumented calendar
+     *
+     * @return Response
+     */
+    public function calendar()
+    {
+        return view("calendar");
+    }
+
+    /**
+     * Undocumented ranking
+     *
+     * @return Response
+     */
+    public function ranking()
+    {
+        return view("ranking");
+    }
+
+    /**
+     * Undocumented stats
+     *
+     * @return Response
+     */
+    public function stats()
+    {
+        return view("stats");
     }
 }

@@ -6,14 +6,14 @@
     <body>
         <header>
             <div class="block w-full bg-black">
-                <button data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar" type="button" class="inline-flex items-center p-2 mx-4 my-2 text-sm text-white rounded-lg lg:hidden hover:bg-white hover:text-black focus:outline-none focus:ring-2 focus:ring-gray-200">
+                <button data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar" type="button" class="inline-flex items-center m-4 p-2 text-sm text-white rounded-lg lg:hidden hover:bg-white hover:text-black focus:outline-none focus:ring-2 focus:ring-white">
                     <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path></svg>
                     <span class="sr-only">@lang("app.open_sidebar")</span>
                 </button>
             </div>
 
             <aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-80 h-screen transition-transform -translate-x-full lg:translate-x-0" aria-label="Sidebar">
-                <div class="h-full overflow-y-auto bg-black">
+                <nav class="h-full overflow-y-auto bg-black">
                     <a href="{{ route("index") }}" class="flex mt-8 mb-2 items-center justify-center"><img src="{{ asset("icon.png") }}" class="h-64" alt="Operator's Cup Logo"></a>
 
                     <div>
@@ -29,19 +29,19 @@
 
                         <div id="language" class="hidden w-44 z-10 bg-white rounded-lg shadow">
                             <ul class="py-2 text-sm text-gray-700" aria-labelledby="languageButton">
-                                <li><a href="lang/en" class="block px-4 py-2 text-left hover:bg-gray-100"><img class="inline-block mr-2" src="{{ asset("storage/images/flags/en.png") }}" width="25px">@lang("app.english")</a></li>
-                                <li><a href="lang/es" class="block px-4 py-2 text-left hover:bg-gray-100"><img class="inline-block mr-2" src="{{ asset("storage/images/flags/es.png") }}" width="25px">@lang("app.spanish")</a></li>
+                                <li><a href="lang/en" class="block px-4 py-2 hover:bg-gray-100"><img class="inline-block mr-2" src="{{ asset("storage/images/flags/en.png") }}" width="25px">@lang("app.english")</a></li>
+                                <li><a href="lang/es" class="block px-4 py-2 hover:bg-gray-100"><img class="inline-block mr-2" src="{{ asset("storage/images/flags/es.png") }}" width="25px">@lang("app.spanish")</a></li>
                             </ul>
                         </div>
                     </div>
 
                     <ul class="my-8 space-y-2 font-bold">
-                        <li class="transition-all duration-500 hover:bg-white"><a href="{{ route("index") }}" class="flex items-center px-8 py-4 text-xl text-white rounded-lg hover:text-black">{{ mb_strtoupper(__("app.home")) }}</a></li>
-                        <li class="transition-all duration-500 hover:bg-white"><a href="{{ route("rules") }}" class="flex items-center px-8 py-4 text-xl text-white rounded-lg hover:text-black">{{ mb_strtoupper(__("app.rules")) }}</a></li>
-                        <li class="transition-all duration-500 hover:bg-white"><a href="{{ route("index") }}" class="flex items-center px-8 py-4 text-xl text-white rounded-lg hover:text-black">{{ mb_strtoupper(__("app.teams")) }}</a></li>
-                        <li class="transition-all duration-500 hover:bg-white"><a href="{{ route("index") }}" class="flex items-center px-8 py-4 text-xl text-white rounded-lg hover:text-black">{{ mb_strtoupper(__("app.calendar")) }}</a></li>
-                        <li class="transition-all duration-500 hover:bg-white"><a href="{{ route("index") }}" class="flex items-center px-8 py-4 text-xl text-white rounded-lg hover:text-black">{{ mb_strtoupper(__("app.ranking")) }}</a></li>
-                        <li class="transition-all duration-500 hover:bg-white"><a href="{{ route("index") }}" class="flex items-center px-8 py-4 text-xl text-white rounded-lg hover:text-black">{{ mb_strtoupper(__("app.stats")) }}</a></li>
+                        <li class="transition-all duration-500 hover:bg-white"><a href="{{ route("index") }}" class="block px-8 py-4 text-xl text-white rounded-lg hover:text-black">{{ mb_strtoupper(__("app.home")) }}</a></li>
+                        <li class="transition-all duration-500 hover:bg-white"><a href="{{ route("rules") }}" class="block px-8 py-4 text-xl text-white rounded-lg hover:text-black">{{ mb_strtoupper(__("app.rules")) }}</a></li>
+                        <li class="transition-all duration-500 hover:bg-white"><a href="{{ route("teams") }}" class="block px-8 py-4 text-xl text-white rounded-lg hover:text-black">{{ mb_strtoupper(__("app.teams")) }}</a></li>
+                        <li class="transition-all duration-500 hover:bg-white"><a href="{{ route("calendar") }}" class="block px-8 py-4 text-xl text-white rounded-lg hover:text-black">{{ mb_strtoupper(__("app.calendar")) }}</a></li>
+                        <li class="transition-all duration-500 hover:bg-white"><a href="{{ route("ranking") }}" class="block px-8 py-4 text-xl text-white rounded-lg hover:text-black">{{ mb_strtoupper(__("app.ranking")) }}</a></li>
+                        <li class="transition-all duration-500 hover:bg-white"><a href="{{ route("stats") }}" class="block px-8 py-4 text-xl text-white rounded-lg hover:text-black">{{ mb_strtoupper(__("app.stats")) }}</a></li>
                     </ul>
 
                     <div class="flex px-8 py-4 items-center justify-between">
@@ -49,7 +49,7 @@
                         <a class="w-8 h-8" target="_blank" href="https://twitch.tv/operatorscupr6"><img class="rounded-md" src="{{ asset("storage/images/social-networks/twitch.png") }}" alt="Twitch"></a>
                         <a class="w-8 h-8" target="_blank" href="https://youtube.com/@OperatorsCup"><img class="rounded-md" src="{{ asset("storage/images/social-networks/youtube.png") }}" alt="Youtube"></a>
                     </div>
-                </div>
+                </nav>
             </aside>
         </header>
 

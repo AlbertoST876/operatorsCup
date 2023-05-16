@@ -21,4 +21,8 @@ Route::controller(HomeController::class) -> group(function()
 {
     Route::get("/", "index") -> name("index");
     Route::get("/rules", "rules") -> name("rules");
+    Route::get("/teams", "teams") -> name("teams");
+    Route::get("/calendar", "calendar") -> name("calendar");
+    Route::get("/ranking", "ranking") -> name("ranking");
+    Route::get("/stats", "stats") -> name("stats");
 });
