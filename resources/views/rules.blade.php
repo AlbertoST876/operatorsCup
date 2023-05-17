@@ -4,10 +4,12 @@
     @include("layouts.head", ["title" => __("app.rules")])
 
     <body>
-        @include("layouts.header")
+        <div class="grid grid-rows-[auto,1fr] h-screen">
+            @include("layouts.header")
 
-        <main>
-            <embed class="block w-full h-[calc(100vh-104px)] lg:h-[calc(100vh-96px)] overflow-y-auto" src="{{ asset("storage/ReglamentoV1.pdf") }}" frameborder="0">
-        </main>
+            <main>
+                <embed src="{{ asset("storage/ReglamentoV1.pdf") }}" type="application/pdf" width="100%" height="100%" frameborder="0">
+            </main>
+        </div>
     </body>
 </html>
