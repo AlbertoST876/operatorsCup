@@ -8,7 +8,7 @@
             @include("layouts.header")
 
             <main>
-                <embed src="{{ asset("storage/pdf/Reglamento_" . mb_strtoupper(app() -> getLocale()) . ".pdf") }}" type="application/pdf" width="100%" height="100%" frameborder="0">
+                <embed src="{{ asset("storage/pdf/Rules_" . mb_strtoupper(app() -> getLocale()) . ".pdf") }}" type="application/pdf" width="100%" height="100%" frameborder="0">
             </main>
         </div>
     </body>
