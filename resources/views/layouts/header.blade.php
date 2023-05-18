@@ -12,7 +12,7 @@
 
                 <button data-collapse-toggle="navbar-default" type="button" class="inline-flex m-4 p-2 items-center text-sm text-white rounded-lg lg:hidden hover:bg-white hover:text-black focus:outline-none focus:ring-2 focus:ring-white" aria-controls="navbar-default" aria-expanded="false">
                     <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
-                    <span class="sr-only">Open main menu</span>
+                    <span class="sr-only">@lang("app.open_navbar")</span>
                 </button>
             </div>
 

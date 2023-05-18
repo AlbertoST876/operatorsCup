@@ -4,6 +4,7 @@ return [
     "english" => "Inglés",
     "spanish" => "Español",
     "open_sidebar" => "Abrir barra lateral",
+    "open_navbar" => "Abrir barra de navegación",
     "home" => "Inicio",
     "rules" => "Reglas",
     "teams" => "Equipos",

@@ -4,6 +4,7 @@ return [
     "english" => "English",
     "spanish" => "Spanish",
     "open_sidebar" => "Open sidebar",
+    "open_navbar" => "Open navbar",
     "home" => "Home",
     "rules" => "Rules",
     "teams" => "Teams",
