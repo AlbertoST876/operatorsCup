@@ -22,11 +22,11 @@ class DatabaseSeeder extends Seeder
         $this -> call([
             TeamSeeder::class,
             WorkdaySeeder::class,
-            MatchSeeder::class,
+            EncounterSeeder::class,
             GameSeeder::class,
             RoleSeeder::class,
             MemberSeeder::class,
-            GameMember::class,
+            GameMemberSeeder::class,
         ]);
     }
 }

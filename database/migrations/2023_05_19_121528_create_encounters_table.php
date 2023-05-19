@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create("matches", function(Blueprint $table)
+        Schema::create("encounters", function(Blueprint $table)
         {
             $table -> id();
             $table -> integer("workday") -> references("id") -> on("workdays");
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists("matches");
+        Schema::dropIfExists("encounters");
     }
 };

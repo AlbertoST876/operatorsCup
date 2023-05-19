@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Match>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Encounter>
  */
-class MatchFactory extends Factory
+class EncounterFactory extends Factory
 {
     /**
      * Define the model's default state.
