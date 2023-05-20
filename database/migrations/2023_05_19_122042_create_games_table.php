@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create("games", function(Blueprint $table)
         {
             $table -> id();
-            $table -> integer("match") -> references("id") -> on("matches");
+            $table -> integer("set") -> references("id") -> on("sets");
             $table -> integer("winner") -> references("id") -> on("teams");
             $table -> integer("loser") -> references("id") -> on("teams");
             $table -> boolean("overtime") -> default(0);
