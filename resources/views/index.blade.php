@@ -112,24 +112,6 @@
             </div>
         </main>
 
-        <footer class="block mt-4 lg:ml-80 p-4 bg-gray-100 rounded-lg shadow">
-            <div class="block w-full md:flex md:items-center md:justify-between">
-                <span class="text-lg font-medium text-black sm:text-center">&copy;{{ date("Y") }} <a href="{{ route("index") }}" class="hover:underline">Operator's Cup</a>. @lang("app.all_rights_reserved").</span>
-
-                <ul class="flex flex-wrap items-center mt-3 text-lg font-medium text-black sm:mt-0">
-                    <li><a href="{{ route("index") }}" class="mr-4 md:mr-6 hover:underline">@lang("app.about_us")</a></li>
-                    <li><a href="{{ route("index") }}" class="mr-4 md:mr-6 hover:underline">@lang("app.privacy_policy")</a></li>
-                    <li><a href="{{ route("index") }}" class="mr-4 md:mr-6 hover:underline">@lang("app.licensing")</a></li>
-                    <li><a href="mailto:operatorscup2023@gmail.com" class="hover:underline">@lang("app.contact")</a></li>
-                </ul>
-            </div>
-
-            <div class="flex mt-6 flex-wrap items-center justify-between space-y-4">
-                @php $linkLocale = app() -> getLocale() == "en" ? "gb" : app() -> getLocale(); @endphp
-
-                <a target="_blank" href="https://ubisoft.com/{{ app() -> getLocale() . "-" . $linkLocale }}"><img class="h-24" src="{{ asset("storage/images/Ubisoft.png") }}" alt="Ubisoft"></a>
-                <a target="_blank" href="https://ubisoft.com/{{ app() -> getLocale() . "-" . $linkLocale }}/game/rainbow-six/siege"><img class="h-24" src="{{ asset("storage/images/R6.png") }}" alt="Rainbow Six Siege"></a>
-            </div>
-        </footer>
+        @include("layouts.footer", ["isIndex" => true])
     </body>
 </html>
