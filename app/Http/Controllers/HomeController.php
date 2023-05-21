@@ -38,7 +38,7 @@ class HomeController extends Controller
     }
 
     /**
-     * Undocumented calendar
+     * Return view calendar
      *
      * @return Response
      */
@@ -48,7 +48,7 @@ class HomeController extends Controller
     }
 
     /**
-     * Undocumented ranking
+     * Return view ranking
      *
      * @return Response
      */
@@ -58,7 +58,7 @@ class HomeController extends Controller
     }
 
     /**
-     * Undocumented stats
+     * Return view stats
      *
      * @return Response
      */

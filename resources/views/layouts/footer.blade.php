@@ -1,4 +1,4 @@
-<footer class="block {{ $isIndex ? "lg:ml-80" : "" }} p-4 bg-gray-100 rounded-lg shadow">
+<footer class="block w-auto mt-8 {{ $isIndex ? "lg:ml-80" : "" }} p-4 bg-gray-100">
     @if (!$isIndex)
         <div class="max-w-screen-xl mx-auto">
     @endif
