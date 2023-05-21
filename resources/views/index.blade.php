@@ -59,10 +59,10 @@
 
                 <div id="carousel" class="relative w-auto h-36 sm:h-52 md:h-64 lg:h-80 xl:h-96 2xl:h-[500px]" data-carousel="slide">
                     <div class="relative h-full overflow-hidden rounded-lg">
-                        <div class="hidden duration-700 ease-in-out" data-carousel-item><img src="{{ asset("storage/images/Banner1.jpg") }}" class="absolute block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Operator's Cup Banner"></div>
-                        <div class="hidden duration-700 ease-in-out" data-carousel-item><img src="{{ asset("storage/images/Banner2.jpg") }}" class="absolute block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Rainbow Six Siege"></div>
-                        <div class="hidden duration-700 ease-in-out" data-carousel-item><img src="{{ asset("storage/images/Banner3.jpg") }}" class="absolute block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Operation Dread Factor"></div>
-                        <div class="hidden duration-700 ease-in-out" data-carousel-item><img src="{{ asset("storage/images/Banner4.jpg") }}" class="absolute block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Fenrir"></div>
+                        <div class="hidden duration-700 ease-in-out" data-carousel-item><img src="{{ asset("storage/images/banners/Banner1.jpg") }}" class="absolute block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Operator's Cup Banner"></div>
+                        <div class="hidden duration-700 ease-in-out" data-carousel-item><img src="{{ asset("storage/images/banners/Banner2.jpg") }}" class="absolute block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Rainbow Six Siege"></div>
+                        <div class="hidden duration-700 ease-in-out" data-carousel-item><img src="{{ asset("storage/images/banners/Banner3.jpg") }}" class="absolute block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Operation Dread Factor"></div>
+                        <div class="hidden duration-700 ease-in-out" data-carousel-item><img src="{{ asset("storage/images/banners/Banner4.jpg") }}" class="absolute block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Fenrir"></div>
                     </div>
 
                     <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-3 left-1/2">
