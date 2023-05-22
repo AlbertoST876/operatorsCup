@@ -28,16 +28,6 @@ class HomeController extends Controller
     }
 
     /**
-     * Return view teams
-     *
-     * @return Response
-     */
-    public function teams()
-    {
-        return view("teams");
-    }
-
-    /**
      * Return view calendar
      *
      * @return Response

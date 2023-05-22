@@ -38,7 +38,7 @@
                     <ul class="my-8 space-y-2 font-bold">
                         <li class="transition-all duration-500 hover:bg-white"><a href="{{ route("index") }}" class="block px-8 py-4 text-xl text-white rounded-lg hover:text-black">{{ mb_strtoupper(__("app.home")) }}</a></li>
                         <li class="transition-all duration-500 hover:bg-white"><a href="{{ route("rules") }}" class="block px-8 py-4 text-xl text-white rounded-lg hover:text-black">{{ mb_strtoupper(__("app.rules")) }}</a></li>
-                        <li class="transition-all duration-500 hover:bg-white"><a href="{{ route("teams") }}" class="block px-8 py-4 text-xl text-white rounded-lg hover:text-black">{{ mb_strtoupper(__("app.teams")) }}</a></li>
+                        <li class="transition-all duration-500 hover:bg-white"><a href="{{ route("teams.index") }}" class="block px-8 py-4 text-xl text-white rounded-lg hover:text-black">{{ mb_strtoupper(__("app.teams")) }}</a></li>
                         <li class="transition-all duration-500 hover:bg-white"><a href="{{ route("calendar") }}" class="block px-8 py-4 text-xl text-white rounded-lg hover:text-black">{{ mb_strtoupper(__("app.calendar")) }}</a></li>
                         <li class="transition-all duration-500 hover:bg-white"><a href="{{ route("ranking") }}" class="block px-8 py-4 text-xl text-white rounded-lg hover:text-black">{{ mb_strtoupper(__("app.ranking")) }}</a></li>
                         <li class="transition-all duration-500 hover:bg-white"><a href="{{ route("stats") }}" class="block px-8 py-4 text-xl text-white rounded-lg hover:text-black">{{ mb_strtoupper(__("app.stats")) }}</a></li>
