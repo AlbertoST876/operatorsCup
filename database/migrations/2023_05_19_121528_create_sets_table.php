@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create("sets", function(Blueprint $table)
         {
             $table -> id();
+            $table -> string("mapban", 50) -> nullable() -> default(null);
             $table -> integer("workday") -> references("id") -> on("workdays");
             $table -> integer("winner") -> references("id") -> on("teams");
             $table -> integer("loser") -> references("id") -> on("teams");

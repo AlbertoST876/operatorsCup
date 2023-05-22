@@ -52,7 +52,9 @@ class TeamsController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return view("teams.show", [
+            "team" => Team::find($id),
+        ]);
     }
 
     /**
