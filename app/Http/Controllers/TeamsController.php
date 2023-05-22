@@ -4,9 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Team;
 
 class TeamsController extends Controller
 {
+    /**
+     * Instantiate a new controller instance.
+     */
+    public function __construct()
+    {
+        $this -> middleware("auth") -> except([
+            "index",
+            "show",
+        ]);
+    }
+
     /**
      * Return view teams
      *
@@ -14,11 +26,13 @@ class TeamsController extends Controller
      */
     public function index()
     {
-        return view("teams");
+        return view("teams.index", [
+            "teams" => Team::select("id", "name") -> get(),
+        ]);
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new team.
      */
     public function create()
     {
@@ -26,7 +40,7 @@ class TeamsController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created team in storage.
      */
     public function store(Request $request)
     {
@@ -34,7 +48,7 @@ class TeamsController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified team.
      */
     public function show(string $id)
     {
@@ -42,7 +56,7 @@ class TeamsController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified team.
      */
     public function edit(string $id)
     {
@@ -50,7 +64,7 @@ class TeamsController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified team in storage.
      */
     public function update(Request $request, string $id)
     {
@@ -58,7 +72,7 @@ class TeamsController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the team resource from storage.
      */
     public function destroy(string $id)
     {

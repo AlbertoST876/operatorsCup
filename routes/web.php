@@ -27,19 +27,4 @@ Route::controller(HomeController::class) -> group(function()
     Route::get("/stats", "stats") -> name("stats");
 });
 
-Route::controller(TeamsController::class) -> group(function()
-{
-    Route::prefix('/teams')->group(function()
-    {
-        Route::name('teams.') -> group(function()
-        {
-            Route::get("/", "index") -> name("index");
-            Route::get("/create", "create") -> name("create");
-            Route::post("/store", "store") -> name("store");
-            Route::get("/show/{id}", "show") -> name("show");
-            Route::get("/edit", "edit") -> name("edit");
-            Route::patch("/update", "update") -> name("update");
-            Route::delete("/destroy", "destroy") -> name("destroy");
-        });
-    });
-});
+Route::resource("teams", TeamsController::class);
