@@ -16,9 +16,9 @@ return new class extends Migration
             $table -> id();
             $table -> string("name", 50);
             $table -> string("abbr", 10);
-            $table -> string("email", 50) -> nullable();
-            $table -> string("tel", 20) -> nullable();
-            $table -> string("twitter", 30) -> nullable();
+            $table -> string("email", 50) -> nullable() -> default(null);
+            $table -> string("tel", 20) -> nullable() -> default(null);
+            $table -> string("twitter", 30) -> nullable() -> default(null);
             $table -> timestamps();
         });
     }
