@@ -27,7 +27,7 @@ class TeamsController extends Controller
     public function index()
     {
         return view("teams.index", [
-            "teams" => Team::select("id", "name") -> get(),
+            "teams" => Team::get(),
         ]);
     }
 

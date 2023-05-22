@@ -19,9 +19,11 @@ class TeamFactory extends Factory
         return [
             "name" => fake() -> name(),
             "abbr" => fake() -> randomLetter() . fake() -> randomLetter() . fake() -> randomLetter(),
+            "logo" => null,
             "email" => fake() -> email(),
             "tel" => fake() -> mobileNumber(),
             "twitter" => "https://twitter.com/",
+            "active" => fake() -> boolean(),
         ];
     }
 }

@@ -17,6 +17,7 @@ class SetFactory extends Factory
     public function definition(): array
     {
         return [
+            "mapban" => null,
             "workday" => fake() -> randomNumber(),
             "winner" => fake() -> randomNumber(),
             "loser" => fake() -> randomNumber(),

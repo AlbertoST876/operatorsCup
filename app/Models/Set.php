@@ -15,6 +15,7 @@ class Set extends Model
      * @var array<int, string>
      */
     protected $fillable = [
+        "mapban",
         "workday",
         "winner",
         "loser",

@@ -14,7 +14,7 @@
 
                 <div class="grid my-8 gap-16 grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 grid-rows-5 lg:grid-rows-4 2xl:grid-rows-3">
                     @foreach ($teams as $team)
-                        <a href="{{ route("teams.show", $team -> id) }}">{{ $team -> name }}</a>
+                        <a class="flex justify-center" href="{{ route("teams.show", $team -> id) }}"><img class="w-48 h-48" src="{{ asset($team -> logo) }}" alt="{{ $team -> name }}"></a>
                     @endforeach
                 </div>
             </div>

@@ -16,10 +16,11 @@ return new class extends Migration
             $table -> id();
             $table -> string("name", 50);
             $table -> string("abbr", 10);
-            $table -> string("image", 50) -> nullable() -> default(null);
+            $table -> string("logo", 50) -> nullable() -> default(null);
             $table -> string("email", 50) -> nullable() -> default(null);
             $table -> string("tel", 20) -> nullable() -> default(null);
             $table -> string("twitter", 30) -> nullable() -> default(null);
+            $table -> boolean("active") -> default(1);
             $table -> timestamps();
         });
     }
