@@ -21,6 +21,7 @@ class SetFactory extends Factory
             "workday" => fake() -> randomNumber(),
             "winner" => fake() -> randomNumber(),
             "loser" => fake() -> randomNumber(),
+            "datetime" => fake() -> dateTime(),
         ];
     }
 }

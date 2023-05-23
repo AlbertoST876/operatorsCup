@@ -23,6 +23,7 @@ class MemberFactory extends Factory
             "discord" => "https://discord.com/",
             "twitter" => "https://twitter.com/",
             "twitch" => "https://twitch.com/",
+            "youtube" => "https://youtube.com/",
             "birthday" => fake() -> date(),
             "active" => fake() -> boolean(),
         ];

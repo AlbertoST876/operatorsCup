@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Member;
 use App\Models\Team;
 use App\Models\Set;
 
@@ -55,25 +56,26 @@ class TeamsController extends Controller
      */
     public function show(string $id)
     {
+        $sets = Set::leftJoin("games", "sets.id", "games.set") -> where("sets.winner", $id) -> orWhere("sets.loser", $id) -> where("sets.workday", "<", 10) -> select("games.winner", "games.overtime") -> orderBy("sets.id") -> get();
         $points = 0;
-        $matches = Set::leftJoin("games", "sets.id", "games.set") -> where("sets.winner", $id) -> orWhere("sets.loser", $id) -> where("sets.workday", "<", 10) -> select("games.winner", "games.overtime") -> get();
 
-        foreach ($matches as $match)
+        foreach ($sets as $set)
         {
-            if ($match -> overtime)
+            if ($set -> overtime)
             {
-                $points += $match -> winner == $id ? 2 : 1;
+                $points += $set -> winner == $id ? 2 : 1;
             }
             else
             {
-                $points += $match -> winner == $id ? 3 : 0;
+                $points += $set -> winner == $id ? 3 : 0;
             }
         }
 
         return view("teams.show", [
+            "members" => Member::leftJoin("roles", "members.role", "roles.id") -> where("members.team", $id) -> select("roles.name AS role", "members.nickname", "members.twitter", "members.twitch", "members.youtube", "members.active") -> orderBy("roles.id") -> get(),
             "team" => Team::find($id),
-            "matches" => count($matches),
             "points" => $points,
+            "sets" => $sets,
         ]);
     }
 

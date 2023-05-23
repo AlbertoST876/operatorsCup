@@ -19,6 +19,7 @@ class Set extends Model
         "workday",
         "winner",
         "loser",
+        "datetime",
     ];
 
     /**

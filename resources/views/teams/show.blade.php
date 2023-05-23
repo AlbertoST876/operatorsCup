@@ -8,20 +8,20 @@
 
         <main class="block w-full p-4">
             <div class="max-w-screen-xl mx-auto">
-                <div class="flex mt-4 mb-8 flex-nowrap items-center">
-                    <img class="w-32 h-32" src="{{ asset($team -> logo) }}" alt="{{ $team -> name }} Logo">
+                <div class="flex my-4 flex-nowrap items-center">
+                    <img class="mr-8 w-32 h-32" src="{{ asset($team -> logo) }}" alt="{{ $team -> name }} Logo">
                     <h1 class="block text-4xl sm:text-6xl font-black">{{ $team -> name }}</h1>
                 </div>
 
-                <div class="grid gap-16 grid-cols-2 grid-rows-1">
+                <div class="grid my-8 gap-4 sm:gap-8 grid-cols-1 sm:grid-cols-2">
                     <div>
                         <h2 class="block my-2 text-2xl sm:text-4xl font-black">Información</h2>
 
                         <hr>
 
-                        <div class="flex flex-wrap">
-                            <h3 class="block mr-32 my-4 text-lg sm:text-2xl font-bold">Partidos: {{ $matches }}</h3>
-                            <h3 class="block my-4 text-lg sm:text-2xl font-bold">Puntos: {{ $points }}</h3>
+                        <div class="my-4">
+                            <p class="block my-2 text-lg sm:text-2xl font-bold">Partidos: <span class="font-normal">{{ count($sets) }}</span></p>
+                            <p class="block my-2 text-lg sm:text-2xl font-bold">Puntos: <span class="font-normal">{{ $points }}</span></p>
                         </div>
                     </div>
 
@@ -30,12 +30,47 @@
 
                         <hr>
 
-                        <div class="flex flex-nowrap items-center justify-center">
-                            @if (!is_null($team -> discord)) <a class="mx-2 my-4 w-8 h-8" target="_blank" href="{{ $team -> discord }}"><img class="rounded-md" src="{{ asset("storage/images/social-networks/twitter.png") }}" alt="Discord"></a> @endif
-                            @if (!is_null($team -> twitter)) <a class="mx-2 my-4 w-8 h-8" target="_blank" href="{{ $team -> twitter }}"><img class="rounded-md" src="{{ asset("storage/images/social-networks/twitter.png") }}" alt="Twitter"></a> @endif
-                            @if (!is_null($team -> twitch)) <a class="mx-2 my-4 w-8 h-8" target="_blank" href="{{ $team -> twitch }}"><img class="rounded-md" src="{{ asset("storage/images/social-networks/twitter.png") }}" alt="Twitch"></a> @endif
-                            @if (!is_null($team -> youtube)) <a class="mx-2 my-4 w-8 h-8" target="_blank" href="{{ $team -> youtube }}"><img class="rounded-md" src="{{ asset("storage/images/social-networks/twitter.png") }}" alt="YouTube"></a> @endif
+                        <div class="flex flex-wrap md:flex-nowrap items-center justify-center">
+                            @if (!is_null($team -> discord)) <a class="mx-2 my-4 w-12 h-12" target="_blank" href="{{ $team -> discord }}"><img class="rounded-md" src="{{ asset("storage/images/social-networks/twitter.png") }}" alt="Discord"></a> @endif
+                            @if (!is_null($team -> twitter)) <a class="mx-2 my-4 w-12 h-12" target="_blank" href="{{ $team -> twitter }}"><img class="rounded-md" src="{{ asset("storage/images/social-networks/twitter.png") }}" alt="Twitter"></a> @endif
+                            @if (!is_null($team -> twitch)) <a class="mx-2 my-4 w-12 h-12" target="_blank" href="{{ $team -> twitch }}"><img class="rounded-md" src="{{ asset("storage/images/social-networks/twitter.png") }}" alt="Twitch"></a> @endif
+                            @if (!is_null($team -> youtube)) <a class="mx-2 my-4 w-12 h-12" target="_blank" href="{{ $team -> youtube }}"><img class="rounded-md" src="{{ asset("storage/images/social-networks/twitter.png") }}" alt="YouTube"></a> @endif
                         </div>
+                    </div>
+                </div>
+
+                <div class="my-8">
+                    <h2 class="block my-2 text-2xl sm:text-4xl font-black">Miembros</h2>
+
+                    <hr>
+
+                    <div class="grid my-4 gap-4 sm:gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
+                        @foreach ($members as $member)
+                            @if ($member -> active)
+                                <div class="flex px-4 py-2 flex-nowrap items-center justify-between bg-black rounded-lg">
+                                    <div>
+                                        <span class="block text-lg text-white">{{ $member -> role }}</span>
+                                        <span class="block text-xl text-white font-bold">{{ $member -> nickname }}</span>
+                                    </div>
+
+                                    <div class="flex flex-nowrap items-center justify-center">
+                                        @if (!is_null($member -> twitter)) <a class="mx-2 my-4 w-8 h-8" target="_blank" href="{{ $member -> twitter }}"><img class="rounded-md" src="{{ asset("storage/images/social-networks/twitter.png") }}" alt="Twitter"></a> @endif
+                                        @if (!is_null($member -> twitch)) <a class="mx-2 my-4 w-8 h-8" target="_blank" href="{{ $member -> twitch }}"><img class="rounded-md" src="{{ asset("storage/images/social-networks/twitter.png") }}" alt="Twitch"></a> @endif
+                                        @if (!is_null($member -> youtube)) <a class="mx-2 my-4 w-8 h-8" target="_blank" href="{{ $member -> youtube }}"><img class="rounded-md" src="{{ asset("storage/images/social-networks/twitter.png") }}" alt="YouTube"></a> @endif
+                                    </div>
+                                </div>
+                            @endif
+                        @endforeach
+                    </div>
+                </div>
+
+                <div class="my-8">
+                    <h2 class="block my-2 text-2xl sm:text-4xl font-black">Partidos</h2>
+
+                    <hr>
+
+                    <div class="grid my-4 gap-4 sm:gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+
                     </div>
                 </div>
             </div>

@@ -21,6 +21,7 @@ class Member extends Model
         "discord",
         "twitter",
         "twitch",
+        "youtube",
         "birthday",
         "active",
     ];
