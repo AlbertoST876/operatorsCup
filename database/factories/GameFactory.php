@@ -20,6 +20,8 @@ class GameFactory extends Factory
             "set" => fake() -> randomNumber(),
             "winner" => fake() -> randomNumber(),
             "loser" => fake() -> randomNumber(),
+            "wResult" => fake() -> randomNumber(),
+            "lResult" => fake() -> randomNumber(),
             "overtime" => fake() -> boolean(),
         ];
     }

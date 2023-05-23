@@ -18,6 +18,8 @@ class Game extends Model
         "set",
         "winner",
         "loser",
+        "wResult",
+        "lResult",
         "overtime",
     ];
 

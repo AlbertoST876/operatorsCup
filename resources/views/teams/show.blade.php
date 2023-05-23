@@ -20,7 +20,7 @@
                         <hr>
 
                         <div class="my-4">
-                            <p class="block my-2 text-lg sm:text-2xl font-bold">Partidos: <span class="font-normal">{{ count($sets) }}</span></p>
+                            <p class="block my-2 text-lg sm:text-2xl font-bold">Partidos: <span class="font-normal">{{ $leagueSets }}</span></p>
                             <p class="block my-2 text-lg sm:text-2xl font-bold">Puntos: <span class="font-normal">{{ $points }}</span></p>
                         </div>
                     </div>
@@ -70,7 +70,7 @@
                     <hr>
 
                     <div class="grid my-4 gap-4 sm:gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
-
+                        @dump($sets)
                     </div>
                 </div>
             </div>

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Member;
 use App\Models\Team;
+use App\Models\Game;
 use App\Models\Set;
 
 use function PHPUnit\Framework\matches;
@@ -56,26 +57,38 @@ class TeamsController extends Controller
      */
     public function show(string $id)
     {
-        $sets = Set::leftJoin("games", "sets.id", "games.set") -> where("sets.winner", $id) -> orWhere("sets.loser", $id) -> where("sets.workday", "<", 10) -> select("games.winner", "games.overtime") -> orderBy("sets.id") -> get();
+        $leagueSets = Set::leftJoin("games", "sets.id", "games.set") -> where("sets.winner", $id) -> orWhere("sets.loser", $id) -> where("sets.workday", "<", 10) -> select("games.winner", "games.overtime") -> get();
         $points = 0;
 
-        foreach ($sets as $set)
+        foreach ($leagueSets as $leagueSet)
         {
-            if ($set -> overtime)
+            if ($leagueSet -> overtime)
             {
-                $points += $set -> winner == $id ? 2 : 1;
+                $points += $leagueSet -> winner == $id ? 2 : 1;
             }
             else
             {
-                $points += $set -> winner == $id ? 3 : 0;
+                $points += $leagueSet -> winner == $id ? 3 : 0;
             }
+        }
+
+        $sets = Set::where("winner", $id) -> orWhere("loser", $id) -> select("id", "winner", "loser") -> get();
+        $setsGames = [];
+
+        foreach ($sets as $set)
+        {
+            $setsGames[] = [
+                "info" => $set,
+                "games" => Game::where("set", $set -> id) -> get(),
+            ];
         }
 
         return view("teams.show", [
             "members" => Member::leftJoin("roles", "members.role", "roles.id") -> where("members.team", $id) -> select("roles.name AS role", "members.nickname", "members.twitter", "members.twitch", "members.youtube", "members.active") -> orderBy("roles.id") -> get(),
+            "leagueSets" => count($leagueSets),
             "team" => Team::find($id),
+            "sets" => $setsGames,
             "points" => $points,
-            "sets" => $sets,
         ]);
     }
 

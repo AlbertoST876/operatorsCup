@@ -17,6 +17,8 @@ return new class extends Migration
             $table -> integer("set") -> references("id") -> on("sets");
             $table -> integer("winner") -> references("id") -> on("teams");
             $table -> integer("loser") -> references("id") -> on("teams");
+            $table -> integer("wResult") -> default(0);
+            $table -> integer("lResult") -> default(0);
             $table -> boolean("overtime") -> default(0);
             $table -> timestamps();
         });
