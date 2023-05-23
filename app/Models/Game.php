@@ -15,7 +15,7 @@ class Game extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        "match",
+        "set",
         "winner",
         "loser",
         "overtime",

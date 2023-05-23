@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             WorkdaySeeder::class,
             SetSeeder::class,
             GameSeeder::class,
+            RoundSeeder::class,
             RoleSeeder::class,
             MemberSeeder::class,
             GameMemberSeeder::class,

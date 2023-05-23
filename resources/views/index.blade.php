@@ -45,6 +45,7 @@
                     </ul>
 
                     <div class="flex px-8 py-4 items-center justify-between">
+                        <a class="w-8 h-8" target="_blank" href="https://discord.gg/a3RBT2NEVQ"><img class="rounded-md" src="{{ asset("storage/images/social-networks/discord.png") }}" alt="Twitter"></a>
                         <a class="w-8 h-8" target="_blank" href="https://twitter.com/OperatorsCup"><img class="rounded-md" src="{{ asset("storage/images/social-networks/twitter.png") }}" alt="Twitter"></a>
                         <a class="w-8 h-8" target="_blank" href="https://twitch.tv/operatorscupr6"><img class="rounded-md" src="{{ asset("storage/images/social-networks/twitch.png") }}" alt="Twitch"></a>
                         <a class="w-8 h-8" target="_blank" href="https://youtube.com/@OperatorsCup"><img class="rounded-md" src="{{ asset("storage/images/social-networks/youtube.png") }}" alt="Youtube"></a>

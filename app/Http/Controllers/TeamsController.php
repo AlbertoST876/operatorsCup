@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Team;
+use App\Models\Set;
+
+use function PHPUnit\Framework\matches;
 
 class TeamsController extends Controller
 {
@@ -52,8 +55,25 @@ class TeamsController extends Controller
      */
     public function show(string $id)
     {
+        $points = 0;
+        $matches = Set::leftJoin("games", "sets.id", "games.set") -> where("sets.winner", $id) -> orWhere("sets.loser", $id) -> where("sets.workday", "<", 10) -> select("games.winner", "games.overtime") -> get();
+
+        foreach ($matches as $match)
+        {
+            if ($match -> overtime)
+            {
+                $points += $match -> winner == $id ? 2 : 1;
+            }
+            else
+            {
+                $points += $match -> winner == $id ? 3 : 0;
+            }
+        }
+
         return view("teams.show", [
             "team" => Team::find($id),
+            "matches" => count($matches),
+            "points" => $points,
         ]);
     }
 

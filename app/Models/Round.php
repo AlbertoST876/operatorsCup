@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Team extends Model
+class Round extends Model
 {
     use HasFactory;
 
@@ -15,16 +15,9 @@ class Team extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        "name",
-        "abbr",
-        "logo",
-        "email",
-        "tel",
-        "discord",
-        "twitter",
-        "twitch",
-        "youtube",
-        "active",
+        "game",
+        "winner",
+        "loser",
     ];
 
     /**
@@ -39,5 +32,7 @@ class Team extends Model
      *
      * @var array<string, string>
      */
-    protected $casts = [];
+    protected $casts = [
+        "overtime" => "boolean",
+    ];
 }

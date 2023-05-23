@@ -22,7 +22,10 @@ class TeamFactory extends Factory
             "logo" => null,
             "email" => fake() -> email(),
             "tel" => fake() -> mobileNumber(),
+            "discord" => "https://discord.gg/",
             "twitter" => "https://twitter.com/",
+            "twitch" => "https://twitch.tv/",
+            "youtube" => "https://youtube.com/",
             "active" => fake() -> boolean(),
         ];
     }
