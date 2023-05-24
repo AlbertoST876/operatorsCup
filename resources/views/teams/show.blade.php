@@ -71,17 +71,7 @@
 
                     <div class="grid my-4 gap-4 sm:gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
                         @foreach ($sets as $set)
-                            <div class="flex px-4 py-2 flex-wrap items-center justify-center bg-gray-100 rounded-lg">
-                                @foreach ($set["games"] as $game)
-                                    <div class="flex my-2 flex-nowrap items-center">
-                                        <img class="inline-block w-24 h-24 mx-2" src="{{ asset($set["info"] -> winner -> logo) }}" alt="{{ $set["info"] -> winner -> name }} Logo">
-                                        <span class="text-2xl font-bold">{{ $game -> wResult }} - {{ $game -> lResult }}</span>
-                                        <img class="inline-block w-24 h-24 mx-2" src="{{ asset($set["info"] -> loser -> logo) }}" alt="{{ $set["info"] -> loser -> name }} Logo">
-                                    </div>
-
-                                    <span class="text-2xl font-bold">{{ $set["info"] -> datetime -> format($dateFormat) }}</span>
-                                @endforeach
-                            </div>
+                            @include("layouts.calendar.set", ["set" => $set["info"], "games" => $set["games"]])
                         @endforeach
                     </div>
                 </div>

@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create("workdays", function(Blueprint $table)
         {
             $table -> id();
-            $table -> string("name", 50);
+            $table -> string("name_en", 50);
+            $table -> string("name_es", 50);
             $table -> date("date");
             $table -> timestamps();
         });
