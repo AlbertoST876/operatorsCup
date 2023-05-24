@@ -14,16 +14,17 @@ class RoleSeeder extends Seeder
     public function run(): void
     {
         $roles = [
-            "Entrenador",
-            "Capitán",
-            "Jugador",
-            "Suplente",
+            ["Coach", "Entrenador"],
+            ["Captain", "Capitán"],
+            ["Player", "Jugador"],
+            ["Alternate", "Suplente"],
         ];
 
         foreach ($roles as $role)
         {
             Role::factory() -> create([
-                "name" => $role,
+                "name_en" => $role[0],
+                "name_es" => $role[1],
             ]);
         }
     }

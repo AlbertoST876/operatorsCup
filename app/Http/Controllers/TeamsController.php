@@ -13,6 +13,11 @@ use function PHPUnit\Framework\matches;
 
 class TeamsController extends Controller
 {
+    const DATE_FORMAT = [
+        "en" => "Y-m-d H:i",
+        "es" => "d/m/Y H:i",
+    ];
+
     /**
      * Instantiate a new controller instance.
      */
@@ -87,7 +92,8 @@ class TeamsController extends Controller
         }
 
         return view("teams.show", [
-            "members" => Member::leftJoin("roles", "members.role", "roles.id") -> where("members.team", $id) -> select("roles.name AS role", "members.nickname", "members.twitter", "members.twitch", "members.youtube", "members.active") -> orderBy("roles.id") -> get(),
+            "members" => Member::leftJoin("roles", "members.role", "roles.id") -> where("members.team", $id) -> select("roles.name_" . app() -> getLocale() . " AS role", "members.nickname", "members.twitter", "members.twitch", "members.youtube", "members.active") -> orderBy("roles.id") -> get(),
+            "dateFormat" => self::DATE_FORMAT[app() -> getLocale()],
             "team" => Team::find($id),
             "points" => $points,
             "sets" => $sets,

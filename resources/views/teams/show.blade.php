@@ -15,18 +15,18 @@
 
                 <div class="grid my-8 gap-4 sm:gap-8 grid-cols-1 sm:grid-cols-2">
                     <div>
-                        <h2 class="block my-2 text-2xl sm:text-4xl font-black">Información</h2>
+                        <h2 class="block my-2 text-2xl sm:text-4xl font-black">@lang("app.information")</h2>
 
                         <hr>
 
                         <div class="my-4">
-                            <p class="block my-2 text-lg sm:text-2xl font-bold">Puntos: <span class="font-normal">{{ $points }}</span></p>
-                            <p class="block my-2 text-lg sm:text-2xl font-bold">Partidos: <span class="font-normal">{{ count($sets) }}</span></p>
+                            <p class="block my-2 text-lg sm:text-2xl font-bold">@lang("app.points"): <span class="font-normal">{{ $points }}</span></p>
+                            <p class="block my-2 text-lg sm:text-2xl font-bold">@lang("app.matches"): <span class="font-normal">{{ count($sets) }}</span></p>
                         </div>
                     </div>
 
                     <div>
-                        <h2 class="block my-2 text-2xl sm:text-4xl font-black">Redes Sociales</h2>
+                        <h2 class="block my-2 text-2xl sm:text-4xl font-black">@lang("app.social_networks")</h2>
 
                         <hr>
 
@@ -40,7 +40,7 @@
                 </div>
 
                 <div class="my-8">
-                    <h2 class="block my-2 text-2xl sm:text-4xl font-black">Miembros</h2>
+                    <h2 class="block my-2 text-2xl sm:text-4xl font-black">@lang("app.members")</h2>
 
                     <hr>
 
@@ -65,7 +65,7 @@
                 </div>
 
                 <div class="my-8">
-                    <h2 class="block my-2 text-2xl sm:text-4xl font-black">Partidos</h2>
+                    <h2 class="block my-2 text-2xl sm:text-4xl font-black">@lang("app.matches")</h2>
 
                     <hr>
 
@@ -79,7 +79,7 @@
                                         <img class="inline-block w-24 h-24 mx-2" src="{{ asset($set["info"] -> loser -> logo) }}" alt="{{ $set["info"] -> loser -> name }} Logo">
                                     </div>
 
-                                    <span class="text-2xl font-bold">{{ $set["info"] -> datetime -> format("d/m/Y H:i") }}</span>
+                                    <span class="text-2xl font-bold">{{ $set["info"] -> datetime -> format($dateFormat) }}</span>
                                 @endforeach
                             </div>
                         @endforeach

@@ -1,6 +1,7 @@
 <?php
 
 return [
+    // HOME AND NAVBAR
     "english" => "Inglés",
     "spanish" => "Español",
     "open_sidebar" => "Abrir barra lateral",
@@ -25,4 +26,11 @@ return [
     "new_operator" => "Nuevo Operador Fenrir",
     "operator_resume" => "Emil Fenrir Svensson es un operador defensor introducido en la Operación Dread Factor.",
     "operator_description" => "El único dispositivo de Fenrir es la F-Natt Dread Mine, es un dispositivo arrojadizo que se adhiere a las paredes, por lo que puede ocultarse en lugares donde el miedo puede enconarse. Fenrir viene equipado con 5 minas y puede activar 3 a la vez en cualquier parte del mapa.",
+
+    // TEAM SHOW
+    "information" => "Información",
+    "points" => "Puntos",
+    "matches" => "Partidos",
+    "social_networks" => "Redes Sociales",
+    "members" => "Miembros",
 ];

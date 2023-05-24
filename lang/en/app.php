@@ -1,6 +1,7 @@
 <?php
 
 return [
+    // HOME AND NAVBAR
     "english" => "English",
     "spanish" => "Spanish",
     "open_sidebar" => "Open sidebar",
@@ -25,4 +26,11 @@ return [
     "new_operator" => "New Operator Fenrir",
     "operator_resume" => "Emil Fenrir Svensson is an defending operator introduced in Operation Dread Factor.",
     "operator_description" => "Fenrir's only gadget is the F-Natt Dread Mine, is a throwable device that sticks to walls, so it can be hidden in places where fear can fester. Fenrir comes equipped with 5 mines and can activate 3 at a time anywhere on the map.",
+
+    // TEAM SHOW
+    "information" => "Information",
+    "points" => "Points",
+    "matches" => "Matches",
+    "social_networks" => "Social Networks",
+    "members" => "Members",
 ];
