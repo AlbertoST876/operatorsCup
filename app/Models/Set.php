@@ -20,6 +20,7 @@ class Set extends Model
         "winner",
         "loser",
         "datetime",
+        "active",
     ];
 
     /**
@@ -36,5 +37,6 @@ class Set extends Model
      */
     protected $casts = [
         "datetime" => "datetime",
+        "active" => "boolean",
     ];
 }

@@ -19,6 +19,7 @@ return new class extends Migration
             $table -> integer("winner") -> references("id") -> on("teams");
             $table -> integer("loser") -> references("id") -> on("teams");
             $table -> dateTime("datetime");
+            $table -> boolean("active") -> default(1);
             $table -> timestamps();
         });
     }

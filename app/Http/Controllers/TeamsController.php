@@ -36,7 +36,7 @@ class TeamsController extends Controller
     public function index()
     {
         return view("teams.index", [
-            "teams" => Team::get(),
+            "teams" => Team::where("active", true) -> get(),
         ]);
     }
 
@@ -69,7 +69,7 @@ class TeamsController extends Controller
      */
     public function show(string $id)
     {
-        $games = Set::leftJoin("games", "sets.id", "games.set") -> where("sets.winner", $id) -> orWhere("sets.loser", $id) -> where("sets.workday", "<", 10) -> select("games.winner", "games.overtime") -> get();
+        $games = Set::leftJoin("games", "sets.id", "games.set") -> where("sets.winner", $id) -> orWhere("sets.loser", $id) -> where("sets.workday", "<", 10) -> where("active", true) -> select("games.winner", "games.overtime") -> get();
         $points = 0;
 
         foreach ($games as $game)
@@ -84,7 +84,7 @@ class TeamsController extends Controller
             }
         }
 
-        $setsDB = Set::where("winner", $id) -> orWhere("loser", $id) -> select("id", "winner", "loser", "datetime") -> get();
+        $setsDB = Set::where("winner", $id) -> orWhere("loser", $id) -> where("active", true) -> select("id", "winner", "loser", "datetime") -> get();
         $sets = [];
 
         foreach ($setsDB as $set)
@@ -99,7 +99,7 @@ class TeamsController extends Controller
         }
 
         return view("teams.show", [
-            "members" => Member::leftJoin("roles", "members.role", "roles.id") -> where("members.team", $id) -> select("roles.name_" . app() -> getLocale() . " AS role", "members.nickname", "members.twitter", "members.twitch", "members.youtube", "members.active") -> orderBy("roles.id") -> get(),
+            "members" => Member::leftJoin("roles", "members.role", "roles.id") -> where("members.team", $id) -> where("members.active", true) -> select("roles.name_" . app() -> getLocale() . " AS role", "members.nickname", "members.twitter", "members.twitch", "members.youtube") -> orderBy("roles.id") -> get(),
             "dateFormat" => self::DATE_FORMAT[app() -> getLocale()],
             "team" => Team::find($id),
             "points" => $points,

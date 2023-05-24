@@ -22,6 +22,7 @@ class SetFactory extends Factory
             "winner" => fake() -> randomNumber(),
             "loser" => fake() -> randomNumber(),
             "datetime" => fake() -> dateTime(),
+            "active" => fake() -> boolean(),
         ];
     }
 }

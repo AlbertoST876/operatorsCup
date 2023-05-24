@@ -6,8 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Models\Workday;
-use App\Models\Game;
 use App\Models\Team;
+use App\Models\Game;
 use App\Models\Set;
 
 class CalendarController extends Controller
@@ -40,7 +40,7 @@ class CalendarController extends Controller
 
         foreach ($workdaysDB as $workday)
         {
-            $setsDB = Set::where("workday", $workday -> id) -> get();
+            $setsDB = Set::where("workday", $workday -> id) -> where("active", true) -> get();
             $sets = [];
 
             foreach ($setsDB as $set)
@@ -63,7 +63,6 @@ class CalendarController extends Controller
         return view("calendar.index", [
             "dateFormat" => self::DATE_FORMAT[app() -> getLocale()],
             "workdays" => $workdays,
-            "sets" => $sets,
         ]);
     }
 
