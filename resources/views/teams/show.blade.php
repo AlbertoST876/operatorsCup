@@ -9,7 +9,7 @@
         <main class="block w-full p-4">
             <div class="max-w-screen-xl mx-auto">
                 <div class="flex my-4 flex-nowrap items-center">
-                    <img class="mr-8 w-32 h-32" src="{{ asset($team -> logo) }}" alt="{{ $team -> name }} Logo">
+                    <img class="mr-4 w-40 h-40" src="{{ asset($team -> logo) }}" alt="{{ $team -> name }} Logo">
                     <h1 class="block text-4xl sm:text-6xl font-black">{{ $team -> name }}</h1>
                 </div>
 
@@ -20,8 +20,8 @@
                         <hr>
 
                         <div class="my-4">
-                            <p class="block my-2 text-lg sm:text-2xl font-bold">Partidos: <span class="font-normal">{{ $leagueSets }}</span></p>
                             <p class="block my-2 text-lg sm:text-2xl font-bold">Puntos: <span class="font-normal">{{ $points }}</span></p>
+                            <p class="block my-2 text-lg sm:text-2xl font-bold">Partidos: <span class="font-normal">{{ count($sets) }}</span></p>
                         </div>
                     </div>
 
@@ -47,10 +47,10 @@
                     <div class="grid my-4 gap-4 sm:gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
                         @foreach ($members as $member)
                             @if ($member -> active)
-                                <div class="flex px-4 py-2 flex-nowrap items-center justify-between bg-black rounded-lg">
+                                <div class="flex px-4 py-2 flex-nowrap items-center justify-between bg-gray-100 rounded-lg">
                                     <div>
-                                        <span class="block text-lg text-white">{{ $member -> role }}</span>
-                                        <span class="block text-xl text-white font-bold">{{ $member -> nickname }}</span>
+                                        <span class="block text-lg">{{ $member -> role }}</span>
+                                        <span class="block text-xl font-bold">{{ $member -> nickname }}</span>
                                     </div>
 
                                     <div class="flex flex-nowrap items-center justify-center">
@@ -70,7 +70,19 @@
                     <hr>
 
                     <div class="grid my-4 gap-4 sm:gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
-                        @dump($sets)
+                        @foreach ($sets as $set)
+                            <div class="flex px-4 py-2 flex-wrap items-center justify-center bg-gray-100 rounded-lg">
+                                @foreach ($set["games"] as $game)
+                                    <div class="flex my-2 flex-nowrap items-center">
+                                        <img class="inline-block w-24 h-24 mx-2" src="{{ asset($set["info"] -> winner -> logo) }}" alt="{{ $set["info"] -> winner -> name }} Logo">
+                                        <span class="text-2xl font-bold">{{ $game -> wResult }} - {{ $game -> lResult }}</span>
+                                        <img class="inline-block w-24 h-24 mx-2" src="{{ asset($set["info"] -> loser -> logo) }}" alt="{{ $set["info"] -> loser -> name }} Logo">
+                                    </div>
+
+                                    <span class="text-2xl font-bold">{{ $set["info"] -> datetime -> format("d/m/Y H:i") }}</span>
+                                @endforeach
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

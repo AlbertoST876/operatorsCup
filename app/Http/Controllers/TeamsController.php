@@ -57,27 +57,30 @@ class TeamsController extends Controller
      */
     public function show(string $id)
     {
-        $leagueSets = Set::leftJoin("games", "sets.id", "games.set") -> where("sets.winner", $id) -> orWhere("sets.loser", $id) -> where("sets.workday", "<", 10) -> select("games.winner", "games.overtime") -> get();
+        $games = Set::leftJoin("games", "sets.id", "games.set") -> where("sets.winner", $id) -> orWhere("sets.loser", $id) -> where("sets.workday", "<", 10) -> select("games.winner", "games.overtime") -> get();
         $points = 0;
 
-        foreach ($leagueSets as $leagueSet)
+        foreach ($games as $game)
         {
-            if ($leagueSet -> overtime)
+            if ($game -> overtime)
             {
-                $points += $leagueSet -> winner == $id ? 2 : 1;
+                $points += $game -> winner == $id ? 2 : 1;
             }
             else
             {
-                $points += $leagueSet -> winner == $id ? 3 : 0;
+                $points += $game -> winner == $id ? 3 : 0;
             }
         }
 
-        $sets = Set::where("winner", $id) -> orWhere("loser", $id) -> select("id", "winner", "loser") -> get();
-        $setsGames = [];
+        $setsDB = Set::where("winner", $id) -> orWhere("loser", $id) -> select("id", "winner", "loser", "datetime") -> get();
+        $sets = [];
 
-        foreach ($sets as $set)
+        foreach ($setsDB as $set)
         {
-            $setsGames[] = [
+            $set -> winner = Team::find($set -> winner);
+            $set -> loser = Team::find($set -> loser);
+
+            $sets[] = [
                 "info" => $set,
                 "games" => Game::where("set", $set -> id) -> get(),
             ];
@@ -85,10 +88,9 @@ class TeamsController extends Controller
 
         return view("teams.show", [
             "members" => Member::leftJoin("roles", "members.role", "roles.id") -> where("members.team", $id) -> select("roles.name AS role", "members.nickname", "members.twitter", "members.twitch", "members.youtube", "members.active") -> orderBy("roles.id") -> get(),
-            "leagueSets" => count($leagueSets),
             "team" => Team::find($id),
-            "sets" => $setsGames,
             "points" => $points,
+            "sets" => $sets,
         ]);
     }
 
