@@ -33,4 +33,11 @@ return [
     "matches" => "Matches",
     "social_networks" => "Social Networks",
     "members" => "Members",
+
+    // RANKING
+    "won" => "Won",
+    "won_overtime" => "Won Overtime",
+    "lost" => "Lost",
+    "lost_overtime" => "Lost Overtime",
+    "difference_rounds" => "Difference Rounds",
 ];

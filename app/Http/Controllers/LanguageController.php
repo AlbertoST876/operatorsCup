@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\App;
 
 class LanguageController extends Controller
@@ -11,7 +12,7 @@ class LanguageController extends Controller
      * Set laravel localization
      *
      * @param string $locale
-     * @return void
+     * @return Response
      */
     public function index(string $locale)
     {

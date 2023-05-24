@@ -33,4 +33,11 @@ return [
     "matches" => "Partidos",
     "social_networks" => "Redes Sociales",
     "members" => "Miembros",
+
+    // RANKING
+    "won" => "Ganados",
+    "won_overtime" => "Ganados Overtime",
+    "lost" => "Perdidos",
+    "lost_overtime" => "Perdidos Overtime",
+    "difference_rounds" => "Diferencia Rondas",
 ];

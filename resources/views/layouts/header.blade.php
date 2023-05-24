@@ -22,7 +22,7 @@
                 <li class="transition-all duration-300 hover:bg-white rounded-lg"><a href="{{ route("rules") }}" class="block px-4 py-2 text-lg text-white hover:text-black md:hover:bg-transparent rounded-0 md:rounded-lg">@lang("app.rules")</a></li>
                 <li class="transition-all duration-300 hover:bg-white rounded-lg"><a href="{{ route("teams.index") }}" class="block px-4 py-2 text-lg text-white hover:text-black md:hover:bg-transparent rounded-0 md:rounded-lg">@lang("app.teams")</a></li>
                 <li class="transition-all duration-300 hover:bg-white rounded-lg"><a href="{{ route("calendar.index") }}" class="block px-4 py-2 text-lg text-white hover:text-black md:hover:bg-transparent rounded-0 md:rounded-lg">@lang("app.calendar")</a></li>
-                <li class="transition-all duration-300 hover:bg-white rounded-lg"><a href="{{ route("ranking") }}" class="block px-4 py-2 text-lg text-white hover:text-black md:hover:bg-transparent rounded-0 md:rounded-lg">@lang("app.ranking")</a></li>
+                <li class="transition-all duration-300 hover:bg-white rounded-lg"><a href="{{ route("ranking.index") }}" class="block px-4 py-2 text-lg text-white hover:text-black md:hover:bg-transparent rounded-0 md:rounded-lg">@lang("app.ranking")</a></li>
                 <li class="transition-all duration-300 hover:bg-white rounded-lg"><a href="{{ route("stats") }}" class="block px-4 py-2 text-lg text-white hover:text-black md:hover:bg-transparent rounded-0 md:rounded-lg">@lang("app.stats")</a></li>
             </ul>
         </div>

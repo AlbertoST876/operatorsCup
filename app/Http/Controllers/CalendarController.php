@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use App\Models\Workday;
 use App\Models\Game;
 use App\Models\Team;
@@ -29,6 +30,8 @@ class CalendarController extends Controller
 
     /**
      * Display a listing of the calendar.
+     *
+     * @return Response
      */
     public function index()
     {
@@ -66,6 +69,8 @@ class CalendarController extends Controller
 
     /**
      * Show the form for creating a new calendar.
+     *
+     * @return Response
      */
     public function create()
     {
@@ -74,6 +79,9 @@ class CalendarController extends Controller
 
     /**
      * Store a newly created calendar in storage.
+     *
+     * @param Request $request
+     * @return Response
      */
     public function store(Request $request)
     {
@@ -82,6 +90,9 @@ class CalendarController extends Controller
 
     /**
      * Display the specified calendar.
+     *
+     * @param string $id
+     * @return Response
      */
     public function show(string $id)
     {
@@ -90,6 +101,9 @@ class CalendarController extends Controller
 
     /**
      * Show the form for editing the specified calendar.
+     *
+     * @param string $id
+     * @return Response
      */
     public function edit(string $id)
     {
@@ -98,6 +112,10 @@ class CalendarController extends Controller
 
     /**
      * Update the specified calendar in storage.
+     *
+     * @param Request $request
+     * @param string $id
+     * @return Response
      */
     public function update(Request $request, string $id)
     {
@@ -106,6 +124,9 @@ class CalendarController extends Controller
 
     /**
      * Remove the specified calendar from storage.
+     *
+     * @param string $id
+     * @return Response
      */
     public function destroy(string $id)
     {

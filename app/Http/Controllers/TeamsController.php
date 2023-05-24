@@ -4,12 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use App\Models\Member;
 use App\Models\Team;
 use App\Models\Game;
 use App\Models\Set;
-
-use function PHPUnit\Framework\matches;
 
 class TeamsController extends Controller
 {
@@ -43,6 +42,8 @@ class TeamsController extends Controller
 
     /**
      * Show the form for creating a new team.
+     *
+     * @return Response
      */
     public function create()
     {
@@ -51,6 +52,9 @@ class TeamsController extends Controller
 
     /**
      * Store a newly created team in storage.
+     *
+     * @param Request $request
+     * @return Response
      */
     public function store(Request $request)
     {
@@ -59,6 +63,9 @@ class TeamsController extends Controller
 
     /**
      * Display the specified team.
+     *
+     * @param string $id
+     * @return Response
      */
     public function show(string $id)
     {
@@ -102,6 +109,9 @@ class TeamsController extends Controller
 
     /**
      * Show the form for editing the specified team.
+     *
+     * @param string $id
+     * @return Response
      */
     public function edit(string $id)
     {
@@ -110,6 +120,10 @@ class TeamsController extends Controller
 
     /**
      * Update the specified team in storage.
+     *
+     * @param Request $request
+     * @param string $id
+     * @return Response
      */
     public function update(Request $request, string $id)
     {
@@ -118,6 +132,9 @@ class TeamsController extends Controller
 
     /**
      * Remove the team resource from storage.
+     *
+     * @param string $id
+     * @return Response
      */
     public function destroy(string $id)
     {

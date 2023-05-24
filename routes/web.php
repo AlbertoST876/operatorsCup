@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TeamsController;
+use App\Http\Controllers\RankingController;
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\LanguageController;
 
@@ -23,9 +24,9 @@ Route::controller(HomeController::class) -> group(function()
 {
     Route::get("/", "index") -> name("index");
     Route::get("/rules", "rules") -> name("rules");
-    Route::get("/ranking", "ranking") -> name("ranking");
     Route::get("/stats", "stats") -> name("stats");
 });
 
 Route::resource("teams", TeamsController::class);
 Route::resource("calendar", CalendarController::class);
+Route::get("ranking", [RankingController::class, "index"]) -> name("ranking.index");
