@@ -37,8 +37,6 @@ return [
     // MATCH SHOW
     "match" => "Partido",
     "status" => "Estado",
-    "waiting" => "Esperando",
-    "played" => "Jugado",
     "date" => "Fecha",
     "mapban" => "Veto de Mapas",
 

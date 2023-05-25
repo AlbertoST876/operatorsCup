@@ -15,18 +15,8 @@
                         <a href="{{ route("teams.show", $set["info"] -> winner -> id) }}"><img class="inline-block w-24 sm:w-32 h-24 sm:h-32" src="{{ asset($set["info"] -> winner -> logo) }}" alt="{{ $set["info"] -> winner -> name }} Logo"></a>
 
                         <span class="text-4xl font-bold">
-                            @php
-                                $played = false;
-                            @endphp
-
                             @if (count($set["games"]) == 1)
                                 {{ $set["games"][0] -> wResult }} - {{ $set["games"][0] -> lResult }}
-
-                                @if ($set["games"][0] -> wResult > 0 && $set["games"][0] -> lResult > 0)
-                                    @php
-                                        $played = true;
-                                    @endphp
-                                @endif
                             @else
                                 @php
                                     $wPoints = 0;
@@ -41,12 +31,6 @@
                                     @endif
                                 @endforeach
 
-                                @if ($wPoints > 0 && $lPoints > 0)
-                                    @php
-                                        $played = true;
-                                    @endphp
-                                @endif
-
                                 {{ $wPoints }} - {{ $lPoints }}
                             @endif
                         </span>
@@ -60,12 +44,7 @@
                 <div class="flex my-2 flex-nowrap items-center justify-between">
                     <div class="flex flex-nowrap items-center space-x-2">
                         <h3 class="text-xl sm:text-2xl font-black">@lang("app.status"):</h3>
-
-                        @if ($played)
-                            <span class="px-4 py-1 text-lg sm:text-xl font-semibold bg-green-400 rounded-lg">@lang("app.played")</span>
-                        @else
-                            <span class="px-4 py-1 text-lg sm:text-xl font-semibold bg-yellow-300 rounded-lg">@lang("app.waiting")</span>
-                        @endif
+                        <span class="px-4 py-1 text-lg sm:text-xl font-bold rounded-lg" style="background-color: {{ $set["info"] -> state -> color }}">{{ $set["info"] -> state -> name }}</span>
                     </div>
 
                     <div class="flex flex-nowrap items-baseline space-x-2">

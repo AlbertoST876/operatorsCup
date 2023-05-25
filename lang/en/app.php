@@ -37,8 +37,6 @@ return [
     // MATCH SHOW
     "match" => "Match",
     "status" => "Status",
-    "waiting" => "Waiting",
-    "played" => "Played",
     "date" => "Date",
     "mapban" => "Mapban",
 

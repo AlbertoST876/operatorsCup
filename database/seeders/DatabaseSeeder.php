@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
         $this -> call([
             TeamSeeder::class,
             WorkdaySeeder::class,
+            StateSeeder::class,
             SetSeeder::class,
             GameSeeder::class,
             RoleSeeder::class,

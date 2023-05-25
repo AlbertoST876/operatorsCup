@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Models\Workday;
+use App\Models\State;
 use App\Models\Team;
 use App\Models\Game;
 use App\Models\Set;
@@ -98,6 +99,7 @@ class CalendarController extends Controller
         $set = [];
 
         $set["info"] = Set::find($id);
+        $set["info"] -> state = State::where("id", $set["info"] -> state) -> select("name_" . app() -> getLocale() . " AS name", "color") -> first();
         $set["info"] -> winner = Team::find($set["info"] -> winner);
         $set["info"] -> loser = Team::find($set["info"] -> loser);
         $set["games"] = Game::where("set", $id) -> get();

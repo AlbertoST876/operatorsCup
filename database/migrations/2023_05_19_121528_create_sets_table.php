@@ -16,6 +16,7 @@ return new class extends Migration
             $table -> id();
             $table -> string("mapban", 50) -> nullable() -> default(null);
             $table -> integer("workday") -> references("id") -> on("workdays");
+            $table -> integer("state") -> references("id") -> on("status");
             $table -> integer("winner") -> references("id") -> on("teams");
             $table -> integer("loser") -> references("id") -> on("teams");
             $table -> dateTime("datetime");
