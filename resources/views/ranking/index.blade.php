@@ -25,7 +25,9 @@
                     </thead>
 
                     <tbody>
-                        @php $rank = 1; @endphp
+                        @php
+                            $rank = 1;
+                        @endphp
 
                         @foreach ($teams as $team)
                             <tr class="border-b">

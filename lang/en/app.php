@@ -34,6 +34,14 @@ return [
     "social_networks" => "Social Networks",
     "members" => "Members",
 
+    // MATCH SHOW
+    "match" => "Match",
+    "status" => "Status",
+    "waiting" => "Waiting",
+    "played" => "Played",
+    "date" => "Date",
+    "mapban" => "Mapban",
+
     // RANKING
     "won" => "Won",
     "won_overtime" => "Won Overtime",

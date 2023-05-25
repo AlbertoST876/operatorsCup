@@ -34,6 +34,14 @@ return [
     "social_networks" => "Redes Sociales",
     "members" => "Miembros",
 
+    // MATCH SHOW
+    "match" => "Partido",
+    "status" => "Estado",
+    "waiting" => "Esperando",
+    "played" => "Jugado",
+    "date" => "Fecha",
+    "mapban" => "Veto de Mapas",
+
     // RANKING
     "won" => "Ganados",
     "won_overtime" => "Ganados Overtime",

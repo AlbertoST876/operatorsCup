@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="{{ app() -> getLocale() }}">
-    @include("layouts.head", ["title" => __("app.teams")])
+    @include("layouts.head", ["title" => __("app.teams") . " - " . $team -> name])
 
     <body>
         @include("layouts.header")
@@ -10,7 +10,7 @@
             <div class="max-w-screen-xl mx-auto">
                 <div class="flex my-4 flex-nowrap items-center">
                     <img class="mr-4 w-40 h-40" src="{{ asset($team -> logo) }}" alt="{{ $team -> name }} Logo">
-                    <h1 class="block text-4xl sm:text-6xl font-black">{{ $team -> name }}</h1>
+                    <h1 class="block text-4xl sm:text-6xl font-black">{{ mb_strtoupper($team -> name) }}</h1>
                 </div>
 
                 <div class="grid my-8 gap-4 sm:gap-8 grid-cols-1 sm:grid-cols-2">

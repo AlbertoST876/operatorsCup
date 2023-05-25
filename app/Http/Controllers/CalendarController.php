@@ -95,7 +95,17 @@ class CalendarController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $set = [];
+
+        $set["info"] = Set::find($id);
+        $set["info"] -> winner = Team::find($set["info"] -> winner);
+        $set["info"] -> loser = Team::find($set["info"] -> loser);
+        $set["games"] = Game::where("set", $id) -> get();
+
+        return view("calendar.show", [
+            "dateFormat" => self::DATE_FORMAT[app() -> getLocale()],
+            "set" => $set,
+        ]);
     }
 
     /**

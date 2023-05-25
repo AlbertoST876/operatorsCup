@@ -15,7 +15,7 @@ class SetSeeder extends Seeder
     {
         $sets = [
             [1, "storage/images/mapbans/1.png", 1, 1, 2, "2022-01-01 16:00:00", 1],
-            [3, "storage/images/mapbans/3.png", 2, 5, 1, "2022-01-02 17:00:00", 1],
+            [3, null, 2, 5, 1, "2022-01-02 17:00:00", 1],
             [5, "storage/images/mapbans/5.png", 1, 5, 7, "2022-01-03 16:00:00", 1],
             [9, "storage/images/mapbans/9.png", 3, 2, 4, "2022-01-04 17:00:00", 1],
             [14, "storage/images/mapbans/14.png", 5, 2, 5, "2022-01-05 16:00:00", 1],
