@@ -46,20 +46,18 @@
 
                     <div class="grid my-4 gap-4 sm:gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
                         @foreach ($members as $member)
-                            @if ($member -> active)
-                                <div class="flex px-4 py-2 flex-nowrap items-center justify-between bg-gray-100 rounded-lg">
-                                    <div>
-                                        <span class="block text-lg">{{ $member -> role }}</span>
-                                        <span class="block text-xl font-bold">{{ $member -> nickname }}</span>
-                                    </div>
-
-                                    <div class="flex flex-nowrap items-center justify-center">
-                                        @if (!is_null($member -> twitter)) <a class="mx-2 my-4 w-8 h-8" target="_blank" href="{{ $member -> twitter }}"><img class="rounded-md" src="{{ asset("storage/images/social-networks/twitter.png") }}" alt="Twitter"></a> @endif
-                                        @if (!is_null($member -> twitch)) <a class="mx-2 my-4 w-8 h-8" target="_blank" href="{{ $member -> twitch }}"><img class="rounded-md" src="{{ asset("storage/images/social-networks/twitter.png") }}" alt="Twitch"></a> @endif
-                                        @if (!is_null($member -> youtube)) <a class="mx-2 my-4 w-8 h-8" target="_blank" href="{{ $member -> youtube }}"><img class="rounded-md" src="{{ asset("storage/images/social-networks/twitter.png") }}" alt="YouTube"></a> @endif
-                                    </div>
+                            <div class="flex px-4 py-2 flex-nowrap items-center justify-between bg-gray-100 rounded-lg">
+                                <div>
+                                    <span class="block text-lg">{{ $member -> role }}</span>
+                                    <span class="block text-xl font-bold">{{ $member -> nickname }}</span>
                                 </div>
-                            @endif
+
+                                <div class="flex flex-nowrap items-center justify-center">
+                                    @if (!is_null($member -> twitter)) <a class="mx-2 my-4 w-8 h-8" target="_blank" href="{{ $member -> twitter }}"><img class="rounded-md" src="{{ asset("storage/images/social-networks/twitter.png") }}" alt="Twitter"></a> @endif
+                                    @if (!is_null($member -> twitch)) <a class="mx-2 my-4 w-8 h-8" target="_blank" href="{{ $member -> twitch }}"><img class="rounded-md" src="{{ asset("storage/images/social-networks/twitter.png") }}" alt="Twitch"></a> @endif
+                                    @if (!is_null($member -> youtube)) <a class="mx-2 my-4 w-8 h-8" target="_blank" href="{{ $member -> youtube }}"><img class="rounded-md" src="{{ asset("storage/images/social-networks/twitter.png") }}" alt="YouTube"></a> @endif
+                                </div>
+                            </div>
                         @endforeach
                     </div>
                 </div>
