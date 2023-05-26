@@ -56,7 +56,72 @@
                 @if (!is_null($set["info"] -> mapban))
                     <div class="mt-16 mb-8">
                         <h2 class="block my-2 text-2xl sm:text-4xl font-black">@lang("app.mapban")</h2>
-                        <img class="block w-full my-4" src="{{ asset($set["info"] -> mapban) }}" alt="@lang("app.mapban")">
+
+                        <hr>
+
+                        <img class="w-full" src="{{ asset($set["info"] -> mapban) }}" alt="@lang("app.mapban")">
+                    </div>
+                @endif
+
+                @if (!is_null($set["games"]))
+                    <div class="mt-16 mb-8">
+                        <h2 class="block my-2 text-2xl sm:text-4xl font-black">@lang("app.stats")</h2>
+
+                        <hr>
+
+                        @foreach ($set["games"] as $game)
+                            <table class="block w-full min-w-full mt-8 overflow-x-auto">
+                                <thead class="border-b-2 border-black">
+                                    <tr>
+                                        <th class="min-w-[250px] p-4"></th>
+                                        <th class="min-w-[150px] p-4"></th>
+                                        <th class="min-w-[250px] md:min-w-[400px] p-4 text-xl align-bottom font-bold">@lang("app.player")</th>
+                                        <th class="p-4 text-xl text-center align-bottom font-bold">@lang("app.kills")</th>
+                                        <th class="p-4 text-xl text-center align-bottom font-bold">@lang("app.deaths")</th>
+                                        <th class="p-4 text-xl text-center align-bottom font-bold">@lang("app.assists")</th>
+                                        <th class="p-4 text-xl text-center align-bottom font-bold">@lang("app.kd")</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                        <td class="p-4" rowspan="6">
+                                            <img class="w-64 h-64" src="{{ asset($set["info"] -> winner -> logo) }}" alt="{{ $set["info"] -> winner -> name }} Logo">
+                                        </td>
+
+                                        <td class="p-4 text-6xl sm:text-8xl font-black" rowspan="6">{{ $game -> wResult }}</td>
+                                    </tr>
+
+                                    @foreach ($game -> wStats as $player)
+                                        <tr class="border-b">
+                                            <td class="p-4 text-2xl sm:text-4xl font-bold">{{ $player -> nickname }}</td>
+                                            <td class="p-4 text-2xl sm:text-4xl text-center font-bold">{{ $player -> kills }}</td>
+                                            <td class="p-4 text-2xl sm:text-4xl text-center font-bold">{{ $player -> deaths }}</td>
+                                            <td class="p-4 text-2xl sm:text-4xl text-center font-bold">{{ $player -> assists }}</td>
+                                            <td class="p-4 text-2xl sm:text-4xl text-center font-bold">{{ round($player -> kd, 2) }}</td>
+                                        </tr>
+                                    @endforeach
+
+                                    <tr>
+                                        <td class="p-4" rowspan="6">
+                                            <img class="w-64 h-64" src="{{ asset($set["info"] -> loser -> logo) }}" alt="{{ $set["info"] -> loser -> name }} Logo">
+                                        </td>
+
+                                        <td class="p-4 text-6xl sm:text-8xl font-black" rowspan="6">{{ $game -> lResult }}</td>
+                                    </tr>
+
+                                    @foreach ($game -> lStats as $player)
+                                        <tr class="border-b">
+                                            <td class="p-4 text-2xl sm:text-4xl font-bold">{{ $player -> nickname }}</td>
+                                            <td class="p-4 text-2xl sm:text-4xl text-center font-bold">{{ $player -> kills }}</td>
+                                            <td class="p-4 text-2xl sm:text-4xl text-center font-bold">{{ $player -> deaths }}</td>
+                                            <td class="p-4 text-2xl sm:text-4xl text-center font-bold">{{ $player -> assists }}</td>
+                                            <td class="p-4 text-2xl sm:text-4xl text-center font-bold">{{ round($player -> kd, 2) }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        @endforeach
                     </div>
                 @endif
             </div>

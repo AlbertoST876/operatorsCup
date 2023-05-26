@@ -39,6 +39,11 @@ return [
     "status" => "Status",
     "date" => "Date",
     "mapban" => "Mapban",
+    "player" => "Player",
+    "kills" => "Kills",
+    "deaths" => "Deaths",
+    "assists" => "Assists",
+    "kd" => "KD",
 
     // RANKING
     "won" => "Won",

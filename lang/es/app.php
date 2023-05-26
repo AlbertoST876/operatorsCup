@@ -39,6 +39,11 @@ return [
     "status" => "Estado",
     "date" => "Fecha",
     "mapban" => "Veto de Mapas",
+    "player" => "Jugador",
+    "kills" => "Matados",
+    "deaths" => "Muertes",
+    "assists" => "Asistencias",
+    "kd" => "KD",
 
     // RANKING
     "won" => "Ganados",

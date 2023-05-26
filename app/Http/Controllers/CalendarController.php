@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\DB;
+use App\Models\GameMember;
 use App\Models\Workday;
 use App\Models\State;
 use App\Models\Team;
@@ -103,6 +105,12 @@ class CalendarController extends Controller
         $set["info"] -> winner = Team::find($set["info"] -> winner);
         $set["info"] -> loser = Team::find($set["info"] -> loser);
         $set["games"] = Game::where("set", $id) -> get();
+
+        for ($game = 0; $game < count($set["games"]); $game++)
+        {
+            $set["games"][$game] -> wStats = GameMember::leftJoin("members", "game_members.member", "members.id") -> leftJoin("teams", "members.team", "teams.id") -> where("game_members.game", $set["games"][$game] -> id) -> where("teams.id", $set["info"] -> winner -> id) -> select("members.nickname", "game_members.kills", "game_members.deaths", "game_members.assists", DB::raw("game_members.kills / game_members.deaths AS kd")) -> orderBy("kd", "DESC") -> get();
+            $set["games"][$game] -> lStats = GameMember::leftJoin("members", "game_members.member", "members.id") -> leftJoin("teams", "members.team", "teams.id") -> where("game_members.game", $set["games"][$game] -> id) -> where("teams.id", $set["info"] -> loser -> id) -> select("members.nickname", "game_members.kills", "game_members.deaths", "game_members.assists", DB::raw("game_members.kills / game_members.deaths AS kd")) -> orderBy("kd", "DESC") -> get();
+        }
 
         return view("calendar.show", [
             "dateFormat" => self::DATE_FORMAT[app() -> getLocale()],
