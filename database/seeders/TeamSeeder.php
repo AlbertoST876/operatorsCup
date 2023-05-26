@@ -18,7 +18,7 @@ class TeamSeeder extends Seeder
             [2, "Awaken Mixers", "MXS", "storage/images/teams/MXS.png", "blookey110@gmail.com", "639010285", null, "https://twitter.com/AwakenMilitia", null, null, 1],
             [4, "Lynx eSport", "LXS", "storage/images/teams/LXS.png", "iker.arrebo.tor@gmail.com", "645388437", null, null, null, null, 1],
             [5, "XPerience", "XP", "storage/images/teams/XP.png", "rafa.gonzalez.rgm@gmail.com", "692979083", null, null, null, null, 1],
-            [7, "BlackHole ", "BH", "storage/images/teams/BH.png", "esport.blackhole@gmail.com", "635720303", null, "https://twitter.com/BlackholeSports", null, null, 1],
+            [7, "BlackHole", "BH", "storage/images/teams/BH.png", "esport.blackhole@gmail.com", "635720303", null, "https://twitter.com/BlackholeSports", null, null, 1],
         ];
 
         foreach ($teams as $team)

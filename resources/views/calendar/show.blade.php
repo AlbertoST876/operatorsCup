@@ -63,7 +63,7 @@
                     </div>
                 @endif
 
-                @if (!is_null($set["games"]))
+                @if (count($set["games"][0] -> wStats) > 0 && count($set["games"][0] -> lStats) > 0)
                     <div class="mt-16 mb-8">
                         <h2 class="block my-2 text-2xl sm:text-4xl font-black">@lang("app.stats")</h2>
 
