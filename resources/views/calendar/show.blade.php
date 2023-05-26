@@ -70,6 +70,9 @@
                         <hr>
 
                         @foreach ($set["games"] as $game)
+                            @dump($game -> wStats)
+                            @dump($game -> lStats)
+
                             <table class="block w-full min-w-full mt-8 overflow-x-auto">
                                 <thead class="border-b-2 border-black">
                                     <tr>
@@ -85,11 +88,11 @@
 
                                 <tbody>
                                     <tr>
-                                        <td class="p-4" rowspan="6">
-                                            <img class="w-64 h-64" src="{{ asset($set["info"] -> winner -> logo) }}" alt="{{ $set["info"] -> winner -> name }} Logo">
+                                        <td class="p-4" rowspan="{{ count($game -> wStats) + 1 }}">
+                                            <img class="w-60 h-60" src="{{ asset($set["info"] -> winner -> logo) }}" alt="{{ $set["info"] -> winner -> name }} Logo">
                                         </td>
 
-                                        <td class="p-4 text-6xl sm:text-8xl font-black" rowspan="6">{{ $game -> wResult }}</td>
+                                        <td class="p-4 text-6xl sm:text-8xl font-black" rowspan="{{ count($game -> wStats) + 1 }}">{{ $game -> wResult }}</td>
                                     </tr>
 
                                     @foreach ($game -> wStats as $player)
@@ -103,11 +106,11 @@
                                     @endforeach
 
                                     <tr>
-                                        <td class="p-4" rowspan="6">
-                                            <img class="w-64 h-64" src="{{ asset($set["info"] -> loser -> logo) }}" alt="{{ $set["info"] -> loser -> name }} Logo">
+                                        <td class="p-4" rowspan="{{ count($game -> lStats) + 1 }}">
+                                            <img class="w-60 h-60" src="{{ asset($set["info"] -> loser -> logo) }}" alt="{{ $set["info"] -> loser -> name }} Logo">
                                         </td>
 
-                                        <td class="p-4 text-6xl sm:text-8xl font-black" rowspan="6">{{ $game -> lResult }}</td>
+                                        <td class="p-4 text-6xl sm:text-8xl font-black" rowspan="{{ count($game -> lStats) + 1 }}">{{ $game -> lResult }}</td>
                                     </tr>
 
                                     @foreach ($game -> lStats as $player)
