@@ -89,7 +89,7 @@
                                 <tbody>
                                     <tr>
                                         <td class="p-4" rowspan="{{ count($game -> wStats) + 1 }}">
-                                            <img class="w-60 h-60" src="{{ asset($set["info"] -> winner -> logo) }}" alt="{{ $set["info"] -> winner -> name }} Logo">
+                                            <a href="{{ route("teams.show", $set["info"] -> winner -> id) }}"><img class="w-60 h-60" src="{{ asset($set["info"] -> winner -> logo) }}" alt="{{ $set["info"] -> winner -> name }} Logo"></a>
                                         </td>
 
                                         <td class="p-4 text-6xl sm:text-8xl font-black" rowspan="{{ count($game -> wStats) + 1 }}">{{ $game -> wResult }}</td>
@@ -107,7 +107,7 @@
 
                                     <tr>
                                         <td class="p-4" rowspan="{{ count($game -> lStats) + 1 }}">
-                                            <img class="w-60 h-60" src="{{ asset($set["info"] -> loser -> logo) }}" alt="{{ $set["info"] -> loser -> name }} Logo">
+                                            <a href="{{ route("teams.show", $set["info"] -> loser -> id) }}"><img class="w-60 h-60" src="{{ asset($set["info"] -> loser -> logo) }}" alt="{{ $set["info"] -> loser -> name }} Logo"></a>
                                         </td>
 
                                         <td class="p-4 text-6xl sm:text-8xl font-black" rowspan="{{ count($game -> lStats) + 1 }}">{{ $game -> lResult }}</td>
