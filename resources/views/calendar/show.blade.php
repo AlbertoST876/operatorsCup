@@ -21,7 +21,7 @@
                             @endphp
 
                             @if (count($set["games"]) == 1)
-                                @if ($set["games"][0] -> winner == $set["info"] -> teamA -> id)
+                                @if ($set["games"][0] -> winner -> id == $set["info"] -> teamA -> id)
                                     @php $teamAResult = $set["games"][0] -> wResult; @endphp
                                     @php $teamBResult = $set["games"][0] -> lResult; @endphp
                                 @else
@@ -99,7 +99,7 @@
                                 <tbody>
                                     <tr>
                                         <td class="p-4" rowspan="{{ count($game -> wStats) + 1 }}">
-                                            <a href="{{ route("teams.show", $set["info"] -> teamA -> id) }}"><img class="w-60 h-60" src="{{ asset($set["info"] -> teamA -> logo) }}" alt="{{ $set["info"] -> teamA -> name }} Logo"></a>
+                                            <a href="{{ route("teams.show", $game -> winner -> id) }}"><img class="w-60 h-60" src="{{ asset($game -> winner -> logo) }}" alt="{{ $game -> winner -> name }} Logo"></a>
                                         </td>
 
                                         <td class="p-4 text-6xl sm:text-8xl font-black" rowspan="{{ count($game -> wStats) + 1 }}">{{ $game -> wResult }}</td>
@@ -117,7 +117,7 @@
 
                                     <tr>
                                         <td class="p-4" rowspan="{{ count($game -> lStats) + 1 }}">
-                                            <a href="{{ route("teams.show", $set["info"] -> teamB -> id) }}"><img class="w-60 h-60" src="{{ asset($set["info"] -> teamB -> logo) }}" alt="{{ $set["info"] -> teamB -> name }} Logo"></a>
+                                            <a href="{{ route("teams.show", $game -> loser -> id) }}"><img class="w-60 h-60" src="{{ asset($game -> loser -> logo) }}" alt="{{ $game -> loser -> name }} Logo"></a>
                                         </td>
 
                                         <td class="p-4 text-6xl sm:text-8xl font-black" rowspan="{{ count($game -> lStats) + 1 }}">{{ $game -> lResult }}</td>
