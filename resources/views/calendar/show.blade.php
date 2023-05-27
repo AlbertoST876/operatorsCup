@@ -73,15 +73,15 @@
                     </div>
                 @endif
 
-                @if (count($set["games"][0] -> teamAStats) > 0 && count($set["games"][0] -> teamBStats) > 0)
+                @if (count($set["games"][0] -> wStats) > 0 && count($set["games"][0] -> lStats) > 0)
                     <div class="mt-16 mb-8">
                         <h2 class="block my-2 text-2xl sm:text-4xl font-black">@lang("app.stats")</h2>
 
                         <hr>
 
                         @foreach ($set["games"] as $game)
-                            @dump($game -> teamAStats)
-                            @dump($game -> teamBStats)
+                            @dump($game -> wStats)
+                            @dump($game -> lStats)
 
                             <table class="block w-full min-w-full mt-8 overflow-x-auto">
                                 <thead class="border-b-2 border-black">
@@ -98,38 +98,38 @@
 
                                 <tbody>
                                     <tr>
-                                        <td class="p-4" rowspan="{{ count($game -> teamAStats) + 1 }}">
+                                        <td class="p-4" rowspan="{{ count($game -> wStats) + 1 }}">
                                             <a href="{{ route("teams.show", $set["info"] -> teamA -> id) }}"><img class="w-60 h-60" src="{{ asset($set["info"] -> teamA -> logo) }}" alt="{{ $set["info"] -> teamA -> name }} Logo"></a>
                                         </td>
 
-                                        <td class="p-4 text-6xl sm:text-8xl font-black" rowspan="{{ count($game -> teamAStats) + 1 }}">{{ $game -> wResult }}</td>
+                                        <td class="p-4 text-6xl sm:text-8xl font-black" rowspan="{{ count($game -> wStats) + 1 }}">{{ $game -> wResult }}</td>
                                     </tr>
 
-                                    @foreach ($game -> teamAStats as $player)
+                                    @foreach ($game -> wStats as $player)
                                         <tr class="border-b">
                                             <td class="p-4 text-2xl sm:text-4xl font-bold">{{ $player -> nickname }}</td>
                                             <td class="p-4 text-2xl sm:text-4xl text-center font-bold">{{ $player -> kills }}</td>
                                             <td class="p-4 text-2xl sm:text-4xl text-center font-bold">{{ $player -> deaths }}</td>
                                             <td class="p-4 text-2xl sm:text-4xl text-center font-bold">{{ $player -> assists }}</td>
-                                            <td class="p-4 text-2xl sm:text-4xl text-center font-bold">{{ round($player -> kd, 2) }}</td>
+                                            <td class="p-4 text-2xl sm:text-4xl text-center font-bold">{{ $player -> kd }}</td>
                                         </tr>
                                     @endforeach
 
                                     <tr>
-                                        <td class="p-4" rowspan="{{ count($game -> teamBStats) + 1 }}">
+                                        <td class="p-4" rowspan="{{ count($game -> lStats) + 1 }}">
                                             <a href="{{ route("teams.show", $set["info"] -> teamB -> id) }}"><img class="w-60 h-60" src="{{ asset($set["info"] -> teamB -> logo) }}" alt="{{ $set["info"] -> teamB -> name }} Logo"></a>
                                         </td>
 
-                                        <td class="p-4 text-6xl sm:text-8xl font-black" rowspan="{{ count($game -> teamBStats) + 1 }}">{{ $game -> lResult }}</td>
+                                        <td class="p-4 text-6xl sm:text-8xl font-black" rowspan="{{ count($game -> lStats) + 1 }}">{{ $game -> lResult }}</td>
                                     </tr>
 
-                                    @foreach ($game -> teamBStats as $player)
+                                    @foreach ($game -> lStats as $player)
                                         <tr class="border-b">
                                             <td class="p-4 text-2xl sm:text-4xl font-bold">{{ $player -> nickname }}</td>
                                             <td class="p-4 text-2xl sm:text-4xl text-center font-bold">{{ $player -> kills }}</td>
                                             <td class="p-4 text-2xl sm:text-4xl text-center font-bold">{{ $player -> deaths }}</td>
                                             <td class="p-4 text-2xl sm:text-4xl text-center font-bold">{{ $player -> assists }}</td>
-                                            <td class="p-4 text-2xl sm:text-4xl text-center font-bold">{{ round($player -> kd, 2) }}</td>
+                                            <td class="p-4 text-2xl sm:text-4xl text-center font-bold">{{ $player -> kd }}</td>
                                         </tr>
                                     @endforeach
                                 </tbody>
