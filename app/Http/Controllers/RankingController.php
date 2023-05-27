@@ -21,7 +21,7 @@ class RankingController extends Controller
 
         foreach ($teamsDB as $team)
         {
-            $games = Set::leftJoin("games", "sets.id", "games.set") -> where("sets.winner", $team -> id) -> orWhere("sets.loser", $team -> id) -> where("sets.workday", "<", 10) -> where("active", true) -> select("games.winner", "games.overtime",  "games.wResult", "games.lResult") -> get();
+            $games = Set::leftJoin("games", "sets.id", "games.set") -> where("sets.teamA", $team -> id) -> orWhere("sets.teamB", $team -> id) -> where("sets.workday", "<", 10) -> where("sets.active", true) -> select("games.winner", "games.overtime",  "games.wResult", "games.lResult") -> get();
             $points = 0;
             $won = 0;
             $lost = 0;

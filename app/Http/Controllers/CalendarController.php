@@ -48,8 +48,8 @@ class CalendarController extends Controller
 
             foreach ($setsDB as $set)
             {
-                $set -> winner = Team::find($set -> winner);
-                $set -> loser = Team::find($set -> loser);
+                $set -> teamA = Team::find($set -> teamA);
+                $set -> teamB = Team::find($set -> teamB);
 
                 $sets[] = [
                     "info" => $set,
@@ -102,14 +102,14 @@ class CalendarController extends Controller
 
         $set["info"] = Set::find($id);
         $set["info"] -> state = State::where("id", $set["info"] -> state) -> select("name_" . app() -> getLocale() . " AS name", "color") -> first();
-        $set["info"] -> winner = Team::find($set["info"] -> winner);
-        $set["info"] -> loser = Team::find($set["info"] -> loser);
+        $set["info"] -> teamA = Team::find($set["info"] -> teamA);
+        $set["info"] -> teamB = Team::find($set["info"] -> teamB);
         $set["games"] = Game::where("set", $id) -> get();
 
         for ($game = 0; $game < count($set["games"]); $game++)
         {
-            $set["games"][$game] -> wStats = GameMember::leftJoin("members", "game_members.member", "members.id") -> where("game_members.game", $set["games"][$game] -> id) -> where("members.team", $set["info"] -> winner -> id) -> select("members.nickname", "game_members.kills", "game_members.deaths", "game_members.assists", DB::raw("game_members.kills / game_members.deaths AS kd")) -> orderBy("kd", "DESC") -> get();
-            $set["games"][$game] -> lStats = GameMember::leftJoin("members", "game_members.member", "members.id") -> where("game_members.game", $set["games"][$game] -> id) -> where("members.team", $set["info"] -> loser -> id) -> select("members.nickname", "game_members.kills", "game_members.deaths", "game_members.assists", DB::raw("game_members.kills / game_members.deaths AS kd")) -> orderBy("kd", "DESC") -> get();
+            $set["games"][$game] -> teamAStats = GameMember::leftJoin("members", "game_members.member", "members.id") -> where("game_members.game", $set["games"][$game] -> id) -> where("members.team", $set["info"] -> teamA -> id) -> select("members.nickname", "game_members.kills", "game_members.deaths", "game_members.assists", DB::raw("game_members.kills / game_members.deaths AS kd")) -> orderBy("kd", "DESC") -> get();
+            $set["games"][$game] -> teamBStats = GameMember::leftJoin("members", "game_members.member", "members.id") -> where("game_members.game", $set["games"][$game] -> id) -> where("members.team", $set["info"] -> teamB -> id) -> select("members.nickname", "game_members.kills", "game_members.deaths", "game_members.assists", DB::raw("game_members.kills / game_members.deaths AS kd")) -> orderBy("kd", "DESC") -> get();
         }
 
         return view("calendar.show", [

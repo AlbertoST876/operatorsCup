@@ -20,8 +20,9 @@ class SetFactory extends Factory
             "mapban" => null,
             "workday" => fake() -> randomNumber(),
             "state" => fake() -> randomNumber(),
-            "winner" => fake() -> randomNumber(),
-            "loser" => fake() -> randomNumber(),
+            "teamA" => fake() -> randomNumber(),
+            "teamB" => fake() -> randomNumber(),
+            "youtube" => "https://youtube.com/",
             "datetime" => fake() -> dateTime(),
             "active" => fake() -> boolean(),
         ];

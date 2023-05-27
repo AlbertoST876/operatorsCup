@@ -18,8 +18,9 @@ class Set extends Model
         "mapban",
         "workday",
         "state",
-        "winner",
-        "loser",
+        "teamA",
+        "teamB",
+        "youtube",
         "datetime",
         "active",
     ];

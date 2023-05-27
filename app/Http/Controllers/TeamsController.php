@@ -36,7 +36,7 @@ class TeamsController extends Controller
     public function index()
     {
         return view("teams.index", [
-            "teams" => Team::where("active", true) -> get(),
+            "teams" => Team::where("active", true) -> orderBy("name") -> get(),
         ]);
     }
 
@@ -69,7 +69,7 @@ class TeamsController extends Controller
      */
     public function show(string $id)
     {
-        $games = Set::leftJoin("games", "sets.id", "games.set") -> where("sets.winner", $id) -> orWhere("sets.loser", $id) -> where("sets.workday", "<", 10) -> where("active", true) -> select("games.winner", "games.overtime") -> get();
+        $games = Set::leftJoin("games", "sets.id", "games.set") -> where("sets.teamA", $id) -> orWhere("sets.teamB", $id) -> where("sets.workday", "<", 10) -> where("sets.active", true) -> select("games.winner", "games.overtime") -> get();
         $points = 0;
 
         foreach ($games as $game)
@@ -84,13 +84,13 @@ class TeamsController extends Controller
             }
         }
 
-        $setsDB = Set::where("winner", $id) -> orWhere("loser", $id) -> where("active", true) -> select("id", "winner", "loser", "datetime") -> get();
+        $setsDB = Set::where("teamA", $id) -> orWhere("teamB", $id) -> where("active", true) -> select("id", "teamA", "teamB", "datetime") -> get();
         $sets = [];
 
         foreach ($setsDB as $set)
         {
-            $set -> winner = Team::find($set -> winner);
-            $set -> loser = Team::find($set -> loser);
+            $set -> teamA = Team::find($set -> teamA);
+            $set -> teamB = Team::find($set -> teamB);
 
             $sets[] = [
                 "info" => $set,

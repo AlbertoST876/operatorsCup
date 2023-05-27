@@ -12,40 +12,50 @@
                     <h1 class="block my-8 text-4xl sm:text-6xl font-black">{{ mb_strtoupper(__("app.match")) }}</h1>
 
                     <div class="flex flex-nowrap items-center space-x-2">
-                        <a href="{{ route("teams.show", $set["info"] -> winner -> id) }}"><img class="inline-block w-24 sm:w-32 h-24 sm:h-32" src="{{ asset($set["info"] -> winner -> logo) }}" alt="{{ $set["info"] -> winner -> name }} Logo"></a>
+                        <a href="{{ route("teams.show", $set["info"] -> teamA -> id) }}"><img class="inline-block w-24 sm:w-32 h-24 sm:h-32" src="{{ asset($set["info"] -> teamA -> logo) }}" alt="{{ $set["info"] -> teamA -> name }} Logo"></a>
 
                         <span class="text-4xl font-bold">
-                            @if (count($set["games"]) == 1)
-                                {{ $set["games"][0] -> wResult }} - {{ $set["games"][0] -> lResult }}
-                            @else
-                                @php
-                                    $wPoints = 0;
-                                    $lPoints = 0;
-                                @endphp
+                            @php
+                                $teamAResult = 0;
+                                $teamBResult = 0;
+                            @endphp
 
+                            @if (count($set["games"]) == 1)
+                                @if ($set["games"][0] -> winner == $set["info"] -> teamA -> id)
+                                    @php $teamAResult = $set["games"][0] -> wResult; @endphp
+                                    @php $teamBResult = $set["games"][0] -> lResult; @endphp
+                                @else
+                                    @php $teamAResult = $set["games"][0] -> lResult; @endphp
+                                    @php $teamBResult = $set["games"][0] -> wResult; @endphp
+                                @endif
+                            @else
                                 @foreach ($set["games"] as $game)
-                                    @if ($game -> winner == $set["info"] -> winner -> id)
-                                        @php $wPoints++; @endphp
+                                    @if ($game -> winner == $set["info"] -> teamA -> id)
+                                        @php $teamAResult++; @endphp
                                     @else
-                                        @php $lPoints++; @endphp
+                                        @php $teamBResult++; @endphp
                                     @endif
                                 @endforeach
-
-                                {{ $wPoints }} - {{ $lPoints }}
                             @endif
+
+                            {{ $teamAResult }} - {{ $teamBResult }}
                         </span>
 
-                        <a href="{{ route("teams.show", $set["info"] -> loser -> id) }}"><img class="inline-block w-24 sm:w-32 h-24 sm:h-32" src="{{ asset($set["info"] -> loser -> logo) }}" alt="{{ $set["info"] -> loser -> name }} Logo"></a>
+                        <a href="{{ route("teams.show", $set["info"] -> teamB -> id) }}"><img class="inline-block w-24 sm:w-32 h-24 sm:h-32" src="{{ asset($set["info"] -> teamB -> logo) }}" alt="{{ $set["info"] -> teamB -> name }} Logo"></a>
                     </div>
                 </div>
 
                 <hr>
 
-                <div class="flex my-2 flex-nowrap items-center justify-between">
+                <div class="flex my-2 flex-wrap items-center justify-between">
                     <div class="flex flex-nowrap items-center space-x-2">
                         <h3 class="text-xl sm:text-2xl font-black">@lang("app.status"):</h3>
                         <span class="px-4 py-1 text-lg sm:text-xl font-bold rounded-lg" style="background-color: {{ $set["info"] -> state -> color }}">{{ $set["info"] -> state -> name }}</span>
                     </div>
+
+                    @if (!is_null($set["info"] -> youtube))
+                        <a href="{{ $set["info"] -> youtube }}"><img class="w-12 h-12 rounded-lg" src="{{ asset("storage/images/social-networks/youtube.png") }}" alt="YouTube"></a>
+                    @endif
 
                     <div class="flex flex-nowrap items-baseline space-x-2">
                         <h3 class="text-xl sm:text-2xl font-black">@lang("app.date"):</h3>
@@ -63,15 +73,15 @@
                     </div>
                 @endif
 
-                @if (count($set["games"][0] -> wStats) > 0 && count($set["games"][0] -> lStats) > 0)
+                @if (count($set["games"][0] -> teamAStats) > 0 && count($set["games"][0] -> teamBStats) > 0)
                     <div class="mt-16 mb-8">
                         <h2 class="block my-2 text-2xl sm:text-4xl font-black">@lang("app.stats")</h2>
 
                         <hr>
 
                         @foreach ($set["games"] as $game)
-                            @dump($game -> wStats)
-                            @dump($game -> lStats)
+                            @dump($game -> teamAStats)
+                            @dump($game -> teamBStats)
 
                             <table class="block w-full min-w-full mt-8 overflow-x-auto">
                                 <thead class="border-b-2 border-black">
@@ -88,14 +98,14 @@
 
                                 <tbody>
                                     <tr>
-                                        <td class="p-4" rowspan="{{ count($game -> wStats) + 1 }}">
-                                            <a href="{{ route("teams.show", $set["info"] -> winner -> id) }}"><img class="w-60 h-60" src="{{ asset($set["info"] -> winner -> logo) }}" alt="{{ $set["info"] -> winner -> name }} Logo"></a>
+                                        <td class="p-4" rowspan="{{ count($game -> teamAStats) + 1 }}">
+                                            <a href="{{ route("teams.show", $set["info"] -> teamA -> id) }}"><img class="w-60 h-60" src="{{ asset($set["info"] -> teamA -> logo) }}" alt="{{ $set["info"] -> teamA -> name }} Logo"></a>
                                         </td>
 
-                                        <td class="p-4 text-6xl sm:text-8xl font-black" rowspan="{{ count($game -> wStats) + 1 }}">{{ $game -> wResult }}</td>
+                                        <td class="p-4 text-6xl sm:text-8xl font-black" rowspan="{{ count($game -> teamAStats) + 1 }}">{{ $game -> wResult }}</td>
                                     </tr>
 
-                                    @foreach ($game -> wStats as $player)
+                                    @foreach ($game -> teamAStats as $player)
                                         <tr class="border-b">
                                             <td class="p-4 text-2xl sm:text-4xl font-bold">{{ $player -> nickname }}</td>
                                             <td class="p-4 text-2xl sm:text-4xl text-center font-bold">{{ $player -> kills }}</td>
@@ -106,14 +116,14 @@
                                     @endforeach
 
                                     <tr>
-                                        <td class="p-4" rowspan="{{ count($game -> lStats) + 1 }}">
-                                            <a href="{{ route("teams.show", $set["info"] -> loser -> id) }}"><img class="w-60 h-60" src="{{ asset($set["info"] -> loser -> logo) }}" alt="{{ $set["info"] -> loser -> name }} Logo"></a>
+                                        <td class="p-4" rowspan="{{ count($game -> teamBStats) + 1 }}">
+                                            <a href="{{ route("teams.show", $set["info"] -> teamB -> id) }}"><img class="w-60 h-60" src="{{ asset($set["info"] -> teamB -> logo) }}" alt="{{ $set["info"] -> teamB -> name }} Logo"></a>
                                         </td>
 
-                                        <td class="p-4 text-6xl sm:text-8xl font-black" rowspan="{{ count($game -> lStats) + 1 }}">{{ $game -> lResult }}</td>
+                                        <td class="p-4 text-6xl sm:text-8xl font-black" rowspan="{{ count($game -> teamBStats) + 1 }}">{{ $game -> lResult }}</td>
                                     </tr>
 
-                                    @foreach ($game -> lStats as $player)
+                                    @foreach ($game -> teamBStats as $player)
                                         <tr class="border-b">
                                             <td class="p-4 text-2xl sm:text-4xl font-bold">{{ $player -> nickname }}</td>
                                             <td class="p-4 text-2xl sm:text-4xl text-center font-bold">{{ $player -> kills }}</td>
