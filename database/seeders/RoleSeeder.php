@@ -14,10 +14,10 @@ class RoleSeeder extends Seeder
     public function run(): void
     {
         $roles = [
-            ["Coach", "Entrenador"],
-            ["Captain", "Capitán"],
-            ["Player", "Jugador"],
-            ["Alternate", "Suplente"],
+            ["Coach",      "Entrenador"],
+            ["Captain",    "Capitán"],
+            ["Player",     "Jugador"],
+            ["Substitute", "Suplente"],
         ];
 
         foreach ($roles as $role)

@@ -15,8 +15,8 @@ class StateSeeder extends Seeder
     {
         $status = [
             ["Canceled", "Cancelado", "#ff3311"],
-            ["Waiting", "Esperando", "#eeee00"],
-            ["Played", "Jugado", "#55ff33"],
+            ["Waiting",  "Esperando", "#eeee00"],
+            ["Played",   "Jugado",    "#55ff33"],
         ];
 
         foreach ($status as $state)

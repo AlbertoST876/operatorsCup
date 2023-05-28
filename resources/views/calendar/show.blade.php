@@ -80,9 +80,6 @@
                         <hr>
 
                         @foreach ($set["games"] as $game)
-                            @dump($game -> wStats)
-                            @dump($game -> lStats)
-
                             <table class="block w-full min-w-full mt-8 overflow-x-auto">
                                 <thead class="border-b-2 border-black">
                                     <tr>

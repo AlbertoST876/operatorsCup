@@ -16,6 +16,7 @@ return new class extends Migration
             $table -> id();
             $table -> foreignId("game") -> references("id") -> on("games");
             $table -> foreignId("member") -> references("id") -> on("members");
+            $table -> foreignId("team") -> references("id") -> on("teams");
             $table -> integer("kills") -> default(0);
             $table -> integer("deaths") -> default(0);
             $table -> integer("assists") -> default(0);

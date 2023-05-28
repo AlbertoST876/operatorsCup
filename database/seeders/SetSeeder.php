@@ -14,10 +14,10 @@ class SetSeeder extends Seeder
     public function run(): void
     {
         $sets = [
-            [1, "storage/images/mapbans/1.png", 1, 3, 2, 1, "https://www.youtube.com/", "2022-01-01 16:00:00", 1],
-            [3, null, 2, 1, 1, 5, null, "2022-01-02 17:00:00", 1],
-            [5, "storage/images/mapbans/5.png", 1, 3, 5, 7, "https://www.youtube.com/", "2022-01-03 16:00:00", 1],
-            [9, "storage/images/mapbans/9.png", 3, 3, 2, 4, "https://www.youtube.com/", "2022-01-04 17:00:00", 1],
+            [1,  "storage/images/mapbans/1.png",  1, 3, 2, 1, "https://www.youtube.com/", "2022-01-01 16:00:00", 1],
+            [3,  null,                            2, 1, 1, 5, null,                       "2022-01-02 17:00:00", 1],
+            [5,  "storage/images/mapbans/5.png",  1, 3, 5, 7, "https://www.youtube.com/", "2022-01-03 16:00:00", 1],
+            [9,  "storage/images/mapbans/9.png",  3, 3, 2, 4, "https://www.youtube.com/", "2022-01-04 17:00:00", 1],
             [14, "storage/images/mapbans/14.png", 5, 3, 2, 5, "https://www.youtube.com/", "2022-01-05 16:00:00", 1],
             [15, "storage/images/mapbans/15.png", 4, 3, 7, 2, "https://www.youtube.com/", "2022-01-06 17:00:00", 1],
             [17, "storage/images/mapbans/17.png", 5, 3, 4, 1, "https://www.youtube.com/", "2022-01-07 16:00:00", 1],

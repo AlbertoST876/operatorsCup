@@ -19,6 +19,7 @@ class GameMemberFactory extends Factory
         return [
             "game" => fake() -> randomNumber(),
             "member" => fake() -> randomNumber(),
+            "team" => fake() -> randomNumber(),
             "kills" => fake() -> randomNumber(),
             "deaths" => fake() -> randomNumber(),
             "assists" => fake() -> randomNumber(),

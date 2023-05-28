@@ -17,6 +17,7 @@ class GameMember extends Model
     protected $fillable = [
         "game",
         "member",
+        "team",
         "kills",
         "deaths",
         "assists",
