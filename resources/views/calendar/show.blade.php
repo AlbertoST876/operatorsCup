@@ -95,16 +95,16 @@
 
                                 <tbody>
                                     <tr>
-                                        <td class="p-4" rowspan="{{ count($game -> wStats) + 1 }}">
+                                        <td class="min-w-[250px] p-4" rowspan="{{ count($game -> wStats) + 1 }}">
                                             <a href="{{ route("teams.show", $game -> winner -> id) }}"><img class="w-60 h-60" src="{{ asset($game -> winner -> logo) }}" alt="{{ $game -> winner -> name }} Logo"></a>
                                         </td>
 
-                                        <td class="p-4 text-6xl sm:text-8xl font-black" rowspan="{{ count($game -> wStats) + 1 }}">{{ $game -> wResult }}</td>
+                                        <td class="min-w-[150px] p-4 text-6xl sm:text-8xl font-black" rowspan="{{ count($game -> wStats) + 1 }}">{{ $game -> wResult }}</td>
                                     </tr>
 
                                     @foreach ($game -> wStats as $player)
                                         <tr class="border-b">
-                                            <td class="p-4 text-2xl sm:text-4xl font-bold">{{ $player -> nickname }}</td>
+                                            <td class="min-w-[250px] md:min-w-[400px] p-4 text-2xl sm:text-4xl font-bold">{{ $player -> nickname }}</td>
                                             <td class="p-4 text-2xl sm:text-4xl text-center font-bold">{{ $player -> kills }}</td>
                                             <td class="p-4 text-2xl sm:text-4xl text-center font-bold">{{ $player -> deaths }}</td>
                                             <td class="p-4 text-2xl sm:text-4xl text-center font-bold">{{ $player -> assists }}</td>
@@ -113,16 +113,16 @@
                                     @endforeach
 
                                     <tr>
-                                        <td class="p-4" rowspan="{{ count($game -> lStats) + 1 }}">
+                                        <td class="min-w-[250px] p-4" rowspan="{{ count($game -> lStats) + 1 }}">
                                             <a href="{{ route("teams.show", $game -> loser -> id) }}"><img class="w-60 h-60" src="{{ asset($game -> loser -> logo) }}" alt="{{ $game -> loser -> name }} Logo"></a>
                                         </td>
 
-                                        <td class="p-4 text-6xl sm:text-8xl font-black" rowspan="{{ count($game -> lStats) + 1 }}">{{ $game -> lResult }}</td>
+                                        <td class="min-w-[150px] p-4 text-6xl sm:text-8xl font-black" rowspan="{{ count($game -> lStats) + 1 }}">{{ $game -> lResult }}</td>
                                     </tr>
 
                                     @foreach ($game -> lStats as $player)
                                         <tr class="border-b">
-                                            <td class="p-4 text-2xl sm:text-4xl font-bold">{{ $player -> nickname }}</td>
+                                            <td class="min-w-[250px] md:min-w-[400px] p-4 text-2xl sm:text-4xl font-bold">{{ $player -> nickname }}</td>
                                             <td class="p-4 text-2xl sm:text-4xl text-center font-bold">{{ $player -> kills }}</td>
                                             <td class="p-4 text-2xl sm:text-4xl text-center font-bold">{{ $player -> deaths }}</td>
                                             <td class="p-4 text-2xl sm:text-4xl text-center font-bold">{{ $player -> assists }}</td>

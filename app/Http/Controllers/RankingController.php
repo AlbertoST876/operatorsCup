@@ -99,7 +99,7 @@ class RankingController extends Controller
             return ($teamA["roundsDiff"] > $teamB["roundsDiff"]) ? -1 : 1;
         });
 
-        return view("ranking.index", [
+        return view("ranking", [
             "teams" => $teams,
         ]);
     }

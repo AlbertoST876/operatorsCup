@@ -26,14 +26,4 @@ class HomeController extends Controller
     {
         return view("rules");
     }
-
-    /**
-     * Return view stats
-     *
-     * @return Response
-     */
-    public function stats()
-    {
-        return view("stats");
-    }
 }
