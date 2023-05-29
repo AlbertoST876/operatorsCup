@@ -1,60 +1,43 @@
+let lastTh = 5;
+
+window.onload = function()
+{
+    let ths = document.querySelectorAll("#sortable th");
+
+    if (ths.length > 0)
+    {
+        ths[5].style.textDecoration = "underline";
+    }
+}
+
 function sortTable(n)
 {
-    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-    table = document.getElementById("sortable");
-    switching = true;
-    dir = "asc";
+    let i, shouldSwitch, switchcount = 0;
+    let table = document.getElementById("sortable");
+    let switching = true;
+
+    let ths = document.querySelectorAll("#sortable th");
+    ths[lastTh].style.textDecoration = "none";
+    ths[n].style.textDecoration = "underline";
+    lastTh = n;
 
     while (switching)
     {
         switching = false;
-        rows = table.rows;
+        let rows = table.rows;
 
         for (i = 1; i < (rows.length - 1); i++)
         {
             shouldSwitch = false;
-            x = rows[i].getElementsByTagName("td")[n];
-            y = rows[i + 1].getElementsByTagName("td")[n];
+            let x = rows[i].getElementsByTagName("td")[n];
+            let y = rows[i + 1].getElementsByTagName("td")[n];
             rows[i].getElementsByTagName("td")[0].innerHTML = "#" + i;
             rows[i + 1].getElementsByTagName("td")[0].innerHTML = "#" + (i + 1);
 
-            if (dir == "asc")
+            if (Number(x.textContent) < Number(y.textContent))
             {
-                if (isNaN(x.textContent) && isNaN(y.textContent))
-                {
-                    if (x.textContent.toLowerCase() > y.textContent.toLowerCase())
-                    {
-                        shouldSwitch = true;
-                        break;
-                    }
-                }
-                else
-                {
-                    if (Number(x.textContent) > Number(y.textContent))
-                    {
-                        shouldSwitch = true;
-                        break;
-                    }
-                }
-            }
-            else if (dir == "desc")
-            {
-                if (isNaN(x.textContent) && isNaN(y.textContent))
-                {
-                    if (x.textContent.toLowerCase() < y.textContent.toLowerCase())
-                    {
-                        shouldSwitch = true;
-                        break;
-                    }
-                }
-                else
-                {
-                    if (Number(x.textContent) < Number(y.textContent))
-                    {
-                        shouldSwitch = true;
-                        break;
-                    }
-                }
+                shouldSwitch = true;
+                break;
             }
         }
 
@@ -64,13 +47,9 @@ function sortTable(n)
             switching = true;
             switchcount++;
         }
-        else
+        else if (switchcount == 0)
         {
-            if (switchcount == 0 && dir == "asc")
-            {
-                dir = "desc";
-                switching = true;
-            }
+            switching = false;
         }
     }
 }
