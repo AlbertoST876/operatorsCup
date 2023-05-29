@@ -20,18 +20,40 @@ function sortTable(n)
 
             if (dir == "asc")
             {
-                if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase())
+                if (isNaN(x.textContent) && isNaN(y.textContent))
                 {
-                    shouldSwitch = true;
-                    break;
+                    if (x.textContent.toLowerCase() > y.textContent.toLowerCase())
+                    {
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+                else
+                {
+                    if (Number(x.textContent) > Number(y.textContent))
+                    {
+                        shouldSwitch = true;
+                        break;
+                    }
                 }
             }
             else if (dir == "desc")
             {
-                if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase())
+                if (isNaN(x.textContent) && isNaN(y.textContent))
                 {
-                    shouldSwitch = true;
-                    break;
+                    if (x.textContent.toLowerCase() < y.textContent.toLowerCase())
+                    {
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+                else
+                {
+                    if (Number(x.textContent) < Number(y.textContent))
+                    {
+                        shouldSwitch = true;
+                        break;
+                    }
                 }
             }
         }
