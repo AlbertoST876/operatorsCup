@@ -84,18 +84,13 @@ class TeamsController extends Controller
             }
         }
 
-        $setsDB = Set::where("teamA", $id) -> orWhere("teamB", $id) -> where("active", true) -> select("id", "teamA", "teamB", "datetime") -> get();
-        $sets = [];
+        $sets = Set::where("teamA", $id) -> orWhere("teamB", $id) -> where("active", true) -> select("id", "teamA", "teamB", "datetime") -> get();
 
-        foreach ($setsDB as $set)
+        foreach ($sets as $set)
         {
             $set -> teamA = Team::find($set -> teamA);
             $set -> teamB = Team::find($set -> teamB);
-
-            $sets[] = [
-                "info" => $set,
-                "games" => Game::where("set", $set -> id) -> get(),
-            ];
+            $set -> games = Game::where("set", $set -> id) -> get();
         }
 
         return view("teams.show", [

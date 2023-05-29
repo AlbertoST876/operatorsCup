@@ -16,12 +16,10 @@ class RankingController extends Controller
      */
     public function index()
     {
-        $teamsDB = Team::where("active", true) -> select("id", "name", "logo") -> get();
-        $teams = [];
+        $teams = Team::where("active", true) -> select("id", "name", "logo") -> get() -> toArray();
 
-        foreach ($teamsDB as $team)
+        for ($i = 0; $i < count($teams); $i++)
         {
-            $games = Set::leftJoin("games", "sets.id", "games.set") -> where("sets.teamA", $team -> id) -> orWhere("sets.teamB", $team -> id) -> where("sets.workday", "<", 10) -> where("sets.active", true) -> select("games.winner", "games.overtime",  "games.wResult", "games.lResult") -> get();
             $points = 0;
             $won = 0;
             $lost = 0;
@@ -30,11 +28,13 @@ class RankingController extends Controller
             $roundsWon = 0;
             $roundsLost = 0;
 
+            $games = Set::leftJoin("games", "sets.id", "games.set") -> where("sets.teamA", $teams[$i]["id"]) -> orWhere("sets.teamB", $teams[$i]["id"]) -> where("sets.workday", "<", 10) -> where("sets.active", true) -> select("games.winner", "games.overtime",  "games.wResult", "games.lResult") -> get();
+
             foreach ($games as $game)
             {
                 if ($game -> overtime)
                 {
-                    if ($game -> winner == $team -> id)
+                    if ($game -> winner == $teams[$i]["id"])
                     {
                         $wonOvertime++;
                         $points += 2;
@@ -47,7 +47,7 @@ class RankingController extends Controller
                 }
                 else
                 {
-                    if ($game -> winner == $team -> id)
+                    if ($game -> winner == $teams[$i]["id"])
                     {
                         $won++;
                         $points += 3;
@@ -58,7 +58,7 @@ class RankingController extends Controller
                     }
                 }
 
-                if ($game -> winner == $team -> id)
+                if ($game -> winner == $teams[$i]["id"])
                 {
                     $roundsWon += $game -> wResult;
                     $roundsLost += $game -> lResult;
@@ -70,15 +70,12 @@ class RankingController extends Controller
                 }
             }
 
-            $teams[] = [
-                "info" => $team,
-                "points" => $points,
-                "won" => $won,
-                "lost" => $lost,
-                "wonOvertime" => $wonOvertime,
-                "lostOvertime" => $lostOvertime,
-                "roundsDiff" => $roundsWon - $roundsLost,
-            ];
+            $teams[$i]["points"] = $points;
+            $teams[$i]["won"] = $won;
+            $teams[$i]["lost"] = $lost;
+            $teams[$i]["wonOvertime"] = $wonOvertime;
+            $teams[$i]["lostOvertime"] = $lostOvertime;
+            $teams[$i]["roundsDiff"] = $roundsWon - $roundsLost;
         }
 
         usort($teams, function($teamA, $teamB) {

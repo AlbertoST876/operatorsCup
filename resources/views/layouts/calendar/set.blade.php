@@ -18,7 +18,7 @@
                 @endif
             @else
                 @foreach ($games as $game)
-                    @if ($game -> winner == $set["info"] -> teamA -> id)
+                    @if ($game -> winner == $set -> teamA -> id)
                         @php $teamAResult++; @endphp
                     @else
                         @php $teamBResult++; @endphp

@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create("members", function(Blueprint $table)
         {
             $table -> id();
-            $table -> integer("role") -> references("id") -> on("roles");
-            $table -> integer("team") -> references("id") -> on("teams");
+            $table -> foreignId("role") -> references("id") -> on("roles");
+            $table -> foreignId("team") -> references("id") -> on("teams");
             $table -> string("nickname", 50);
             $table -> string("discord", 50) -> nullable() -> default(null);
             $table -> string("twitter", 50) -> nullable() -> default(null);

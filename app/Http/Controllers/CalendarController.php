@@ -38,29 +38,18 @@ class CalendarController extends Controller
      */
     public function index()
     {
-        $workdaysDB = Workday::select("id", "name_" . app() -> getLocale() . " AS name") -> get();
-        $workdays = [];
+        $workdays = Workday::select("id", "name_" . app() -> getLocale() . " AS name") -> get();
 
-        foreach ($workdaysDB as $workday)
+        foreach ($workdays as $workday)
         {
-            $setsDB = Set::where("workday", $workday -> id) -> where("active", true) -> get();
-            $sets = [];
+            $workday -> sets = Set::where("workday", $workday -> id) -> where("active", true) -> get();
 
-            foreach ($setsDB as $set)
+            foreach ($workday -> sets as $set)
             {
                 $set -> teamA = Team::find($set -> teamA);
                 $set -> teamB = Team::find($set -> teamB);
-
-                $sets[] = [
-                    "info" => $set,
-                    "games" => Game::where("set", $set -> id) -> get(),
-                ];
+                $set -> games = Game::where("set", $set -> id) -> get();
             }
-
-            $workdays[] = [
-                "info" => $workday,
-                "sets" => $sets,
-            ];
         }
 
         return view("calendar.index", [
@@ -98,20 +87,18 @@ class CalendarController extends Controller
      */
     public function show(string $id)
     {
-        $set = [];
+        $set = Set::find($id);
+        $set -> state = State::where("id", $set -> state) -> select("name_" . app() -> getLocale() . " AS name", "color") -> first();
+        $set -> teamA = Team::find($set -> teamA);
+        $set -> teamB = Team::find($set -> teamB);
+        $set -> games = Game::where("set", $id) -> get();
 
-        $set["info"] = Set::find($id);
-        $set["info"] -> state = State::where("id", $set["info"] -> state) -> select("name_" . app() -> getLocale() . " AS name", "color") -> first();
-        $set["info"] -> teamA = Team::find($set["info"] -> teamA);
-        $set["info"] -> teamB = Team::find($set["info"] -> teamB);
-        $set["games"] = Game::where("set", $id) -> get();
-
-        for ($game = 0; $game < count($set["games"]); $game++)
+        foreach ($set -> games as $game)
         {
-            $set["games"][$game] -> winner = Team::find($set["games"][$game] -> winner);
-            $set["games"][$game] -> loser = Team::find($set["games"][$game] -> loser);
-            $set["games"][$game] -> wStats = GameMember::leftJoin("members", "game_members.member", "members.id") -> where("game_members.game", $set["games"][$game] -> id) -> where("game_members.team", $set["info"] -> teamA -> id) -> select("members.nickname", "game_members.kills", "game_members.deaths", "game_members.assists", DB::raw("round(game_members.kills / game_members.deaths, 2) AS kd")) -> orderBy("kd", "DESC") -> get();
-            $set["games"][$game] -> lStats = GameMember::leftJoin("members", "game_members.member", "members.id") -> where("game_members.game", $set["games"][$game] -> id) -> where("game_members.team", $set["info"] -> teamB -> id) -> select("members.nickname", "game_members.kills", "game_members.deaths", "game_members.assists", DB::raw("round(game_members.kills / game_members.deaths, 2) AS kd")) -> orderBy("kd", "DESC") -> get();
+            $game -> winner = Team::find($game -> winner);
+            $game -> loser = Team::find($game -> loser);
+            $game -> wStats = GameMember::leftJoin("members", "game_members.member", "members.id") -> where("game_members.game", $game -> id) -> where("game_members.team", $game -> winner -> id) -> select("members.nickname", "game_members.kills", "game_members.deaths", "game_members.assists", DB::raw("round(game_members.kills / game_members.deaths, 2) AS kd")) -> orderBy("kd", "DESC") -> get();
+            $game -> lStats = GameMember::leftJoin("members", "game_members.member", "members.id") -> where("game_members.game", $game -> id) -> where("game_members.team", $game -> loser -> id) -> select("members.nickname", "game_members.kills", "game_members.deaths", "game_members.assists", DB::raw("round(game_members.kills / game_members.deaths, 2) AS kd")) -> orderBy("kd", "DESC") -> get();
         }
 
         return view("calendar.show", [

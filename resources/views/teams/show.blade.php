@@ -70,8 +70,8 @@
                     <div class="grid my-4 gap-4 sm:gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
                         @foreach ($sets as $set)
                             @include("layouts.calendar.set", [
-                                "set" => $set["info"],
-                                "games" => $set["games"],
+                                "set" => $set,
+                                "games" => $set -> games,
                             ])
                         @endforeach
                     </div>

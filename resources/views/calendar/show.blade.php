@@ -12,7 +12,7 @@
                     <h1 class="block my-8 text-4xl sm:text-6xl font-black">{{ mb_strtoupper(__("app.match")) }}</h1>
 
                     <div class="flex flex-nowrap items-center space-x-2">
-                        <a href="{{ route("teams.show", $set["info"] -> teamA -> id) }}"><img class="inline-block w-24 sm:w-32 h-24 sm:h-32" src="{{ asset($set["info"] -> teamA -> logo) }}" alt="{{ $set["info"] -> teamA -> name }} Logo"></a>
+                        <a href="{{ route("teams.show", $set -> teamA -> id) }}"><img class="inline-block w-24 sm:w-32 h-24 sm:h-32" src="{{ asset($set -> teamA -> logo) }}" alt="{{ $set -> teamA -> name }} Logo"></a>
 
                         <span class="text-4xl font-bold">
                             @php
@@ -20,17 +20,17 @@
                                 $teamBResult = 0;
                             @endphp
 
-                            @if (count($set["games"]) == 1)
-                                @if ($set["games"][0] -> winner -> id == $set["info"] -> teamA -> id)
-                                    @php $teamAResult = $set["games"][0] -> wResult; @endphp
-                                    @php $teamBResult = $set["games"][0] -> lResult; @endphp
+                            @if (count($set -> games) == 1)
+                                @if ($set -> games[0] -> winner -> id == $set -> teamA -> id)
+                                    @php $teamAResult = $set -> games[0] -> wResult; @endphp
+                                    @php $teamBResult = $set -> games[0] -> lResult; @endphp
                                 @else
-                                    @php $teamAResult = $set["games"][0] -> lResult; @endphp
-                                    @php $teamBResult = $set["games"][0] -> wResult; @endphp
+                                    @php $teamAResult = $set -> games[0] -> lResult; @endphp
+                                    @php $teamBResult = $set -> games[0] -> wResult; @endphp
                                 @endif
                             @else
-                                @foreach ($set["games"] as $game)
-                                    @if ($game -> winner == $set["info"] -> teamA -> id)
+                                @foreach ($set -> games as $game)
+                                    @if ($game -> winner == $set -> teamA -> id)
                                         @php $teamAResult++; @endphp
                                     @else
                                         @php $teamBResult++; @endphp
@@ -41,7 +41,7 @@
                             {{ $teamAResult }} - {{ $teamBResult }}
                         </span>
 
-                        <a href="{{ route("teams.show", $set["info"] -> teamB -> id) }}"><img class="inline-block w-24 sm:w-32 h-24 sm:h-32" src="{{ asset($set["info"] -> teamB -> logo) }}" alt="{{ $set["info"] -> teamB -> name }} Logo"></a>
+                        <a href="{{ route("teams.show", $set -> teamB -> id) }}"><img class="inline-block w-24 sm:w-32 h-24 sm:h-32" src="{{ asset($set -> teamB -> logo) }}" alt="{{ $set -> teamB -> name }} Logo"></a>
                     </div>
                 </div>
 
@@ -50,36 +50,36 @@
                 <div class="flex my-2 flex-wrap items-center justify-between">
                     <div class="flex flex-nowrap items-center space-x-2">
                         <h3 class="text-xl sm:text-2xl font-black">@lang("app.status"):</h3>
-                        <span class="px-4 py-1 text-lg sm:text-xl font-bold rounded-lg" style="background-color: {{ $set["info"] -> state -> color }}">{{ $set["info"] -> state -> name }}</span>
+                        <span class="px-4 py-1 text-lg sm:text-xl font-bold rounded-lg" style="background-color: {{ $set -> state -> color }}">{{ $set -> state -> name }}</span>
                     </div>
 
-                    @if (!is_null($set["info"] -> youtube))
-                        <a href="{{ $set["info"] -> youtube }}"><img class="w-12 h-12 rounded-lg" src="{{ asset("storage/images/social-networks/youtube.png") }}" alt="YouTube"></a>
+                    @if (!is_null($set -> youtube))
+                        <a href="{{ $set -> youtube }}"><img class="w-12 h-12 rounded-lg" src="{{ asset("storage/images/social-networks/youtube.png") }}" alt="YouTube"></a>
                     @endif
 
                     <div class="flex flex-nowrap items-baseline space-x-2">
                         <h3 class="text-xl sm:text-2xl font-black">@lang("app.date"):</h3>
-                        <span class="text-lg sm:text-xl font-semibold">{{ $set["info"] -> datetime -> format($dateFormat) }}</span>
+                        <span class="text-lg sm:text-xl font-semibold">{{ $set -> datetime -> format($dateFormat) }}</span>
                     </div>
                 </div>
 
-                @if (!is_null($set["info"] -> mapban))
+                @if (!is_null($set -> mapban))
                     <div class="mt-16 mb-8">
                         <h2 class="block my-2 text-2xl sm:text-4xl font-black">@lang("app.mapban")</h2>
 
                         <hr>
 
-                        <img class="w-full" src="{{ asset($set["info"] -> mapban) }}" alt="@lang("app.mapban")">
+                        <img class="w-full" src="{{ asset($set -> mapban) }}" alt="@lang("app.mapban")">
                     </div>
                 @endif
 
-                @if (count($set["games"][0] -> wStats) > 0 && count($set["games"][0] -> lStats) > 0)
+                @if (count($set -> games[0] -> wStats) > 0 && count($set -> games[0] -> lStats) > 0)
                     <div class="mt-16 mb-8">
                         <h2 class="block my-2 text-2xl sm:text-4xl font-black">@lang("app.stats")</h2>
 
                         <hr>
 
-                        @foreach ($set["games"] as $game)
+                        @foreach ($set -> games as $game)
                             <table class="block w-full min-w-full mt-8 overflow-x-auto">
                                 <thead>
                                     <tr class="border-b-2 border-black">

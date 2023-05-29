@@ -16,10 +16,8 @@ class StatsController extends Controller
      */
     public function index()
     {
-        $members = Member::leftJoin("game_members", "members.id", "game_members.member") -> where("members.active", true) -> select("members.nickname AS nickname", DB::raw("SUM(game_members.kills) AS kills"), DB::raw("SUM(game_members.deaths) AS deaths"), DB::raw("SUM(game_members.assists) AS assists"), DB::raw("ROUND(SUM(game_members.kills) / SUM(game_members.deaths), 2) AS kd")) -> groupBy("game_members.member") -> orderBy("kd", "DESC") -> get();
-
         return view("stats", [
-            "members" => $members,
+            "members" => Member::leftJoin("game_members", "members.id", "game_members.member") -> where("members.active", true) -> select("members.nickname AS nickname", DB::raw("SUM(game_members.kills) AS kills"), DB::raw("SUM(game_members.deaths) AS deaths"), DB::raw("SUM(game_members.assists) AS assists"), DB::raw("ROUND(SUM(game_members.kills) / SUM(game_members.deaths), 2) AS kd")) -> groupBy("game_members.member") -> orderBy("kd", "DESC") -> get(),
         ]);
     }
 }

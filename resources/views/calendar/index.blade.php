@@ -13,25 +13,25 @@
 
                     <div class="flex flex-wrap items-center">
                         @foreach ($workdays as $workday)
-                            @if (count($workday["sets"]) > 0)
-                                <a class="mr-2 my-2 px-4 py-2 text-xl text-white bg-black rounded-lg" href="#{{ $workday["info"] -> id }}">{{ $workday["info"] -> id }}</a>
+                            @if (count($workday -> sets) > 0)
+                                <a class="mr-2 my-2 px-4 py-2 text-xl text-white bg-black rounded-lg" href="#{{ $workday -> id }}">{{ $workday -> id }}</a>
                             @endif
                         @endforeach
                     </div>
                 </div>
 
                 @foreach ($workdays as $workday)
-                    @if (count($workday["sets"]) > 0)
+                    @if (count($workday -> sets) > 0)
                         <div class="mb-16">
-                            <h2 id="{{ $workday["info"] -> id }}" class="block my-2 text-2xl sm:text-4xl font-black">{{ $workday["info"] -> name }}</h2>
+                            <h2 id="{{ $workday -> id }}" class="block my-2 text-2xl sm:text-4xl font-black">{{ $workday -> name }}</h2>
 
                             <hr>
 
                             <div class="grid my-4 gap-4 sm:gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
-                                @foreach ($workday["sets"] as $set)
+                                @foreach ($workday -> sets as $set)
                                     @include("layouts.calendar.set", [
-                                        "set" => $set["info"],
-                                        "games" => $set["games"],
+                                        "set" => $set,
+                                        "games" => $set -> games,
                                     ])
                                 @endforeach
                             </div>
