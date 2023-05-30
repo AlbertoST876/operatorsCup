@@ -9,7 +9,7 @@
         <ul class="flex mt-4 md:mt-0 flex-wrap items-center text-lg font-medium text-black">
             <li><a href="{{ route("index") }}" class="mr-8 hover:underline">@lang("app.about_us")</a></li>
             <li><a href="{{ route("index") }}" class="mr-8 hover:underline">@lang("app.privacy_policy")</a></li>
-            <li><a href="{{ route("index") }}" class="mr-8 hover:underline">@lang("app.licensing")</a></li>
+            <li><a href="{{ route("license") }}" class="mr-8 hover:underline">@lang("app.license")</a></li>
             <li><a href="mailto:operatorscup2023@gmail.com" class="hover:underline">@lang("app.contact")</a></li>
         </ul>
     </div>
