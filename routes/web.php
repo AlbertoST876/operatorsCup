@@ -31,6 +31,7 @@ Route::controller(HomeController::class) -> group(function()
 Route::controller(FooterController::class) -> group(function()
 {
     Route::get("license", "license") -> name("license");
+    Route::get("privacyPolicy", "privacyPolicy") -> name("privacyPolicy");
 });
 
 Route::resource("teams", TeamsController::class);

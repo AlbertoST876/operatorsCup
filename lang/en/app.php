@@ -52,6 +52,32 @@ return [
     "lost_overtime" => "Lost Overtime",
     "difference_rounds" => "Difference Rounds",
 
+    // PRIVACY POLICY
+    "privacy_policy_header" => "This Privacy Policy describes how the organization collects, uses and protects personal information provided by users when using the Operator's Cup website. By accessing and using the website, the user agrees to the terms and conditions established in this Privacy Policy.",
+    "privacy_policy1" => "Information Collected: The organization may collect personal information from the user, such as name, email address, contact information, and date of birth, as long as the user voluntarily provides such information when engaging in privacy-related activities. Operator's Cup.",
+    "privacy_policy2" => "Use of information: The organization uses the information collected for the following purposes:",
+    "privacy_policy2a" => "Create and manage user account on the website.",
+    "privacy_policy2b" => "Provide access and specific functionality.",
+    "privacy_policy2c" => "Personalize the user experience on the website, including the presentation of relevant content and game suggestions.",
+    "privacy_policy2d" => "Facilitate user participation in tournaments, leagues, events and other related activities.",
+    "privacy_policy2e" => "Send communications, such as updates and news with prior authorization from the user.",
+    "privacy_policy2f" => "Improve the services and features of the website, through analysis and studies of use and user preferences.",
+    "privacy_policy2g" => "Comply with legal and regulatory obligations.",
+    "privacy_policy3" => "Information sharing: The organization may share the user's personal information in the following cases:",
+    "privacy_policy3a" => "With third-party service providers and business partners who provide services on behalf of the organization, such as hosting services, data analysis, and customer support. These third parties are bound by confidentiality agreements and may only use the information to the extent necessary to provide the required services.",
+    "privacy_policy3b" => "With government authorities, law enforcement agencies or other legal entities, when required by law or in response to a valid legal request.",
+    "privacy_policy3c" => "In the event of mergers, acquisitions, or asset sales, where user information may be transferred to third parties involved in such transaction.",
+    "privacy_policy4" => "Information Security: The organization takes reasonable steps to protect user personal information from loss, misuse, unauthorized access, or disclosure. Technical, administrative, and physical security measures are implemented to ensure confidentiality and information integrity.",
+    "privacy_policy5" => "Cookies and similar technologies: The website may use cookies and similar technologies to collect non-personal information, such as browsing data, preferences and usage statistics. These technologies help improve the functionality of the website and the experience The user can manage their cookie preferences through their browser settings.",
+    "privacy_policy6" => "External links: The website may contain links to third party websites. The organization is not responsible for the privacy practices or the content of such sites. Users are advised to review the privacy policies of such sites. sites before providing any personal information.",
+    "privacy_policy7" => "Data Retention: The organization will retain the user's personal information for the time necessary to fulfill the purposes set forth in this Privacy Policy, unless a longer retention period is required or permitted by law. A Once the purpose is fulfilled, the personal information will be securely deleted or anonymized.",
+    "privacy_policy8" => "User Rights: The user has certain rights with respect to their personal information. These rights may include access, rectification, deletion, restriction of processing, and objection to the processing of their personal information. The user may also request the portability of their personal data. To exercise these rights, the user can contact the organization using the contact information provided at the end of this Privacy Policy.",
+    "privacy_policy9" => "Privacy of Minors: The Website is not directed to minors without the consent of a parent or guardian. The organization does not knowingly collect personal information from minors. If a parent or guardian believes that their child has provided personal information without consent, you can contact the organization to have that information removed.",
+    "privacy_policy10" => "Privacy Policy Changes: The organization reserves the right to modify or update this Privacy Policy at any time. Any modification will be effective immediately upon posting on the website. The user is responsible to periodically review this Privacy Policy to be aware of any changes.",
+    "privacy_policy11" => "Contact: If the user has questions, concerns or requests related to this Privacy Policy, they can contact the organization through the contact details provided on the website.",
+    "privacy_policy_footer1" => "By accepting this Privacy Policy, the user acknowledges having read, understood and accepted all the terms and conditions established in it.",
+
+
     // LICENSE
     "end_user_license_terms" => "End User License Terms (EULA)",
     "last_update" => "Last update",

@@ -23,4 +23,16 @@ class FooterController extends Controller
             "dateFormat" => self::DATE_FORMAT[app() -> getLocale()],
         ]);
     }
+
+    /**
+     * Return view license
+     *
+     * @return Response
+     */
+    public function privacyPolicy()
+    {
+        return view("footer.privacyPolicy", [
+            "dateFormat" => self::DATE_FORMAT[app() -> getLocale()],
+        ]);
+    }
 }
