@@ -20,8 +20,8 @@
                         <hr>
 
                         <div class="my-4">
-                            <p class="block my-2 text-lg sm:text-2xl font-bold">@lang("app.points"): <span class="font-normal">{{ $points }}</span></p>
-                            <p class="block my-2 text-lg sm:text-2xl font-bold">@lang("app.matches"): <span class="font-normal">{{ count($sets) }}</span></p>
+                            <p class="block my-2 text-lg sm:text-2xl font-bold">@lang("app.points"): <span class="font-normal">{{ $team -> points }}</span></p>
+                            <p class="block my-2 text-lg sm:text-2xl font-bold">@lang("app.matches"): <span class="font-normal">{{ count($team -> sets) }}</span></p>
                         </div>
                     </div>
 
@@ -45,7 +45,7 @@
                     <hr>
 
                     <div class="grid my-4 gap-4 sm:gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
-                        @foreach ($members as $member)
+                        @foreach ($team -> members as $member)
                             <div class="flex px-4 py-2 flex-nowrap items-center justify-between bg-gray-100 rounded-lg">
                                 <div>
                                     <span class="block text-lg">{{ $member -> role }}</span>
@@ -68,7 +68,7 @@
                     <hr>
 
                     <div class="grid my-4 gap-4 sm:gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
-                        @foreach ($sets as $set)
+                        @foreach ($team -> sets as $set)
                             @include("layouts.calendar.set", [
                                 "set" => $set,
                                 "games" => $set -> games,

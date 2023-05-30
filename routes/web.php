@@ -29,5 +29,6 @@ Route::controller(HomeController::class) -> group(function()
 
 Route::resource("teams", TeamsController::class);
 Route::resource("calendar", CalendarController::class);
+
 Route::get("ranking", [RankingController::class, "index"]) -> name("ranking.index");
 Route::get("stats", [StatsController::class, "index"]) -> name("stats.index");

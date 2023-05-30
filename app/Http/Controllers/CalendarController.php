@@ -97,8 +97,8 @@ class CalendarController extends Controller
         {
             $game -> winner = Team::find($game -> winner);
             $game -> loser = Team::find($game -> loser);
-            $game -> wStats = GameMember::leftJoin("members", "game_members.member", "members.id") -> where("game_members.game", $game -> id) -> where("game_members.team", $game -> winner -> id) -> select("members.nickname", "game_members.kills", "game_members.deaths", "game_members.assists", DB::raw("round(game_members.kills / game_members.deaths, 2) AS kd")) -> orderBy("kd", "DESC") -> get();
-            $game -> lStats = GameMember::leftJoin("members", "game_members.member", "members.id") -> where("game_members.game", $game -> id) -> where("game_members.team", $game -> loser -> id) -> select("members.nickname", "game_members.kills", "game_members.deaths", "game_members.assists", DB::raw("round(game_members.kills / game_members.deaths, 2) AS kd")) -> orderBy("kd", "DESC") -> get();
+            $game -> wMembers = GameMember::leftJoin("members", "game_members.member", "members.id") -> where("game_members.game", $game -> id) -> where("game_members.team", $game -> winner -> id) -> select("members.nickname", "game_members.kills", "game_members.deaths", "game_members.assists", DB::raw("round(game_members.kills / game_members.deaths, 2) AS kd")) -> orderByDesc("kd") -> get();
+            $game -> lMembers = GameMember::leftJoin("members", "game_members.member", "members.id") -> where("game_members.game", $game -> id) -> where("game_members.team", $game -> loser -> id) -> select("members.nickname", "game_members.kills", "game_members.deaths", "game_members.assists", DB::raw("round(game_members.kills / game_members.deaths, 2) AS kd")) -> orderByDesc("kd") -> get();
         }
 
         return view("calendar.show", [

@@ -69,6 +69,17 @@ class TeamsController extends Controller
      */
     public function show(string $id)
     {
+        $team = Team::find($id);
+        $team -> members = Member::leftJoin("roles", "members.role", "roles.id") -> where("members.team", $id) -> where("members.active", true) -> select("roles.name_" . app() -> getLocale() . " AS role", "members.nickname", "members.twitter", "members.twitch", "members.youtube") -> orderBy("roles.id") -> get();
+        $team -> sets = Set::where("teamA", $id) -> orWhere("teamB", $id) -> where("active", true) -> select("id", "teamA", "teamB", "datetime") -> get();
+
+        foreach ($team -> sets as $set)
+        {
+            $set -> teamA = Team::find($set -> teamA);
+            $set -> teamB = Team::find($set -> teamB);
+            $set -> games = Game::where("set", $set -> id) -> get();
+        }
+
         $games = Set::leftJoin("games", "sets.id", "games.set") -> where("sets.teamA", $id) -> orWhere("sets.teamB", $id) -> where("sets.workday", "<", 10) -> where("sets.active", true) -> select("games.winner", "games.overtime") -> get();
         $points = 0;
 
@@ -84,21 +95,11 @@ class TeamsController extends Controller
             }
         }
 
-        $sets = Set::where("teamA", $id) -> orWhere("teamB", $id) -> where("active", true) -> select("id", "teamA", "teamB", "datetime") -> get();
-
-        foreach ($sets as $set)
-        {
-            $set -> teamA = Team::find($set -> teamA);
-            $set -> teamB = Team::find($set -> teamB);
-            $set -> games = Game::where("set", $set -> id) -> get();
-        }
+        $team -> points = $points;
 
         return view("teams.show", [
-            "members" => Member::leftJoin("roles", "members.role", "roles.id") -> where("members.team", $id) -> where("members.active", true) -> select("roles.name_" . app() -> getLocale() . " AS role", "members.nickname", "members.twitter", "members.twitch", "members.youtube") -> orderBy("roles.id") -> get(),
             "dateFormat" => self::DATE_FORMAT[app() -> getLocale()],
-            "team" => Team::find($id),
-            "points" => $points,
-            "sets" => $sets,
+            "team" => $team,
         ]);
     }
 

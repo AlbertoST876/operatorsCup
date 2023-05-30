@@ -73,7 +73,7 @@
                     </div>
                 @endif
 
-                @if (count($set -> games[0] -> wStats) > 0 && count($set -> games[0] -> lStats) > 0)
+                @if (count($set -> games[0] -> wMembers) > 0 && count($set -> games[0] -> lMembers) > 0)
                     <div class="mt-16 mb-8">
                         <h2 class="block my-2 text-2xl sm:text-4xl font-black">@lang("app.stats")</h2>
 
@@ -95,38 +95,38 @@
 
                                 <tbody>
                                     <tr>
-                                        <td class="p-4" rowspan="{{ count($game -> wStats) + 1 }}">
+                                        <td class="p-4" rowspan="{{ count($game -> wMembers) + 1 }}">
                                             <a href="{{ route("teams.show", $game -> winner -> id) }}"><img class="w-60 h-60" src="{{ asset($game -> winner -> logo) }}" alt="{{ $game -> winner -> name }} Logo"></a>
                                         </td>
 
-                                        <td class="p-4 text-6xl sm:text-8xl font-black" rowspan="{{ count($game -> wStats) + 1 }}">{{ $game -> wResult }}</td>
+                                        <td class="p-4 text-6xl sm:text-8xl font-black" rowspan="{{ count($game -> wMembers) + 1 }}">{{ $game -> wResult }}</td>
                                     </tr>
 
-                                    @foreach ($game -> wStats as $player)
+                                    @foreach ($game -> wMembers as $member)
                                         <tr class="border-b">
-                                            <td class="p-4 text-2xl sm:text-4xl font-bold">{{ $player -> nickname }}</td>
-                                            <td class="p-4 text-2xl sm:text-4xl text-center font-bold">{{ $player -> kills }}</td>
-                                            <td class="p-4 text-2xl sm:text-4xl text-center font-bold">{{ $player -> deaths }}</td>
-                                            <td class="p-4 text-2xl sm:text-4xl text-center font-bold">{{ $player -> assists }}</td>
-                                            <td class="p-4 text-2xl sm:text-4xl text-center font-bold">{{ $player -> kd }}</td>
+                                            <td class="p-4 text-2xl sm:text-4xl font-bold">{{ $member -> nickname }}</td>
+                                            <td class="p-4 text-2xl sm:text-4xl text-center font-bold">{{ $member -> kills }}</td>
+                                            <td class="p-4 text-2xl sm:text-4xl text-center font-bold">{{ $member -> deaths }}</td>
+                                            <td class="p-4 text-2xl sm:text-4xl text-center font-bold">{{ $member -> assists }}</td>
+                                            <td class="p-4 text-2xl sm:text-4xl text-center font-bold">{{ $member -> kd }}</td>
                                         </tr>
                                     @endforeach
 
                                     <tr>
-                                        <td class="p-4" rowspan="{{ count($game -> lStats) + 1 }}">
+                                        <td class="p-4" rowspan="{{ count($game -> lMembers) + 1 }}">
                                             <a href="{{ route("teams.show", $game -> loser -> id) }}"><img class="w-60 h-60" src="{{ asset($game -> loser -> logo) }}" alt="{{ $game -> loser -> name }} Logo"></a>
                                         </td>
 
-                                        <td class="p-4 text-6xl sm:text-8xl font-black" rowspan="{{ count($game -> lStats) + 1 }}">{{ $game -> lResult }}</td>
+                                        <td class="p-4 text-6xl sm:text-8xl font-black" rowspan="{{ count($game -> lMembers) + 1 }}">{{ $game -> lResult }}</td>
                                     </tr>
 
-                                    @foreach ($game -> lStats as $player)
+                                    @foreach ($game -> lMembers as $member)
                                         <tr class="border-b">
-                                            <td class="p-4 text-2xl sm:text-4xl font-bold">{{ $player -> nickname }}</td>
-                                            <td class="p-4 text-2xl sm:text-4xl text-center font-bold">{{ $player -> kills }}</td>
-                                            <td class="p-4 text-2xl sm:text-4xl text-center font-bold">{{ $player -> deaths }}</td>
-                                            <td class="p-4 text-2xl sm:text-4xl text-center font-bold">{{ $player -> assists }}</td>
-                                            <td class="p-4 text-2xl sm:text-4xl text-center font-bold">{{ $player -> kd }}</td>
+                                            <td class="p-4 text-2xl sm:text-4xl font-bold">{{ $member -> nickname }}</td>
+                                            <td class="p-4 text-2xl sm:text-4xl text-center font-bold">{{ $member -> kills }}</td>
+                                            <td class="p-4 text-2xl sm:text-4xl text-center font-bold">{{ $member -> deaths }}</td>
+                                            <td class="p-4 text-2xl sm:text-4xl text-center font-bold">{{ $member -> assists }}</td>
+                                            <td class="p-4 text-2xl sm:text-4xl text-center font-bold">{{ $member -> kd }}</td>
                                         </tr>
                                     @endforeach
                                 </tbody>
