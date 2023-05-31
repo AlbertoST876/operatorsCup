@@ -13,6 +13,16 @@ class FooterController extends Controller
     ];
 
     /**
+     * Return view about
+     *
+     * @return Response
+     */
+    public function about()
+    {
+        return view("footer.about");
+    }
+
+    /**
      * Return view license
      *
      * @return Response

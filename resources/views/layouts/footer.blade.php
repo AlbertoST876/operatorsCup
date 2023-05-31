@@ -10,7 +10,7 @@
         </div>
 
         <ul class="flex mt-4 lg:mt-0 flex-wrap items-center text-lg font-medium text-black">
-            <li><a href="{{ route("index") }}" class="mr-8 hover:underline">@lang("app.about_us")</a></li>
+            <li><a href="{{ route("about") }}" class="mr-8 hover:underline">@lang("app.about_us")</a></li>
             <li><a href="{{ route("privacyPolicy") }}" class="mr-8 hover:underline">@lang("app.privacy_policy")</a></li>
             <li><a href="{{ route("license") }}" class="mr-8 hover:underline">@lang("app.license")</a></li>
 

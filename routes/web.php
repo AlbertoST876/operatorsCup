@@ -30,6 +30,7 @@ Route::controller(HomeController::class) -> group(function()
 
 Route::controller(FooterController::class) -> group(function()
 {
+    Route::get("about", "about") -> name("about");
     Route::get("license", "license") -> name("license");
     Route::get("privacyPolicy", "privacyPolicy") -> name("privacyPolicy");
 });
