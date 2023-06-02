@@ -17,7 +17,7 @@ class GameFactory extends Factory
     public function definition(): array
     {
         return [
-            "set" => fake() -> randomNumber(),
+            "set_id" => fake() -> randomNumber(),
             "winner" => fake() -> randomNumber(),
             "loser" => fake() -> randomNumber(),
             "wResult" => fake() -> randomNumber(),

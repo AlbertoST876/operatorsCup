@@ -30,7 +30,7 @@ class GameSeeder extends Seeder
         {
             Game::factory() -> create([
                 "id" => $game[0],
-                "set" => $game[1],
+                "set_id" => $game[1],
                 "winner" => $game[2],
                 "loser" => $game[3],
                 "wResult" => $game[4],

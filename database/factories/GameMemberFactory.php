@@ -17,9 +17,9 @@ class GameMemberFactory extends Factory
     public function definition(): array
     {
         return [
-            "game" => fake() -> randomNumber(),
-            "member" => fake() -> randomNumber(),
-            "team" => fake() -> randomNumber(),
+            "game_id" => fake() -> randomNumber(),
+            "member_id" => fake() -> randomNumber(),
+            "team_id" => fake() -> randomNumber(),
             "kills" => fake() -> randomNumber(),
             "deaths" => fake() -> randomNumber(),
             "assists" => fake() -> randomNumber(),

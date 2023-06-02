@@ -17,8 +17,8 @@ class MemberFactory extends Factory
     public function definition(): array
     {
         return [
-            "role" => fake() -> randomNumber(),
-            "team" => fake() -> randomNumber(),
+            "role_id" => fake() -> randomNumber(),
+            "team_id" => fake() -> randomNumber(),
             "nickname" => fake() -> name(),
             "discord" => "https://discord.com/",
             "twitter" => "https://twitter.com/",

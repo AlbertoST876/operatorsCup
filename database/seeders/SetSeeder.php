@@ -31,8 +31,8 @@ class SetSeeder extends Seeder
             Set::factory() -> create([
                 "id" => $set[0],
                 "mapban" => $set[1],
-                "workday" => $set[2],
-                "state" => $set[3],
+                "workday_id" => $set[2],
+                "state_id" => $set[3],
                 "teamA" => $set[4],
                 "teamB" => $set[5],
                 "youtube" => $set[6],

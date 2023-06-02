@@ -28,7 +28,7 @@ class RankingController extends Controller
             $roundsWon = 0;
             $roundsLost = 0;
 
-            $games = Set::leftJoin("games", "sets.id", "games.set") -> where("sets.teamA", $teams[$i]["id"]) -> orWhere("sets.teamB", $teams[$i]["id"]) -> where("sets.workday", "<", 10) -> where("sets.active", true) -> select("games.winner", "games.overtime",  "games.wResult", "games.lResult") -> get();
+            $games = Set::leftJoin("games", "sets.id", "games.set_id") -> where("sets.teamA", $teams[$i]["id"]) -> orWhere("sets.teamB", $teams[$i]["id"]) -> where("sets.workday_id", "<", 10) -> where("sets.active", true) -> select("games.winner", "games.overtime",  "games.wResult", "games.lResult") -> get();
 
             foreach ($games as $game)
             {

@@ -135,9 +135,9 @@ class GameMemberSeeder extends Seeder
         foreach ($gameMembers as $gameMember)
         {
             GameMember::factory() -> create([
-                "game" => $gameMember[0],
-                "member" => $gameMember[1],
-                "team" => $gameMember[2],
+                "game_id" => $gameMember[0],
+                "member_id" => $gameMember[1],
+                "team_id" => $gameMember[2],
                 "kills" => $gameMember[3],
                 "deaths" => $gameMember[4],
                 "assists" => $gameMember[5],

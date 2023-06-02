@@ -63,8 +63,8 @@ class MemberSeeder extends Seeder
         {
             Member::factory() -> create([
                 "id" => $member[0],
-                "role" => $member[1],
-                "team" => $member[2],
+                "role_id" => $member[1],
+                "team_id" => $member[2],
                 "nickname" => $member[3],
                 "discord" => $member[4],
                 "twitter" => $member[5],

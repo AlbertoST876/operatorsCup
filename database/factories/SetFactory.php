@@ -18,8 +18,8 @@ class SetFactory extends Factory
     {
         return [
             "mapban" => null,
-            "workday" => fake() -> randomNumber(),
-            "state" => fake() -> randomNumber(),
+            "workday_id" => fake() -> randomNumber(),
+            "state_id" => fake() -> randomNumber(),
             "teamA" => fake() -> randomNumber(),
             "teamB" => fake() -> randomNumber(),
             "youtube" => "https://youtube.com/",
