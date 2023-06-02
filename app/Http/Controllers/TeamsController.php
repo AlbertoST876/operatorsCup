@@ -70,14 +70,11 @@ class TeamsController extends Controller
     public function show(string $id)
     {
         $team = Team::find($id);
-        $team -> members = Member::leftJoin("roles", "members.role_id", "roles.id") -> where("members.team_id", $id) -> where("members.active", true) -> select("roles.name_" . app() -> getLocale() . " AS role", "members.nickname", "members.twitter", "members.twitch", "members.youtube") -> orderBy("roles.id") -> get();
-        $team -> sets = Set::where("teamA", $id) -> orWhere("teamB", $id) -> where("active", true) -> select("id", "teamA", "teamB", "datetime") -> get();
 
         foreach ($team -> sets as $set)
         {
             $set -> teamA = Team::find($set -> teamA);
             $set -> teamB = Team::find($set -> teamB);
-            $set -> games = Game::where("set_id", $set -> id) -> get();
         }
 
         $games = Set::leftJoin("games", "sets.id", "games.set_id") -> where("sets.teamA", $id) -> orWhere("sets.teamB", $id) -> where("sets.workday_id", "<", 10) -> where("sets.active", true) -> select("games.winner", "games.overtime") -> get();

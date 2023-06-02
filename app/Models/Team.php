@@ -9,6 +9,16 @@ class Team extends Model
 {
     use HasFactory;
 
+    public function members()
+    {
+        return $this -> hasMany(Member::class) -> where("active", true) -> orderBy("role_id");
+    }
+
+    public function sets()
+    {
+        return $this -> hasMany(Set::class, "teamA") -> orWhere("teamB", $this -> id) -> where("active", true);
+    }
+
     /**
      * The attributes that are mass assignable.
      *

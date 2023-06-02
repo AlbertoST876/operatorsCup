@@ -48,7 +48,7 @@
                         @foreach ($team -> members as $member)
                             <div class="flex px-4 py-2 flex-nowrap items-center justify-between bg-gray-100 rounded-lg">
                                 <div>
-                                    <span class="block text-lg">{{ $member -> role }}</span>
+                                    <span class="block text-lg">{{ $member -> role -> name }}</span>
                                     <span class="block text-xl font-bold">{{ $member -> nickname }}</span>
                                 </div>
 

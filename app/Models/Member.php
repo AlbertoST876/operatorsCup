@@ -9,14 +9,19 @@ class Member extends Model
 {
     use HasFactory;
 
+    public function role()
+    {
+        return $this -> belongsTo(Role::class) -> select("name_" . app() -> getLocale() . " AS name");
+    }
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
     protected $fillable = [
-        "role",
-        "team",
+        "role_id",
+        "team_id",
         "nickname",
         "discord",
         "twitter",

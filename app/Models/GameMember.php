@@ -15,9 +15,9 @@ class GameMember extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        "game",
-        "member",
-        "team",
+        "game_id",
+        "member_id",
+        "team_id",
         "kills",
         "deaths",
         "assists",

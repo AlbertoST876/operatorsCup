@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\DB;
 use App\Models\GameMember;
 use App\Models\Workday;
 use App\Models\Team;
@@ -90,8 +89,8 @@ class CalendarController extends Controller
         {
             $game -> winner = Team::find($game -> winner);
             $game -> loser = Team::find($game -> loser);
-            $game -> wMembers = GameMember::leftJoin("members", "game_members.member_id", "members.id") -> where("game_members.game_id", $game -> id) -> where("game_members.team_id", $game -> winner -> id) -> select("members.nickname", "game_members.kills", "game_members.deaths", "game_members.assists", DB::raw("round(game_members.kills / game_members.deaths, 2) AS kd")) -> orderByDesc("kd") -> get();
-            $game -> lMembers = GameMember::leftJoin("members", "game_members.member_id", "members.id") -> where("game_members.game_id", $game -> id) -> where("game_members.team_id", $game -> loser -> id) -> select("members.nickname", "game_members.kills", "game_members.deaths", "game_members.assists", DB::raw("round(game_members.kills / game_members.deaths, 2) AS kd")) -> orderByDesc("kd") -> get();
+            $game -> wMembers = GameMember::leftJoin("members", "game_members.member_id", "members.id") -> where("game_members.game_id", $game -> id) -> where("game_members.team_id", $game -> winner -> id) -> select("members.nickname", "game_members.kills", "game_members.deaths", "game_members.assists") -> selectRaw("round(game_members.kills / game_members.deaths, 2) AS kd") -> orderByDesc("kd") -> get();
+            $game -> lMembers = GameMember::leftJoin("members", "game_members.member_id", "members.id") -> where("game_members.game_id", $game -> id) -> where("game_members.team_id", $game -> loser -> id) -> select("members.nickname", "game_members.kills", "game_members.deaths", "game_members.assists") -> selectRaw("round(game_members.kills / game_members.deaths, 2) AS kd") -> orderByDesc("kd") -> get();
         }
 
         return view("calendar.show", [

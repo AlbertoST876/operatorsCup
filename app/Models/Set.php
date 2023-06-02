@@ -26,8 +26,8 @@ class Set extends Model
      */
     protected $fillable = [
         "mapban",
-        "workday",
-        "state",
+        "workday_id",
+        "state_id",
         "teamA",
         "teamB",
         "youtube",
