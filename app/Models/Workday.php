@@ -9,6 +9,11 @@ class Workday extends Model
 {
     use HasFactory;
 
+    public function sets()
+    {
+        return $this -> hasMany(Set::class);
+    }
+
     /**
      * The attributes that are mass assignable.
      *

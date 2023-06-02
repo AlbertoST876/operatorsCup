@@ -8,9 +8,7 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use App\Models\GameMember;
 use App\Models\Workday;
-use App\Models\State;
 use App\Models\Team;
-use App\Models\Game;
 use App\Models\Set;
 
 class CalendarController extends Controller
@@ -42,13 +40,10 @@ class CalendarController extends Controller
 
         foreach ($workdays as $workday)
         {
-            $workday -> sets = Set::where("workday_id", $workday -> id) -> where("active", true) -> get();
-
             foreach ($workday -> sets as $set)
             {
                 $set -> teamA = Team::find($set -> teamA);
                 $set -> teamB = Team::find($set -> teamB);
-                $set -> games = Game::where("set_id", $set -> id) -> get();
             }
         }
 
@@ -88,10 +83,8 @@ class CalendarController extends Controller
     public function show(string $id)
     {
         $set = Set::find($id);
-        $set -> state = State::where("id", $set -> state_id) -> select("name_" . app() -> getLocale() . " AS name", "color") -> first();
         $set -> teamA = Team::find($set -> teamA);
         $set -> teamB = Team::find($set -> teamB);
-        $set -> games = Game::where("set_id", $id) -> get();
 
         foreach ($set -> games as $game)
         {

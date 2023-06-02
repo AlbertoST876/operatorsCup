@@ -9,6 +9,16 @@ class Set extends Model
 {
     use HasFactory;
 
+    public function state()
+    {
+        return $this -> belongsTo(State::class) -> select("name_" . app() -> getLocale() . " AS name", "color");
+    }
+
+    public function games()
+    {
+        return $this -> hasMany(Game::class);
+    }
+
     /**
      * The attributes that are mass assignable.
      *
