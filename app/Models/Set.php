@@ -14,9 +14,19 @@ class Set extends Model
         return $this -> belongsTo(State::class) -> select("name_" . app() -> getLocale() . " AS name", "color");
     }
 
+    public function teams()
+    {
+        return $this -> belongsToMany(Team::class, "set_teams");
+    }
+
     public function games()
     {
         return $this -> hasMany(Game::class);
+    }
+
+    public function workday()
+    {
+        return $this -> belongsTo(Workday::class);
     }
 
     /**
@@ -28,8 +38,6 @@ class Set extends Model
         "mapban",
         "workday_id",
         "state_id",
-        "teamA",
-        "teamB",
         "youtube",
         "datetime",
         "active",

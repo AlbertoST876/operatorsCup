@@ -12,7 +12,7 @@
                     <h1 class="block my-8 text-4xl sm:text-6xl font-black">{{ mb_strtoupper(__("app.match")) }}</h1>
 
                     <div class="flex flex-nowrap items-center space-x-2">
-                        <a href="{{ route("teams.show", $set -> teamA -> id) }}"><img class="inline-block w-24 sm:w-32 h-24 sm:h-32" src="{{ asset($set -> teamA -> logo) }}" alt="{{ $set -> teamA -> name }} Logo"></a>
+                        <a href="{{ route("teams.show", $set -> teams[0] -> id) }}"><img class="inline-block w-24 sm:w-32 h-24 sm:h-32" src="{{ asset($set -> teams[0] -> logo) }}" alt="{{ $set -> teams[0] -> name }} Logo"></a>
 
                         <span class="text-4xl font-bold">
                             @php
@@ -21,16 +21,16 @@
                             @endphp
 
                             @if (count($set -> games) == 1)
-                                @if ($set -> games[0] -> winner -> id == $set -> teamA -> id)
-                                    @php $teamAResult = $set -> games[0] -> wResult; @endphp
-                                    @php $teamBResult = $set -> games[0] -> lResult; @endphp
+                                @if ($set -> games[0] -> teams[0] -> pivot -> team_id == $set -> teams[0] -> id)
+                                    @php $teamAResult = $set -> games[0] -> teams[0] -> pivot -> result; @endphp
+                                    @php $teamBResult = $set -> games[0] -> teams[1] -> pivot -> result; @endphp
                                 @else
-                                    @php $teamAResult = $set -> games[0] -> lResult; @endphp
-                                    @php $teamBResult = $set -> games[0] -> wResult; @endphp
+                                    @php $teamAResult = $set -> games[0] -> teams[1] -> pivot -> result; @endphp
+                                    @php $teamBResult = $set -> games[0] -> teams[0] -> pivot -> result; @endphp
                                 @endif
                             @else
                                 @foreach ($set -> games as $game)
-                                    @if ($game -> winner == $set -> teamA -> id)
+                                    @if ($game -> teams[0] -> pivot -> team_id == $set -> teams[0] -> id)
                                         @php $teamAResult++; @endphp
                                     @else
                                         @php $teamBResult++; @endphp
@@ -41,7 +41,7 @@
                             {{ $teamAResult }} - {{ $teamBResult }}
                         </span>
 
-                        <a href="{{ route("teams.show", $set -> teamB -> id) }}"><img class="inline-block w-24 sm:w-32 h-24 sm:h-32" src="{{ asset($set -> teamB -> logo) }}" alt="{{ $set -> teamB -> name }} Logo"></a>
+                        <a href="{{ route("teams.show", $set -> teams[1] -> id) }}"><img class="inline-block w-24 sm:w-32 h-24 sm:h-32" src="{{ asset($set -> teams[1] -> logo) }}" alt="{{ $set -> teams[1] -> name }} Logo"></a>
                     </div>
                 </div>
 
@@ -73,7 +73,7 @@
                     </div>
                 @endif
 
-                @if (count($set -> games[0] -> wMembers) > 0 && count($set -> games[0] -> lMembers) > 0)
+                @if (count($set -> games[0] -> members) > 0)
                     <div class="mt-16 mb-8">
                         <h2 class="block my-2 text-2xl sm:text-4xl font-black">@lang("app.stats")</h2>
 
@@ -95,39 +95,43 @@
 
                                 <tbody>
                                     <tr>
-                                        <td class="p-4" rowspan="{{ count($game -> wMembers) + 1 }}">
-                                            <a href="{{ route("teams.show", $game -> winner -> id) }}"><img class="w-60 h-60" src="{{ asset($game -> winner -> logo) }}" alt="{{ $game -> winner -> name }} Logo"></a>
+                                        <td class="p-4" rowspan="6">
+                                            <a href="{{ route("teams.show", $game -> teams[0] -> id) }}"><img class="w-60 h-60" src="{{ asset($game -> teams[0] -> logo) }}" alt="{{ $game -> teams[0] -> name }} Logo"></a>
                                         </td>
 
-                                        <td class="p-4 text-6xl sm:text-8xl font-black" rowspan="{{ count($game -> wMembers) + 1 }}">{{ $game -> wResult }}</td>
+                                        <td class="p-4 text-6xl sm:text-8xl font-black" rowspan="6">{{ $game -> teams[0] -> pivot -> result }}</td>
                                     </tr>
 
-                                    @foreach ($game -> wMembers as $member)
-                                        <tr class="border-b">
-                                            <td class="p-4 text-2xl sm:text-4xl font-bold">{{ $member -> nickname }}</td>
-                                            <td class="p-4 text-2xl sm:text-4xl text-center font-bold">{{ $member -> kills }}</td>
-                                            <td class="p-4 text-2xl sm:text-4xl text-center font-bold">{{ $member -> deaths }}</td>
-                                            <td class="p-4 text-2xl sm:text-4xl text-center font-bold">{{ $member -> assists }}</td>
-                                            <td class="p-4 text-2xl sm:text-4xl text-center font-bold">{{ $member -> kd }}</td>
-                                        </tr>
+                                    @foreach ($game -> members as $member)
+                                        @if ($member -> pivot -> team_id == $game -> teams[0] -> id)
+                                            <tr class="border-b">
+                                                <td class="p-4 text-2xl sm:text-4xl font-bold">{{ $member -> nickname }}</td>
+                                                <td class="p-4 text-2xl sm:text-4xl text-center font-bold">{{ $member -> kills }}</td>
+                                                <td class="p-4 text-2xl sm:text-4xl text-center font-bold">{{ $member -> deaths }}</td>
+                                                <td class="p-4 text-2xl sm:text-4xl text-center font-bold">{{ $member -> assists }}</td>
+                                                <td class="p-4 text-2xl sm:text-4xl text-center font-bold">{{ $member -> kd }}</td>
+                                            </tr>
+                                        @endif
                                     @endforeach
 
                                     <tr>
-                                        <td class="p-4" rowspan="{{ count($game -> lMembers) + 1 }}">
-                                            <a href="{{ route("teams.show", $game -> loser -> id) }}"><img class="w-60 h-60" src="{{ asset($game -> loser -> logo) }}" alt="{{ $game -> loser -> name }} Logo"></a>
+                                        <td class="p-4" rowspan="6">
+                                            <a href="{{ route("teams.show", $game -> teams[1] -> id) }}"><img class="w-60 h-60" src="{{ asset($game -> teams[1] -> logo) }}" alt="{{ $game -> teams[1] -> name }} Logo"></a>
                                         </td>
 
-                                        <td class="p-4 text-6xl sm:text-8xl font-black" rowspan="{{ count($game -> lMembers) + 1 }}">{{ $game -> lResult }}</td>
+                                        <td class="p-4 text-6xl sm:text-8xl font-black" rowspan="6">{{ $game -> teams[1] -> pivot -> result }}</td>
                                     </tr>
 
-                                    @foreach ($game -> lMembers as $member)
-                                        <tr class="border-b">
-                                            <td class="p-4 text-2xl sm:text-4xl font-bold">{{ $member -> nickname }}</td>
-                                            <td class="p-4 text-2xl sm:text-4xl text-center font-bold">{{ $member -> kills }}</td>
-                                            <td class="p-4 text-2xl sm:text-4xl text-center font-bold">{{ $member -> deaths }}</td>
-                                            <td class="p-4 text-2xl sm:text-4xl text-center font-bold">{{ $member -> assists }}</td>
-                                            <td class="p-4 text-2xl sm:text-4xl text-center font-bold">{{ $member -> kd }}</td>
-                                        </tr>
+                                    @foreach ($game -> members as $member)
+                                        @if ($member -> pivot -> team_id == $game -> teams[1] -> id)
+                                            <tr class="border-b">
+                                                <td class="p-4 text-2xl sm:text-4xl font-bold">{{ $member -> nickname }}</td>
+                                                <td class="p-4 text-2xl sm:text-4xl text-center font-bold">{{ $member -> kills }}</td>
+                                                <td class="p-4 text-2xl sm:text-4xl text-center font-bold">{{ $member -> deaths }}</td>
+                                                <td class="p-4 text-2xl sm:text-4xl text-center font-bold">{{ $member -> assists }}</td>
+                                                <td class="p-4 text-2xl sm:text-4xl text-center font-bold">{{ $member -> kd }}</td>
+                                            </tr>
+                                        @endif
                                     @endforeach
                                 </tbody>
                             </table>

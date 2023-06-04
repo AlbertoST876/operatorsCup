@@ -9,6 +9,11 @@ class Workday extends Model
 {
     use HasFactory;
 
+    public function phase()
+    {
+        return $this -> belongsTo(Phase::class);
+    }
+
     public function sets()
     {
         return $this -> hasMany(Set::class);
@@ -20,6 +25,7 @@ class Workday extends Model
      * @var array<int, string>
      */
     protected $fillable = [
+        "phase_id",
         "name",
         "date",
     ];

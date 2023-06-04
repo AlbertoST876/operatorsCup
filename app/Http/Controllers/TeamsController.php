@@ -70,25 +70,34 @@ class TeamsController extends Controller
     public function show(string $id)
     {
         $team = Team::find($id);
+        $points = 0;
 
         foreach ($team -> sets as $set)
         {
-            $set -> teamA = Team::find($set -> teamA);
-            $set -> teamB = Team::find($set -> teamB);
-        }
-
-        $games = Set::leftJoin("games", "sets.id", "games.set_id") -> where("sets.teamA", $id) -> orWhere("sets.teamB", $id) -> where("sets.workday_id", "<", 10) -> where("sets.active", true) -> select("games.winner", "games.overtime") -> get();
-        $points = 0;
-
-        foreach ($games as $game)
-        {
-            if ($game -> overtime)
+            if ($set -> workday -> phase -> id == 1)
             {
-                $points += $game -> winner == $id ? 2 : 1;
-            }
-            else
-            {
-                $points += $game -> winner == $id ? 3 : 0;
+                if ($set -> games[0] -> overtime)
+                {
+                    if ($set -> games[0] -> teams[0] -> pivot -> team_id == $id)
+                    {
+                        $points += $set -> games[0] -> teams[0] -> pivot -> winner ? 2 : 1;
+                    }
+                    else
+                    {
+                        $points += $set -> games[0] -> teams[1] -> pivot -> winner ? 2 : 1;
+                    }
+                }
+                else
+                {
+                    if ($set -> games[0] -> teams[0] -> pivot -> team_id == $id)
+                    {
+                        $points += $set -> games[0] -> teams[0] -> pivot -> winner ? 3 : 0;
+                    }
+                    else
+                    {
+                        $points += $set -> games[0] -> teams[1] -> pivot -> winner ? 3 : 0;
+                    }
+                }
             }
         }
 

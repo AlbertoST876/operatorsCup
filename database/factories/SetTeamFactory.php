@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Game>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\SetTeam>
  */
-class GameFactory extends Factory
+class SetTeamFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,7 +18,7 @@ class GameFactory extends Factory
     {
         return [
             "set_id" => fake() -> randomNumber(),
-            "overtime" => fake() -> boolean(),
+            "team_id" => fake() -> randomNumber(),
         ];
     }
 }

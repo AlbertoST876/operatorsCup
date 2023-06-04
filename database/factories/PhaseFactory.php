@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Workday>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Phase>
  */
-class WorkdayFactory extends Factory
+class PhaseFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,10 +17,8 @@ class WorkdayFactory extends Factory
     public function definition(): array
     {
         return [
-            "phase_id" => fake() -> randomNumber(),
             "name_en" => fake() -> name(),
             "name_es" => fake() -> name(),
-            "date" => fake() -> date(),
         ];
     }
 }

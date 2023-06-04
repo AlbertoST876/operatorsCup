@@ -16,9 +16,9 @@ class RankingController extends Controller
      */
     public function index()
     {
-        $teams = Team::where("active", true) -> select("id", "name", "logo") -> get() -> toArray();
+        $teams = Team::where("active", true) -> get();
 
-        for ($i = 0; $i < count($teams); $i++)
+        foreach ($teams as $team)
         {
             $points = 0;
             $won = 0;
@@ -28,55 +28,89 @@ class RankingController extends Controller
             $roundsWon = 0;
             $roundsLost = 0;
 
-            $games = Set::leftJoin("games", "sets.id", "games.set_id") -> where("sets.teamA", $teams[$i]["id"]) -> orWhere("sets.teamB", $teams[$i]["id"]) -> where("sets.workday_id", "<", 10) -> where("sets.active", true) -> select("games.winner", "games.overtime",  "games.wResult", "games.lResult") -> get();
-
-            foreach ($games as $game)
+            foreach ($team -> sets as $set)
             {
-                if ($game -> overtime)
+                if ($set -> workday -> phase -> id == 1)
                 {
-                    if ($game -> winner == $teams[$i]["id"])
+                    if ($set -> games[0] -> overtime)
                     {
-                        $wonOvertime++;
-                        $points += 2;
+                        if ($set -> games[0] -> teams[0] -> pivot -> team_id == $team -> id)
+                        {
+                            if ($set -> games[0] -> teams[0] -> pivot -> winner)
+                            {
+                                $wonOvertime++;
+                                $points += 2;
+                            }
+                            else
+                            {
+                                $lostOvertime++;
+                                $points += 1;
+                            }
+                        }
+                        else
+                        {
+                            if ($set -> games[0] -> teams[1] -> pivot -> winner)
+                            {
+                                $wonOvertime++;
+                                $points += 2;
+                            }
+                            else
+                            {
+                                $lostOvertime++;
+                                $points += 1;
+                            }
+                        }
                     }
                     else
                     {
-                        $lostOvertime++;
-                        $points++;
+                        if ($set -> games[0] -> teams[0] -> pivot -> team_id == $team -> id)
+                        {
+                            if ($set -> games[0] -> teams[0] -> pivot -> winner)
+                            {
+                                $won++;
+                                $points += 3;
+                            }
+                            else
+                            {
+                                $lost++;
+                            }
+                        }
+                        else
+                        {
+                            if ($set -> games[0] -> teams[1] -> pivot -> winner)
+                            {
+                                $won++;
+                                $points += 3;
+                            }
+                            else
+                            {
+                                $lost++;
+                            }
+                        }
                     }
-                }
-                else
-                {
-                    if ($game -> winner == $teams[$i]["id"])
-                    {
-                        $won++;
-                        $points += 3;
-                    }
-                    else
-                    {
-                        $lost++;
-                    }
-                }
 
-                if ($game -> winner == $teams[$i]["id"])
-                {
-                    $roundsWon += $game -> wResult;
-                    $roundsLost += $game -> lResult;
-                }
-                else
-                {
-                    $roundsWon += $game -> lResult;
-                    $roundsLost += $game -> wResult;
+                    if ($set -> games[0] -> teams[0] -> pivot -> team_id == $team -> id)
+                    {
+                        $roundsWon += $set -> games[0] -> teams[0] -> pivot -> result;
+                        $roundsLost += $set -> games[0] -> teams[1] -> pivot -> result;
+                    }
+                    else
+                    {
+                        $roundsWon += $set -> games[0] -> teams[1] -> pivot -> result;
+                        $roundsLost += $set -> games[0] -> teams[0] -> pivot -> result;
+                    }
                 }
             }
 
-            $teams[$i]["points"] = $points;
-            $teams[$i]["won"] = $won;
-            $teams[$i]["lost"] = $lost;
-            $teams[$i]["wonOvertime"] = $wonOvertime;
-            $teams[$i]["lostOvertime"] = $lostOvertime;
-            $teams[$i]["roundsDiff"] = $roundsWon - $roundsLost;
+            $team -> points = $points;
+            $team -> won = $won;
+            $team -> lost = $lost;
+            $team -> wonOvertime = $wonOvertime;
+            $team -> lostOvertime = $lostOvertime;
+            $team -> roundsDiff = $roundsWon - $roundsLost;
         }
+
+        $teams = $teams -> toArray();
 
         usort($teams, function($teamA, $teamB) {
             if ($teamA["points"] == $teamB["points"])

@@ -35,20 +35,9 @@ class CalendarController extends Controller
      */
     public function index()
     {
-        $workdays = Workday::select("id", "name_" . app() -> getLocale() . " AS name") -> get();
-
-        foreach ($workdays as $workday)
-        {
-            foreach ($workday -> sets as $set)
-            {
-                $set -> teamA = Team::find($set -> teamA);
-                $set -> teamB = Team::find($set -> teamB);
-            }
-        }
-
         return view("calendar.index", [
             "dateFormat" => self::DATE_FORMAT[app() -> getLocale()],
-            "workdays" => $workdays,
+            "workdays" => Workday::select("id", "name_" . app() -> getLocale() . " AS name") -> get(),
         ]);
     }
 
@@ -81,21 +70,9 @@ class CalendarController extends Controller
      */
     public function show(string $id)
     {
-        $set = Set::find($id);
-        $set -> teamA = Team::find($set -> teamA);
-        $set -> teamB = Team::find($set -> teamB);
-
-        foreach ($set -> games as $game)
-        {
-            $game -> winner = Team::find($game -> winner);
-            $game -> loser = Team::find($game -> loser);
-            $game -> wMembers = GameMember::leftJoin("members", "game_members.member_id", "members.id") -> where("game_members.game_id", $game -> id) -> where("game_members.team_id", $game -> winner -> id) -> select("members.nickname", "game_members.kills", "game_members.deaths", "game_members.assists") -> selectRaw("round(game_members.kills / game_members.deaths, 2) AS kd") -> orderByDesc("kd") -> get();
-            $game -> lMembers = GameMember::leftJoin("members", "game_members.member_id", "members.id") -> where("game_members.game_id", $game -> id) -> where("game_members.team_id", $game -> loser -> id) -> select("members.nickname", "game_members.kills", "game_members.deaths", "game_members.assists") -> selectRaw("round(game_members.kills / game_members.deaths, 2) AS kd") -> orderByDesc("kd") -> get();
-        }
-
         return view("calendar.show", [
             "dateFormat" => self::DATE_FORMAT[app() -> getLocale()],
-            "set" => $set,
+            "set" => Set::find($id),
         ]);
     }
 

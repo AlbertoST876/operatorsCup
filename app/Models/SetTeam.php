@@ -5,19 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Team extends Model
+class SetTeam extends Model
 {
     use HasFactory;
-
-    public function members()
-    {
-        return $this -> hasMany(Member::class) -> where("active", true) -> orderBy("role_id");
-    }
-
-    public function sets()
-    {
-        return $this -> belongsToMany(Set::class, "set_teams") -> where("active", true);
-    }
 
     /**
      * The attributes that are mass assignable.
@@ -25,16 +15,8 @@ class Team extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        "name",
-        "abbr",
-        "logo",
-        "email",
-        "tel",
-        "discord",
-        "twitter",
-        "twitch",
-        "youtube",
-        "active",
+        "set_id",
+        "team_id",
     ];
 
     /**
