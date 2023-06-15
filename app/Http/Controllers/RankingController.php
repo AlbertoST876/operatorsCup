@@ -32,72 +32,75 @@ class RankingController extends Controller
             {
                 if ($set -> workday -> phase -> id == 1)
                 {
-                    if ($set -> games[0] -> overtime)
+                    if (count($set -> games) > 0)
                     {
-                        if ($set -> games[0] -> teams[0] -> pivot -> team_id == $team -> id)
+                        if ($set -> games[0] -> overtime)
                         {
-                            if ($set -> games[0] -> teams[0] -> pivot -> winner)
+                            if ($set -> games[0] -> teams[0] -> pivot -> team_id == $team -> id)
                             {
-                                $wonOvertime++;
-                                $points += 2;
+                                if ($set -> games[0] -> teams[0] -> pivot -> winner)
+                                {
+                                    $wonOvertime++;
+                                    $points += 2;
+                                }
+                                else
+                                {
+                                    $lostOvertime++;
+                                    $points += 1;
+                                }
                             }
                             else
                             {
-                                $lostOvertime++;
-                                $points += 1;
+                                if ($set -> games[0] -> teams[1] -> pivot -> winner)
+                                {
+                                    $wonOvertime++;
+                                    $points += 2;
+                                }
+                                else
+                                {
+                                    $lostOvertime++;
+                                    $points += 1;
+                                }
                             }
                         }
                         else
                         {
-                            if ($set -> games[0] -> teams[1] -> pivot -> winner)
+                            if ($set -> games[0] -> teams[0] -> pivot -> team_id == $team -> id)
                             {
-                                $wonOvertime++;
-                                $points += 2;
+                                if ($set -> games[0] -> teams[0] -> pivot -> winner)
+                                {
+                                    $won++;
+                                    $points += 3;
+                                }
+                                else
+                                {
+                                    $lost++;
+                                }
                             }
                             else
                             {
-                                $lostOvertime++;
-                                $points += 1;
+                                if ($set -> games[0] -> teams[1] -> pivot -> winner)
+                                {
+                                    $won++;
+                                    $points += 3;
+                                }
+                                else
+                                {
+                                    $lost++;
+                                }
                             }
                         }
-                    }
-                    else
-                    {
-                        if ($set -> games[0] -> teams[0] -> pivot -> team_id == $team -> id)
-                        {
-                            if ($set -> games[0] -> teams[0] -> pivot -> winner)
-                            {
-                                $won++;
-                                $points += 3;
-                            }
-                            else
-                            {
-                                $lost++;
-                            }
-                        }
-                        else
-                        {
-                            if ($set -> games[0] -> teams[1] -> pivot -> winner)
-                            {
-                                $won++;
-                                $points += 3;
-                            }
-                            else
-                            {
-                                $lost++;
-                            }
-                        }
-                    }
 
-                    if ($set -> games[0] -> teams[0] -> pivot -> team_id == $team -> id)
-                    {
-                        $roundsWon += $set -> games[0] -> teams[0] -> pivot -> result;
-                        $roundsLost += $set -> games[0] -> teams[1] -> pivot -> result;
-                    }
-                    else
-                    {
-                        $roundsWon += $set -> games[0] -> teams[1] -> pivot -> result;
-                        $roundsLost += $set -> games[0] -> teams[0] -> pivot -> result;
+                        if ($set -> games[0] -> teams[0] -> pivot -> team_id == $team -> id)
+                        {
+                            $roundsWon += $set -> games[0] -> teams[0] -> pivot -> result;
+                            $roundsLost += $set -> games[0] -> teams[1] -> pivot -> result;
+                        }
+                        else
+                        {
+                            $roundsWon += $set -> games[0] -> teams[1] -> pivot -> result;
+                            $roundsLost += $set -> games[0] -> teams[0] -> pivot -> result;
+                        }
                     }
                 }
             }

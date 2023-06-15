@@ -31,10 +31,10 @@
                         <hr>
 
                         <div class="flex flex-wrap md:flex-nowrap items-center justify-center">
-                            @if (!is_null($team -> discord)) <a class="mx-2 my-4 w-12 h-12" target="_blank" href="{{ $team -> discord }}"><img class="rounded-md" src="{{ asset("storage/images/social-networks/twitter.png") }}" alt="Discord"></a> @endif
+                            @if (!is_null($team -> discord)) <a class="mx-2 my-4 w-12 h-12" target="_blank" href="{{ $team -> discord }}"><img class="rounded-md" src="{{ asset("storage/images/social-networks/discord.png") }}" alt="Discord"></a> @endif
                             @if (!is_null($team -> twitter)) <a class="mx-2 my-4 w-12 h-12" target="_blank" href="{{ $team -> twitter }}"><img class="rounded-md" src="{{ asset("storage/images/social-networks/twitter.png") }}" alt="Twitter"></a> @endif
-                            @if (!is_null($team -> twitch)) <a class="mx-2 my-4 w-12 h-12" target="_blank" href="{{ $team -> twitch }}"><img class="rounded-md" src="{{ asset("storage/images/social-networks/twitter.png") }}" alt="Twitch"></a> @endif
-                            @if (!is_null($team -> youtube)) <a class="mx-2 my-4 w-12 h-12" target="_blank" href="{{ $team -> youtube }}"><img class="rounded-md" src="{{ asset("storage/images/social-networks/twitter.png") }}" alt="YouTube"></a> @endif
+                            @if (!is_null($team -> twitch)) <a class="mx-2 my-4 w-12 h-12" target="_blank" href="{{ $team -> twitch }}"><img class="rounded-md" src="{{ asset("storage/images/social-networks/twitch.png") }}" alt="Twitch"></a> @endif
+                            @if (!is_null($team -> youtube)) <a class="mx-2 my-4 w-12 h-12" target="_blank" href="{{ $team -> youtube }}"><img class="rounded-md" src="{{ asset("storage/images/social-networks/youtube.png") }}" alt="YouTube"></a> @endif
                         </div>
                     </div>
                 </div>
@@ -53,9 +53,9 @@
                                 </div>
 
                                 <div class="flex flex-nowrap items-center justify-center">
-                                    @if (!is_null($member -> twitter)) <a class="mx-2 my-4 w-8 h-8" target="_blank" href="{{ $member -> twitter }}"><img class="rounded-md" src="{{ asset("storage/images/social-networks/twitter.png") }}" alt="Twitter"></a> @endif
-                                    @if (!is_null($member -> twitch)) <a class="mx-2 my-4 w-8 h-8" target="_blank" href="{{ $member -> twitch }}"><img class="rounded-md" src="{{ asset("storage/images/social-networks/twitter.png") }}" alt="Twitch"></a> @endif
-                                    @if (!is_null($member -> youtube)) <a class="mx-2 my-4 w-8 h-8" target="_blank" href="{{ $member -> youtube }}"><img class="rounded-md" src="{{ asset("storage/images/social-networks/twitter.png") }}" alt="YouTube"></a> @endif
+                                    @if (!is_null($member -> twitter)) <a class="mx-1 my-2 w-8 h-8" target="_blank" href="{{ $member -> twitter }}"><img class="rounded-md" src="{{ asset("storage/images/social-networks/twitter.png") }}" alt="Twitter"></a> @endif
+                                    @if (!is_null($member -> twitch)) <a class="mx-1 my-2 w-8 h-8" target="_blank" href="{{ $member -> twitch }}"><img class="rounded-md" src="{{ asset("storage/images/social-networks/twitch.png") }}" alt="Twitch"></a> @endif
+                                    @if (!is_null($member -> youtube)) <a class="mx-1 my-2 w-8 h-8" target="_blank" href="{{ $member -> youtube }}"><img class="rounded-md" src="{{ asset("storage/images/social-networks/youtube.png") }}" alt="YouTube"></a> @endif
                                 </div>
                             </div>
                         @endforeach

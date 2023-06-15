@@ -14,28 +14,45 @@ class SetSeeder extends Seeder
     public function run(): void
     {
         $sets = [
-            [1,  "storage/images/mapbans/1.png",  1, 3, "https://www.youtube.com/", "2022-01-01 16:00:00", 1],
-            [3,  null,                            2, 1, null,                       "2022-01-02 17:00:00", 1],
-            [5,  "storage/images/mapbans/5.png",  1, 3, "https://www.youtube.com/", "2022-01-03 16:00:00", 1],
-            [9,  "storage/images/mapbans/9.png",  3, 3, "https://www.youtube.com/", "2022-01-04 17:00:00", 1],
-            [14, "storage/images/mapbans/14.png", 5, 3, "https://www.youtube.com/", "2022-01-05 16:00:00", 1],
-            [15, "storage/images/mapbans/15.png", 4, 3, "https://www.youtube.com/", "2022-01-06 17:00:00", 1],
-            [17, "storage/images/mapbans/17.png", 5, 3, "https://www.youtube.com/", "2022-01-07 16:00:00", 1],
-            [19, "storage/images/mapbans/19.png", 6, 3, "https://www.youtube.com/", "2022-01-08 17:00:00", 1],
-            [20, "storage/images/mapbans/20.png", 7, 3, "https://www.youtube.com/", "2022-01-09 16:00:00", 1],
-            [21, "storage/images/mapbans/21.png", 7, 3, "https://www.youtube.com/", "2022-01-10 17:00:00", 1],
+            [null, 1, 2, null, "2023-07-01 17:00:00", 1],
+            [null, 1, 2, null, "2023-07-01 18:30:00", 1],
+            [null, 1, 2, null, "2023-07-02 17:00:00", 1],
+            [null, 1, 2, null, "2023-07-02 18:30:00", 1],
+            [null, 2, 2, null, "2023-07-08 17:00:00", 1],
+            [null, 2, 2, null, "2023-07-08 18:30:00", 1],
+            [null, 2, 2, null, "2023-07-09 17:00:00", 1],
+            [null, 2, 2, null, "2023-07-09 18:30:00", 1],
+            [null, 3, 2, null, "2023-07-15 17:00:00", 1],
+            [null, 3, 2, null, "2023-07-15 18:30:00", 1],
+            [null, 3, 2, null, "2023-07-16 17:00:00", 1],
+            [null, 3, 2, null, "2023-07-16 18:30:00", 1],
+            [null, 4, 2, null, "2023-07-22 17:00:00", 1],
+            [null, 4, 2, null, "2023-07-22 18:30:00", 1],
+            [null, 4, 2, null, "2023-07-23 17:00:00", 1],
+            [null, 4, 2, null, "2023-07-23 18:30:00", 1],
+            [null, 5, 2, null, "2023-08-05 17:00:00", 1],
+            [null, 5, 2, null, "2023-08-05 18:30:00", 1],
+            [null, 5, 2, null, "2023-08-06 17:00:00", 1],
+            [null, 5, 2, null, "2023-08-06 18:30:00", 1],
+            [null, 6, 2, null, "2023-08-12 17:00:00", 1],
+            [null, 6, 2, null, "2023-08-12 18:30:00", 1],
+            [null, 6, 2, null, "2023-08-13 17:00:00", 1],
+            [null, 6, 2, null, "2023-08-13 18:30:00", 1],
+            [null, 7, 2, null, "2023-08-19 17:00:00", 1],
+            [null, 7, 2, null, "2023-08-19 18:30:00", 1],
+            [null, 7, 2, null, "2023-08-20 17:00:00", 1],
+            [null, 7, 2, null, "2023-08-20 18:30:00", 1],
         ];
 
         foreach ($sets as $set)
         {
             Set::factory() -> create([
-                "id" => $set[0],
-                "mapban" => $set[1],
-                "workday_id" => $set[2],
-                "state_id" => $set[3],
-                "youtube" => $set[4],
-                "datetime" => $set[5],
-                "active" => $set[6],
+                "mapban" => $set[0],
+                "workday_id" => $set[1],
+                "state_id" => $set[2],
+                "youtube" => $set[3],
+                "datetime" => $set[4],
+                "active" => $set[5],
             ]);
         }
     }
