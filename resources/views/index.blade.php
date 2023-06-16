@@ -14,7 +14,7 @@
 
             <aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-80 h-screen transition-transform -translate-x-full lg:translate-x-0" aria-label="Sidebar">
                 <nav class="h-full overflow-y-auto bg-black">
-                    <a href="{{ route("index") }}" class="flex mt-8 mb-2 items-center justify-center"><img src="{{ asset("icon.png") }}" class="h-64" alt="Operator's Cup Logo"></a>
+                    <a href="{{ route("index") }}" class="flex mt-8 mb-2 items-center justify-center"><img src="{{ asset("icon.png") }}" class="h-56 sm:h-64" alt="Operator's Cup Logo"></a>
 
                     <div>
                         <button id="languageButton" data-dropdown-toggle="language" class="flex mx-auto px-4 py-2 items-center text-white font-medium rounded-lg text-sm text-center hover:bg-white hover:text-black focus:ring-4 focus:outline-none focus:ring-white" type="button">
@@ -44,7 +44,7 @@
                         <li class="transition-all duration-500 hover:bg-white"><a href="{{ route("stats.index") }}" class="block px-8 py-4 text-xl text-white rounded-lg hover:text-black">{{ mb_strtoupper(__("app.stats")) }}</a></li>
                     </ul>
 
-                    <div class="flex px-8 py-4 items-center justify-between">
+                    <div class="flex mb-16 lg:mb-0 px-8 py-4 items-center justify-between">
                         <a class="w-8 h-8" target="_blank" href="https://discord.gg/a3RBT2NEVQ"><img class="rounded-md" src="{{ asset("storage/images/social-networks/discord.png") }}" alt="Twitter"></a>
                         <a class="w-8 h-8" target="_blank" href="https://twitter.com/OperatorsCup"><img class="rounded-md" src="{{ asset("storage/images/social-networks/twitter.png") }}" alt="Twitter"></a>
                         <a class="w-8 h-8" target="_blank" href="https://twitch.tv/operatorscupr6"><img class="rounded-md" src="{{ asset("storage/images/social-networks/twitch.png") }}" alt="Twitch"></a>
