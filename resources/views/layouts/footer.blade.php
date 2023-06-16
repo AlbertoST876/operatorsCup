@@ -9,7 +9,7 @@
             <span class="inline-block text-lg font-medium text-black">@lang("app.all_rights_reserved").</span>
         </div>
 
-        <ul class="flex mt-4 lg:mt-0 flex-wrap items-center text-lg font-medium text-black">
+        <ul class="block sm:flex mt-4 lg:mt-0 sm:flex-wrap sm:items-center space-y-1 sm:space-y-0 text-lg font-medium text-black">
             <li><a href="{{ route("about") }}" class="mr-8 hover:underline">@lang("app.about_us")</a></li>
             <li><a href="{{ route("privacyPolicy") }}" class="mr-8 hover:underline">@lang("app.privacy_policy")</a></li>
             <li><a href="{{ route("license") }}" class="mr-8 hover:underline">@lang("app.license")</a></li>
