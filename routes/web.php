@@ -22,14 +22,12 @@ use App\Http\Controllers\LanguageController;
 
 Route::get("lang/{locale}", [LanguageController::class, "index"]);
 
-Route::controller(HomeController::class) -> group(function()
-{
+Route::controller(HomeController::class) -> group(function() {
     Route::get("", "index") -> name("index");
     Route::get("rules", "rules") -> name("rules");
 });
 
-Route::controller(FooterController::class) -> group(function()
-{
+Route::controller(FooterController::class) -> group(function() {
     Route::get("about", "about") -> name("about");
     Route::get("license", "license") -> name("license");
     Route::get("privacyPolicy", "privacyPolicy") -> name("privacyPolicy");

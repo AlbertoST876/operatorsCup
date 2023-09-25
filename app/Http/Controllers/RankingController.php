@@ -116,19 +116,13 @@ class RankingController extends Controller
         $teams = $teams -> toArray();
 
         usort($teams, function($teamA, $teamB) {
-            if ($teamA["points"] == $teamB["points"])
-            {
-                return 0;
-            }
+            if ($teamA["points"] == $teamB["points"]) return 0;
 
             return ($teamA["points"] > $teamB["points"]) ? -1 : 1;
         });
 
         usort($teams, function($teamA, $teamB) {
-            if ($teamA["roundsDiff"] == $teamB["roundsDiff"])
-            {
-                return 0;
-            }
+            if ($teamA["roundsDiff"] == $teamB["roundsDiff"]) return 0;
 
             return ($teamA["roundsDiff"] > $teamB["roundsDiff"]) ? -1 : 1;
         });
