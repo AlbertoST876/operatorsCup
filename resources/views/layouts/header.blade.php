@@ -18,12 +18,12 @@
 
         <div class="hidden lg:flex w-full lg:w-auto lg:items-center lg:justify-between lg:order-1 " id="navbar-default">
             <ul class="flex mt-4 lg:mt-0 p-4 lg:p-0 flex-col lg:flex-row lg:space-x-4 space-y-2 lg:space-y-0 font-bold">
-                <li class="transition-all duration-300 hover:bg-white rounded-lg"><a href="{{ route("index") }}" class="block px-4 py-2 text-lg text-white hover:text-black md:hover:bg-transparent rounded-0 md:rounded-lg">@lang("app.home")</a></li>
-                <li class="transition-all duration-300 hover:bg-white rounded-lg"><a href="{{ route("rules") }}" class="block px-4 py-2 text-lg text-white hover:text-black md:hover:bg-transparent rounded-0 md:rounded-lg">@lang("app.rules")</a></li>
-                <li class="transition-all duration-300 hover:bg-white rounded-lg"><a href="{{ route("teams.index") }}" class="block px-4 py-2 text-lg text-white hover:text-black md:hover:bg-transparent rounded-0 md:rounded-lg">@lang("app.teams")</a></li>
-                <li class="transition-all duration-300 hover:bg-white rounded-lg"><a href="{{ route("calendar.index") }}" class="block px-4 py-2 text-lg text-white hover:text-black md:hover:bg-transparent rounded-0 md:rounded-lg">@lang("app.calendar")</a></li>
-                <li class="transition-all duration-300 hover:bg-white rounded-lg"><a href="{{ route("ranking.index") }}" class="block px-4 py-2 text-lg text-white hover:text-black md:hover:bg-transparent rounded-0 md:rounded-lg">@lang("app.ranking")</a></li>
-                <li class="transition-all duration-300 hover:bg-white rounded-lg"><a href="{{ route("stats.index") }}" class="block px-4 py-2 text-lg text-white hover:text-black md:hover:bg-transparent rounded-0 md:rounded-lg">@lang("app.stats")</a></li>
+                <li class="transition-all duration-300 hover:bg-white rounded-lg"><a href="{{ route("index") }}" class="block px-4 py-2 text-lg text-white hover:text-black md:hover:bg-transparent rounded-0 md:rounded-lg">{{ mb_strtoupper(__("app.home")) }}</a></li>
+                <li class="transition-all duration-300 hover:bg-white rounded-lg"><a href="{{ route("rules") }}" class="block px-4 py-2 text-lg text-white hover:text-black md:hover:bg-transparent rounded-0 md:rounded-lg">{{ mb_strtoupper(__("app.rules")) }}</a></li>
+                <li class="transition-all duration-300 hover:bg-white rounded-lg"><a href="{{ route("teams.index") }}" class="block px-4 py-2 text-lg text-white hover:text-black md:hover:bg-transparent rounded-0 md:rounded-lg">{{ mb_strtoupper(__("app.teams")) }}</a></li>
+                <li class="transition-all duration-300 hover:bg-white rounded-lg"><a href="{{ route("calendar.index") }}" class="block px-4 py-2 text-lg text-white hover:text-black md:hover:bg-transparent rounded-0 md:rounded-lg">{{ mb_strtoupper(__("app.calendar")) }}</a></li>
+                <li class="transition-all duration-300 hover:bg-white rounded-lg"><a href="{{ route("ranking.index") }}" class="block px-4 py-2 text-lg text-white hover:text-black md:hover:bg-transparent rounded-0 md:rounded-lg">{{ mb_strtoupper(__("app.ranking")) }}</a></li>
+                <li class="transition-all duration-300 hover:bg-white rounded-lg"><a href="{{ route("stats.index") }}" class="block px-4 py-2 text-lg text-white hover:text-black md:hover:bg-transparent rounded-0 md:rounded-lg">{{ mb_strtoupper(__("app.stats")) }}</a></li>
             </ul>
         </div>
     </nav>

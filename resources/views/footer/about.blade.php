@@ -55,7 +55,7 @@
                     </div>
 
                     <div class="my-8">
-                        <h3 class="block mt-8 mb-4 text-xl sm:text-2xl font-black">@lang("app.season") 3 (@lang("app.current"))</h3>
+                        <h3 class="block mt-8 mb-4 text-xl sm:text-2xl font-black">@lang("app.season") 3 (@lang("app.cancelled"))</h3>
 
                         <p class="block my-4 text-justify text-lg">@lang("app.history_season3a")</p>
                         <p class="block my-4 text-justify text-lg">@lang("app.history_season3b")</p>
@@ -65,15 +65,15 @@
                     </div>
                 </div>
 
+                <!--
                 <div class="mt-16 mb-8">
                     <h2 class="block my-2 text-2xl sm:text-4xl font-black">@lang("app.staff")</h2>
 
                     <hr>
 
-                    <div class="flex flex-wrap items-center justify-center">
-
-                    </div>
+                    <div class="flex flex-wrap items-center justify-center"></div>
                 </div>
+                -->
             </div>
         </main>
 
