@@ -49,7 +49,7 @@ class MemberSeeder extends Seeder
             [3, 6, "Kayoss.GRDX",     "Kayoss",                    null,                                  null, null,                                     "2003-04-15", 1],
             [4, 6, "b0urne.GRDX",     "b0urne",                    null,                                  null, null,                                     "1995-02-07", 1],
             [4, 6, "tRiPPeN.GRDX",    "trippen",                   null,                                  null, null,                                     "2002-08-06", 1],
-            [2, 7, "Tedd.BH",         "vaazquez#5073",             "https://twitter.com/vaazquezR6",      null, null,                                     "2003-08-16", 1],
+            [2, 7, "Tedd.BH",         "vaazquez#5073",             null,                                  null, null,                                     "2003-08-16", 1],
             [3, 7, "Morales.BH",      "Moraales#4424",             "https://twitter.com/sergioomoraales", null, null,                                     "2005-02-13", 1],
             [3, 7, "Gordo.BH",        "Gordo#0842",                "https://twitter.com/AguilaR6_",       null, null,                                     "2004-03-06", 1],
             [3, 7, "Gomeez.BH",       "Gomee#3797",                null,                                  null, null,                                     "2004-11-17", 1],

@@ -69,34 +69,37 @@ class TeamsController extends Controller
      */
     public function show(string $id)
     {
-        $team = Team::find($id);
+        $team = Team::findOrFail($id);
         $points = 0;
 
-        foreach ($team -> sets as $set)
+        if (count($team -> sets) > 0)
         {
-            if ($set -> workday -> phase -> id == 1)
+            foreach ($team -> sets as $set)
             {
-                if (count($set -> games) > 0) {
-                    if ($set -> games[0] -> overtime)
-                    {
-                        if ($set -> games[0] -> teams[0] -> pivot -> team_id == $id)
+                if ($set -> workday -> phase -> id == 1)
+                {
+                    if (count($set -> games) > 0) {
+                        if ($set -> games[0] -> overtime)
                         {
-                            $points += $set -> games[0] -> teams[0] -> pivot -> winner ? 2 : 1;
+                            if ($set -> games[0] -> teams[0] -> pivot -> team_id == $id)
+                            {
+                                $points += $set -> games[0] -> teams[0] -> pivot -> winner ? 2 : 1;
+                            }
+                            else
+                            {
+                                $points += $set -> games[0] -> teams[1] -> pivot -> winner ? 2 : 1;
+                            }
                         }
                         else
                         {
-                            $points += $set -> games[0] -> teams[1] -> pivot -> winner ? 2 : 1;
-                        }
-                    }
-                    else
-                    {
-                        if ($set -> games[0] -> teams[0] -> pivot -> team_id == $id)
-                        {
-                            $points += $set -> games[0] -> teams[0] -> pivot -> winner ? 3 : 0;
-                        }
-                        else
-                        {
-                            $points += $set -> games[0] -> teams[1] -> pivot -> winner ? 3 : 0;
+                            if ($set -> games[0] -> teams[0] -> pivot -> team_id == $id)
+                            {
+                                $points += $set -> games[0] -> teams[0] -> pivot -> winner ? 3 : 0;
+                            }
+                            else
+                            {
+                                $points += $set -> games[0] -> teams[1] -> pivot -> winner ? 3 : 0;
+                            }
                         }
                     }
                 }

@@ -72,7 +72,7 @@ class CalendarController extends Controller
     {
         return view("calendar.show", [
             "dateFormat" => self::DATE_FORMAT[app() -> getLocale()],
-            "set" => Set::find($id),
+            "set" => Set::findOrFail($id),
         ]);
     }
 
