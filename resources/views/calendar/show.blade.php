@@ -12,7 +12,7 @@
                     <h1 class="block my-8 text-4xl sm:text-6xl font-black">{{ mb_strtoupper(__("app.match")) }}</h1>
 
                     <div class="flex flex-nowrap items-center space-x-2">
-                        <a href="{{ route("teams.show", $set -> teams[0] -> id) }}"><img class="inline-block w-24 sm:w-32 h-24 sm:h-32" src="{{ asset($set -> teams[0] -> logo) }}" alt="{{ $set -> teams[0] -> name }} Logo"></a>
+                        <a href="{{ route("teams.show", Crypt::encrypt($set -> teams[0] -> id)) }}"><img class="inline-block w-24 sm:w-32 h-24 sm:h-32" src="{{ asset($set -> teams[0] -> logo) }}" alt="{{ $set -> teams[0] -> name }} Logo"></a>
 
                         <span class="px-4 text-4xl font-bold">
                             @php
@@ -46,7 +46,7 @@
                             {{ $teamAResult }} - {{ $teamBResult }}
                         </span>
 
-                        <a href="{{ route("teams.show", $set -> teams[1] -> id) }}"><img class="inline-block w-24 sm:w-32 h-24 sm:h-32" src="{{ asset($set -> teams[1] -> logo) }}" alt="{{ $set -> teams[1] -> name }} Logo"></a>
+                        <a href="{{ route("teams.show", Crypt::encrypt($set -> teams[1] -> id)) }}"><img class="inline-block w-24 sm:w-32 h-24 sm:h-32" src="{{ asset($set -> teams[1] -> logo) }}" alt="{{ $set -> teams[1] -> name }} Logo"></a>
                     </div>
                 </div>
 

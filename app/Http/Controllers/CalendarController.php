@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Crypt;
 use App\Models\GameMember;
 use App\Models\Workday;
 use App\Models\Team;
@@ -72,7 +73,7 @@ class CalendarController extends Controller
     {
         return view("calendar.show", [
             "dateFormat" => self::DATE_FORMAT[app() -> getLocale()],
-            "set" => Set::findOrFail($id),
+            "set" => Set::findOrFail(Crypt::decrypt($id)),
         ]);
     }
 

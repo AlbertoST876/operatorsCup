@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Crypt;
 use App\Models\Member;
 use App\Models\Team;
 use App\Models\Game;
@@ -69,7 +70,7 @@ class TeamsController extends Controller
      */
     public function show(string $id)
     {
-        $team = Team::findOrFail($id);
+        $team = Team::findOrFail(Crypt::decrypt($id));
         $points = 0;
 
         if (count($team -> sets) > 0)
