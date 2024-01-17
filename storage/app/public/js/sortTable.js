@@ -1,44 +1,37 @@
 let lastTh = 5;
 
-window.onload = function() {
-    let ths = document.querySelectorAll("#sortable th");
+document.addEventListener("DOMContentLoaded", function () {
+    const ths = document.querySelectorAll("#sortable th");
 
-    if (ths.length > 0) ths[lastTh].style.textDecoration = "underline";
+    if (ths.length > 0) {
+        setThDecoration(lastTh, ths);
+    }
+});
+
+function setThDecoration(index, ths) {
+    ths[lastTh].style.textDecoration = "none";
+    ths[index].style.textDecoration = "underline";
+    lastTh = index;
 }
 
 function sortTable(n) {
-    let i, shouldSwitch, switchCount = 0;
-    let table = document.getElementById("sortable");
-    let switching = true;
+    const table = document.getElementById("sortable");
+    const ths = document.querySelectorAll("#sortable th");
 
-    let ths = document.querySelectorAll("#sortable th");
-    ths[lastTh].style.textDecoration = "none";
-    ths[n].style.textDecoration = "underline";
-    lastTh = n;
+    setThDecoration(n, ths);
 
-    while (switching) {
-        switching = false;
-        let rows = table.rows;
+    let rows = Array.from(table.rows).slice(1);
 
-        for (i = 1; i < (rows.length - 1); i++) {
-            shouldSwitch = false;
-            let x = rows[i].getElementsByTagName("td")[n];
-            let y = rows[i + 1].getElementsByTagName("td")[n];
-            rows[i].getElementsByTagName("td")[0].innerHTML = "#" + i;
-            rows[i + 1].getElementsByTagName("td")[0].innerHTML = "#" + (i + 1);
+    rows.sort((a, b) => {
+        let x = a.cells[n].textContent;
+        let y = b.cells[n].textContent;
 
-            if (Number(x.textContent) < Number(y.textContent)) {
-                shouldSwitch = true;
-                break;
-            }
-        }
+        return Number(y) - Number(x);
+    });
 
-        if (shouldSwitch) {
-            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-            switching = true;
-            switchCount++;
-        } else if (switchCount == 0) {
-            switching = false;
-        }
-    }
+    rows.forEach((row, index) => {
+        row.cells[0].innerHTML = "#" + (index + 1);
+    });
+
+    rows.forEach(row => table.appendChild(row));
 }
