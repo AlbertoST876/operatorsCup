@@ -113,6 +113,6 @@
             </div>
         </main>
 
-        @include("layouts.footer", ["isIndex" => true])
+        @include("layouts.footer", ["fullWidth" => false])
     </body>
 </html>

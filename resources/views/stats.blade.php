@@ -42,6 +42,6 @@
             </div>
         </main>
 
-        @include("layouts.footer", ["isIndex" => false])
+        @include("layouts.footer")
     </body>
 </html>
