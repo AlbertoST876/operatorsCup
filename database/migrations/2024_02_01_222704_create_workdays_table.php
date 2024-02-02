@@ -17,6 +17,7 @@ return new class extends Migration
             $table -> foreignId("phase_id") -> references("id") -> on("phases");
             $table -> string("name_en", 50);
             $table -> string("name_es", 50);
+            $table -> string("abbr", 10);
             $table -> date("date");
             $table -> timestamps();
         });

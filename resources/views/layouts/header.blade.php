@@ -4,7 +4,7 @@
 
         <div class="flex lg:order-2">
             <div class="inline-flex items-center justify-between">
-                <a class="mx-2" target="_blank" href="https://discord.gg/a3RBT2NEVQ"><img class="w-8 h-8 rounded-md" src="{{ asset("storage/images/social-networks/discord.png") }}" alt="Twitter"></a>
+                <a class="mx-2" target="_blank" href="https://discord.gg/STsX48JgJa"><img class="w-8 h-8 rounded-md" src="{{ asset("storage/images/social-networks/discord.png") }}" alt="Twitter"></a>
                 <a class="mx-2" target="_blank" href="https://twitter.com/OperatorsCup"><img class="w-8 h-8 rounded-md" src="{{ asset("storage/images/social-networks/twitter.png") }}" alt="Twitter"></a>
                 <a class="mx-2" target="_blank" href="https://twitch.tv/operatorscupr6"><img class="w-8 h-8 rounded-md" src="{{ asset("storage/images/social-networks/twitch.png") }}" alt="Twitch"></a>
                 <a class="mx-2" target="_blank" href="https://youtube.com/@OperatorsCup"><img class="w-8 h-8 rounded-md" src="{{ asset("storage/images/social-networks/youtube.png") }}" alt="Youtube"></a>

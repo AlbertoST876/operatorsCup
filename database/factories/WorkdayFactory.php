@@ -20,6 +20,7 @@ class WorkdayFactory extends Factory
             "phase_id" => fake() -> randomNumber(),
             "name_en" => fake() -> name(),
             "name_es" => fake() -> name(),
+            "abbr" => fake() -> name(),
             "date" => fake() -> date(),
         ];
     }

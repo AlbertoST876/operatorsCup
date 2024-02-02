@@ -27,6 +27,7 @@ class Workday extends Model
     protected $fillable = [
         "phase_id",
         "name",
+        "abbr",
         "date",
     ];
 

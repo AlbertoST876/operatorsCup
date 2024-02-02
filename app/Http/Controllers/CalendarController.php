@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Crypt;
@@ -38,7 +37,7 @@ class CalendarController extends Controller
     {
         return view("calendar.index", [
             "dateFormat" => self::DATE_FORMAT[app() -> getLocale()],
-            "workdays" => Workday::select("id", "name_" . app() -> getLocale() . " AS name") -> get(),
+            "workdays" => Workday::select("id", "name_" . app() -> getLocale() . " AS name", "abbr") -> get(),
         ]);
     }
 

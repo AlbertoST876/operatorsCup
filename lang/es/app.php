@@ -12,7 +12,6 @@ return [
     "calendar" => "Calendario",
     "ranking" => "Clasificación",
     "stats" => "Estadísticas",
-    "season" => "Temporada",
     "previous" => "Anterior",
     "next" => "Siguiente",
     "all_rights_reserved" => "Todos los derechos reservados",

@@ -9,6 +9,11 @@ class Phase extends Model
 {
     use HasFactory;
 
+    public function workdays()
+    {
+        return $this -> hasMany(Workday::class);
+    }
+
     /**
      * The attributes that are mass assignable.
      *

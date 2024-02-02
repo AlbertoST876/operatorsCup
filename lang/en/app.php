@@ -12,7 +12,6 @@ return [
     "calendar" => "Calendar",
     "ranking" => "Ranking",
     "stats" => "Stats",
-    "season" => "Season",
     "previous" => "previous",
     "next" => "next",
     "all_rights_reserved" => "All rights reserved",

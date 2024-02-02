@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create("game_teams", function (Blueprint $table) {
+        Schema::create("set_teams", function(Blueprint $table)
+        {
             $table -> id();
-            $table -> foreignId("game_id") -> references("id") -> on("games");
+            $table -> foreignId("set_id") -> references("id") -> on("sets");
             $table -> foreignId("team_id") -> references("id") -> on("teams");
-            $table -> boolean("winner");
-            $table -> integer("result");
             $table -> timestamps();
         });
     }
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists("game_teams");
+        Schema::dropIfExists("set_teams");
     }
 };

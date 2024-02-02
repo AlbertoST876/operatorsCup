@@ -13,14 +13,28 @@ class GameSeeder extends Seeder
      */
     public function run(): void
     {
-        $games = [];
+        // SEASON 2
+        $games = [
+            [1,  0],
+            [2,  0],
+            [3,  0],
+            [4,  0],
+            [5,  0],
+            [6,  0],
+            [7,  0],
+            [8,  1],
+            [9,  0],
+            [10, 0],
+        ];
+
+        // SEASON 3
+        // $games = [];
 
         foreach ($games as $game)
         {
             Game::factory() -> create([
-                "id" => $game[0],
-                "set_id" => $game[1],
-                "overtime" => $game[2],
+                "set_id" => $game[0],
+                "overtime" => $game[1],
             ]);
         }
     }

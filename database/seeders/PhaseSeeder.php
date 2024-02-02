@@ -14,8 +14,8 @@ class PhaseSeeder extends Seeder
     public function run(): void
     {
         $phases = [
-            ["Regular League", "Liga Regular"],
-            ["Playoffs",       "Playoffs"],
+            ["League",   "Liga"],
+            ["Playoffs", "Playoffs"],
         ];
 
         foreach ($phases as $phase)

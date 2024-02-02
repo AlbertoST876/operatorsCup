@@ -14,7 +14,7 @@
                     <div class="flex flex-wrap items-center">
                         @foreach ($workdays as $workday)
                             @if (count($workday -> sets) > 0)
-                                <a class="mr-2 my-2 px-4 py-2 text-xl text-white bg-black rounded-lg" href="#{{ $workday -> id }}">{{ $workday -> id }}</a>
+                                <a class="mr-2 my-2 px-4 py-2 text-xl text-white bg-black rounded-lg" href="#{{ $workday -> abbr }}">{{ $workday -> abbr }}</a>
                             @endif
                         @endforeach
                     </div>
@@ -23,7 +23,7 @@
                 @foreach ($workdays as $workday)
                     @if (count($workday -> sets) > 0)
                         <div class="mb-16">
-                            <h2 id="{{ $workday -> id }}" class="block my-2 text-2xl sm:text-4xl font-black">{{ $workday -> name }}</h2>
+                            <h2 id="{{ $workday -> abbr }}" class="block my-2 text-2xl sm:text-4xl font-black">{{ $workday -> name }}</h2>
 
                             <hr>
 
