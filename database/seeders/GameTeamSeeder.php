@@ -13,7 +13,7 @@ class GameTeamSeeder extends Seeder
      */
     public function run(): void
     {
-        // SEASON 2 - Corregir game [game, ...]
+        // SEASON 2
         $gameTeams = [
             // J1 | MX vs ZP
             [1,	2, 0, 1],

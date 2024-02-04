@@ -15,16 +15,16 @@ class SetSeeder extends Seeder
     {
         // SEASON 2
         $sets = [
-            ["storage/images/mapbans/1.png",  1, 3, "https://www.youtube.com/", "2022-01-01 16:00:00", 1],
-            [null,                            2, 1, null,                       "2022-01-02 17:00:00", 1],
-            ["storage/images/mapbans/3.png",  1, 3, "https://www.youtube.com/", "2022-01-03 16:00:00", 1],
-            ["storage/images/mapbans/4.png",  3, 3, "https://www.youtube.com/", "2022-01-04 17:00:00", 1],
-            ["storage/images/mapbans/5.png",  5, 3, "https://www.youtube.com/", "2022-01-05 16:00:00", 1],
-            ["storage/images/mapbans/6.png",  4, 3, "https://www.youtube.com/", "2022-01-06 17:00:00", 1],
-            ["storage/images/mapbans/7.png",  5, 3, "https://www.youtube.com/", "2022-01-07 16:00:00", 1],
-            ["storage/images/mapbans/8.png",  6, 3, "https://www.youtube.com/", "2022-01-08 17:00:00", 1],
-            ["storage/images/mapbans/9.png",  7, 3, "https://www.youtube.com/", "2022-01-09 16:00:00", 1],
-            ["storage/images/mapbans/10.png", 7, 3, "https://www.youtube.com/", "2022-01-10 17:00:00", 1],
+            ["storage/images/mapbans/1.png",  1, 3, null, "2022-01-01 16:00:00", 1],
+            [null,                            2, 1, null, "2022-01-02 17:00:00", 1],
+            ["storage/images/mapbans/3.png",  1, 3, null, "2022-01-03 16:00:00", 1],
+            ["storage/images/mapbans/4.png",  3, 3, null, "2022-01-04 17:00:00", 1],
+            ["storage/images/mapbans/5.png",  5, 3, null, "2022-01-05 16:00:00", 1],
+            ["storage/images/mapbans/6.png",  4, 3, null, "2022-01-06 17:00:00", 1],
+            ["storage/images/mapbans/7.png",  5, 3, null, "2022-01-07 16:00:00", 1],
+            ["storage/images/mapbans/8.png",  6, 3, null, "2022-01-08 17:00:00", 1],
+            ["storage/images/mapbans/9.png",  7, 3, null, "2022-01-09 16:00:00", 1],
+            ["storage/images/mapbans/10.png", 7, 3, null, "2022-01-10 17:00:00", 1],
         ];
 
         // SEASON 3

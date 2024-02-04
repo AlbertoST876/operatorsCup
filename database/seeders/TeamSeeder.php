@@ -13,13 +13,13 @@ class TeamSeeder extends Seeder
      */
     public function run(): void
     {
-        // SEASON 2 - Corregir id [id, ...]
+        // SEASON 2
         $teams = [
-            ["ZeroPain",      "ZP",  "storage/images/teams/ZP.png",  "managerteam101@gmail.com",    "629549565", null, "https://twitter.com/Teamzeropain",    null, null, 1],
-            ["Awaken Mixers", "MXS", "storage/images/teams/MXS.png", "blookey110@gmail.com",        "639010285", null, "https://twitter.com/AwakenMilitia",   null, null, 1],
-            ["Lynx eSport",   "LXS", "storage/images/teams/LXS.png", "iker.arrebo.tor@gmail.com",   "645388437", null, null,                                  null, null, 1],
-            ["XPerience",     "XP",  "storage/images/teams/XP.png",  "rafa.gonzalez.rgm@gmail.com", "692979083", null, null,                                  null, null, 1],
-            ["BlackHole",     "BH",  "storage/images/teams/BH.png",  "esport.blackhole@gmail.com",  "635720303", null, "https://twitter.com/BlackholeSports", null, null, 1],
+            ["ZeroPain",       "ZP",  "storage/images/teams/ZP.png",  "managerteam101@gmail.com",    "629549565", null, null,                                  null, null, 1],
+            ["Awaken Militia", "AM",  "storage/images/teams/AM.png",  "blookey110@gmail.com",        "639010285", null, "https://twitter.com/AwakenMilitia",   null, null, 1],
+            ["Lynx eSports",   "LXS", "storage/images/teams/LXS.png", "iker.arrebo.tor@gmail.com",   "645388437", null, "https://twitter.com/LynxEsports22",   null, null, 1],
+            ["Xperience",      "XP",  "storage/images/teams/XP.png",  "rafa.gonzalez.rgm@gmail.com", "692979083", null, "https://twitter.com/Xperiencexp1",    null, null, 1],
+            ["BlackHole",      "BH",  "storage/images/teams/BH.png",  "esport.blackhole@gmail.com",  "635720303", null, "https://twitter.com/BlackholeSports", null, null, 1],
         ];
 
         // SEASON 3
