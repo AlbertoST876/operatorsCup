@@ -15,10 +15,10 @@
                         <tr class="border-b-2 border-black">
                             <th class="w-1/6 p-4"></th>
                             <th class="min-w-[250px] md:w-1/6 p-4 text-xl text-center align-bottom font-bold">@lang("app.player")</th>
-                            <th class="w-1/6 p-4 text-xl text-center align-bottom font-bold cursor-pointer hover:underline underline-offset-4" onclick="sortTable(2)">@lang("app.kills")</th>
-                            <th class="w-1/6 p-4 text-xl text-center align-bottom font-bold cursor-pointer hover:underline underline-offset-4" onclick="sortTable(3)">@lang("app.deaths")</th>
-                            <th class="w-1/6 p-4 text-xl text-center align-bottom font-bold cursor-pointer hover:underline underline-offset-4" onclick="sortTable(4)">@lang("app.assists")</th>
-                            <th class="w-1/6 p-4 text-xl text-center align-bottom font-bold cursor-pointer hover:underline underline-offset-4" onclick="sortTable(5)">@lang("app.kd")</th>
+                            <th class="w-1/6 p-4 text-xl text-center align-bottom font-bold cursor-pointer hover:underline underline-offset-4">@lang("app.kills")</th>
+                            <th class="w-1/6 p-4 text-xl text-center align-bottom font-bold cursor-pointer hover:underline underline-offset-4">@lang("app.deaths")</th>
+                            <th class="w-1/6 p-4 text-xl text-center align-bottom font-bold cursor-pointer hover:underline underline-offset-4">@lang("app.assists")</th>
+                            <th class="w-1/6 p-4 text-xl text-center align-bottom font-bold cursor-pointer hover:underline underline-offset-4">@lang("app.kd")</th>
                         </tr>
                     </thead>
 

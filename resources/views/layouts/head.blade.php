@@ -5,7 +5,6 @@
     <meta name="author" content="Alberto Sánchez Torreblanca">
     <meta name="copyright" content="Alberto Sánchez Torreblanca">
     <meta name="robots" content="index,follow">
-    <script src="{{ asset("storage/js/sortTable.js") }}"></script>
     @vite(["resources/js/app.js", "resources/css/app.css"])
     <link rel="icon" href="{{ asset("icon.png") }}">
     <title>{{ config("app.name") }} - {{ $title }}</title>
