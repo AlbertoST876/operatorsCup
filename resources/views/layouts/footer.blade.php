@@ -1,6 +1,4 @@
-@php
-    if (!isset($fullWidth)) $fullWidth = true;
-@endphp
+@php if (!isset($fullWidth)) $fullWidth = true; @endphp
 
 <footer class="block w-auto mt-8 {{ $fullWidth ? "" : "lg:ml-80" }} p-4 bg-gray-100">
     @if ($fullWidth)

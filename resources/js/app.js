@@ -8,9 +8,7 @@ window.onload = function() {
     if (ths.length > 0) {
         ths.forEach((th, i) => {
             if (i > 1) {
-                th.onclick = function() {
-                    sortTable(i);
-                };
+                th.onclick = function() { sortTable(i); };
             }
         });
 

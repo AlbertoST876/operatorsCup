@@ -8,9 +8,7 @@
 
         <main class="block w-full p-4">
             <div class="max-w-screen-xl mx-auto">
-                @php
-                    $date = new DateTime("2023-05-30");
-                @endphp
+                @php $date = new DateTime("2023-05-30"); @endphp
 
                 <h1 class="block mt-8 mb-4 text-4xl font-black">{{ mb_strtoupper(__("app.privacy_policy")) }}</h1>
                 <h2 class="block mb-8 text-2xl font-black">@lang("app.last_update"): {{ $date -> format($dateFormat) }}</h2>
