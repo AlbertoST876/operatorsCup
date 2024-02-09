@@ -2,8 +2,8 @@ import "./bootstrap";
 import "flowbite";
 
 window.onload = function() {
-    let lastTh = 5;
     const ths = document.querySelectorAll("#sortable th");
+    let lastTh = 5;
 
     if (ths.length > 0) {
         ths.forEach((th, i) => {
@@ -12,22 +12,20 @@ window.onload = function() {
             }
         });
 
-        setThDecoration(lastTh, ths);
+        setThDecoration(lastTh);
     }
 
-    function setThDecoration(index, ths) {
+    function setThDecoration(th) {
         ths[lastTh].style.textDecoration = "none";
-        ths[index].style.textDecoration = "underline";
-        lastTh = index;
+        ths[th].style.textDecoration = "underline";
+        lastTh = th;
     }
 
     function sortTable(n) {
         const table = document.getElementById("sortable");
-        const ths = document.querySelectorAll("#sortable th");
-
-        setThDecoration(n, ths);
-
         let rows = Array.from(table.rows).slice(1);
+
+        setThDecoration(n);
 
         rows.sort((a, b) => {
             let x = a.cells[n].textContent;
@@ -36,8 +34,8 @@ window.onload = function() {
             return Number(y) - Number(x);
         });
 
-        rows.forEach((row, index) => {
-            row.cells[0].innerHTML = "#" + (index + 1);
+        rows.forEach((row, i) => {
+            row.cells[0].innerHTML = "#" + (i + 1);
         });
 
         rows.forEach(row => table.appendChild(row));
