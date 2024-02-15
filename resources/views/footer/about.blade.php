@@ -38,7 +38,7 @@
 
                         <div class="block sm:flex w-full my-4 sm:flex-wrap sm:items-center sm:justify-center">
                             <img class="block sm:inline-block h-28 mx-auto sm:mr-16 my-4" src="{{ asset("storage/images/sponsors/NK.png") }}" alt="Night Knight Logo">
-                            <img class="block sm:inline-block h-24 mx-auto sm:ml-16 my-4" src="{{ asset("storage/images/sponsors/SicaGames.png") }}" alt="Sica Games Logo">
+                            <img class="block sm:inline-block h-28 mx-auto sm:ml-16 my-4" src="{{ asset("storage/images/sponsors/SicaGames.png") }}" alt="Sica Games Logo">
                         </div>
                     </div>
 
@@ -49,8 +49,8 @@
 
                         <div class="block sm:flex w-full my-4 sm:flex-wrap sm:items-center sm:justify-center">
                             <img class="block sm:inline-block h-28 mx-auto sm:mr-16 my-4" src="{{ asset("storage/images/sponsors/NK.png") }}" alt="Night Knight Logo">
-                            <img class="block sm:inline-block h-24 mx-auto sm:mx-16 my-4" src="{{ asset("storage/images/sponsors/BH.png") }}" alt="Sica Games Logo">
-                            <img class="block sm:inline-block h-28 mx-auto sm:ml-16 my-4 rounded-full" src="{{ asset("storage/images/sponsors/ZP.png") }}" alt="Night Knight Logo">
+                            <img class="block sm:inline-block h-28 mx-auto sm:mx-16 my-4" src="{{ asset("storage/images/sponsors/BH.png") }}" alt="Sica Games Logo">
+                            <img class="block sm:inline-block h-28 mx-auto sm:ml-16 my-4" src="{{ asset("storage/images/sponsors/ZP.png") }}" alt="ZeroPain Logo">
                         </div>
                     </div>
 
