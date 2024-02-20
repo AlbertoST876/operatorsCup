@@ -1,4 +1,6 @@
-@php if (!isset($fullWidth)) $fullWidth = true; @endphp
+@if (!isset($fullWidth))
+    @php $fullWidth = true; @endphp
+@endif
 
 <footer class="block w-auto mt-8 {{ $fullWidth ? "" : "lg:ml-80" }} p-4 bg-gray-100">
     @if ($fullWidth)
@@ -31,8 +33,8 @@
     <div class="flex mt-6 flex-wrap items-center justify-between">
         @php $linkLocale = app() -> getLocale() == "en" ? "gb" : app() -> getLocale(); @endphp
 
-        <a class="my-4" target="_blank" href="https://ubisoft.com/{{ app() -> getLocale() . "-" . $linkLocale }}"><img class="h-20" src="{{ asset("storage/images/Ubisoft.png") }}" alt="Ubisoft"></a>
-        <a class="my-4" target="_blank" href="https://ubisoft.com/{{ app() -> getLocale() . "-" . $linkLocale }}/game/rainbow-six/siege"><img class="h-20" src="{{ asset("storage/images/R6.png") }}" alt="Rainbow Six Siege"></a>
+        <a class="my-4" target="_blank" href="https://ubisoft.com/{{ app() -> getLocale() . "-" . $linkLocale }}"><img class="h-20" src="{{ asset("storage/images/Ubisoft.png") }}" alt="Ubisoft Logo"></a>
+        <a class="my-4" target="_blank" href="https://ubisoft.com/{{ app() -> getLocale() . "-" . $linkLocale }}/game/rainbow-six/siege"><img class="h-20" src="{{ asset("storage/images/R6.png") }}" alt="Rainbow Six Siege Logo"></a>
     </div>
 
     @if ($fullWidth)
