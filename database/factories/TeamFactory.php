@@ -21,7 +21,7 @@ class TeamFactory extends Factory
             "abbr" => fake() -> randomLetter() . fake() -> randomLetter() . fake() -> randomLetter(),
             "logo" => null,
             "email" => fake() -> email(),
-            "tel" => fake() -> mobileNumber(),
+            "tel" => fake() -> phoneNumber(),
             "discord" => "https://discord.gg/",
             "twitter" => "https://twitter.com/",
             "twitch" => "https://twitch.tv/",
