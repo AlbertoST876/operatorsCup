@@ -21,11 +21,11 @@ return [
     "license" => "License",
     "contact" => "Contact",
     "whats_new_in" => "What's new in",
-    "new_operation" => "New Operation Heavy Mettle",
-    "operation_description" => "Operation Heavy Mettle brings with it a completely new operator, a unique device, a new Arcade mode and updates for existing operators.",
-    "new_operator" => "New Operator Ram",
-    "operator_resume" => "Bo-Ram Choi is an attacking operator introduced in Operation Heavy Mettle.",
-    "operator_description" => "The BU-GI Auto-Breacher is an armored drone that is about the size of Rook's armored plate duffel bag. The Breacher is equipped with rotating blades near the front and explosive charges below; These devices are designed to destroy defensive positions and open up huge expanses of floor for vertical play. They are also loud, meaning they can be very distracting to enemy operators.",
+    "new_operation" => "New Deadly Omen Operation",
+    "operation_description" => "Operation Deadly Omen begins Year 9 of Rainbow Six Siege by incorporating the menacing masked antagonist, Deimos, as an attacking operator. It is one of the most anticipated updates and includes an extensive overhaul of the shields wielded by Montagne, Fuze and Blitz, as well as an update to ADS and corresponding changes to attachments and sights Plus, a new locker menu for better management of cosmetic items, a balance change for Azami's Kiba barriers, and more.",
+    "new_operator" => "New Deimos Operator",
+    "operator_resume" => "Deimos is an attacking operator introduced in Operation Deadly Omen.",
+    "operator_description" => "His DeathMark device can pinpoint and track a Defender's position, and his powerful Vendetta revolver with a unique range ensures that he has the power to take down their prey.",
 
     // TEAM SHOW
     "information" => "Information",
