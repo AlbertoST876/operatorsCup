@@ -22,8 +22,23 @@ Route::controller(FooterController::class) -> group(function() {
     Route::get("privacyPolicy", "privacyPolicy") -> name("privacyPolicy");
 });
 
-Route::resource("teams", TeamsController::class);
-Route::resource("calendar", CalendarController::class);
+Route::controller(TeamsController::class) -> group(function() {
+    Route::prefix("teams") -> group(function() {
+        Route::name("teams.") -> group(function() {
+            Route::get("", "index") -> name("index");
+            Route::get("{team}", "show") -> name("show");
+        });
+    });
+});
+
+Route::controller(CalendarController::class) -> group(function() {
+    Route::prefix("calendar") -> group(function() {
+        Route::name("calendar.") -> group(function() {
+            Route::get("", "index") -> name("index");
+            Route::get("{calendar}", "show") -> name("show");
+        });
+    });
+});
 
 Route::get("ranking", [RankingController::class, "index"]) -> name("ranking.index");
 Route::get("stats", [StatsController::class, "index"]) -> name("stats.index");

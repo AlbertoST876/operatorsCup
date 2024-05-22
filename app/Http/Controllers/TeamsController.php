@@ -45,27 +45,6 @@ class TeamsController extends Controller implements HasMiddleware
     }
 
     /**
-     * Show the form for creating a new team.
-     *
-     * @return Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created team in storage.
-     *
-     * @param Request $request
-     * @return Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
      * Display the specified team.
      *
      * @param string $id
@@ -116,39 +95,5 @@ class TeamsController extends Controller implements HasMiddleware
             "dateFormat" => self::DATE_FORMAT[app() -> getLocale()],
             "team" => $team,
         ]);
-    }
-
-    /**
-     * Show the form for editing the specified team.
-     *
-     * @param string $id
-     * @return Response
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified team in storage.
-     *
-     * @param Request $request
-     * @param string $id
-     * @return Response
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the team resource from storage.
-     *
-     * @param string $id
-     * @return Response
-     */
-    public function destroy(string $id)
-    {
-        //
     }
 }

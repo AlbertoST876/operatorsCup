@@ -46,27 +46,6 @@ class CalendarController extends Controller implements HasMiddleware
     }
 
     /**
-     * Show the form for creating a new calendar.
-     *
-     * @return Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created calendar in storage.
-     *
-     * @param Request $request
-     * @return Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
      * Display the specified calendar.
      *
      * @param string $id
@@ -78,39 +57,5 @@ class CalendarController extends Controller implements HasMiddleware
             "dateFormat" => self::DATE_FORMAT[app() -> getLocale()],
             "set" => Set::findOrFail(Crypt::decrypt($id)),
         ]);
-    }
-
-    /**
-     * Show the form for editing the specified calendar.
-     *
-     * @param string $id
-     * @return Response
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified calendar in storage.
-     *
-     * @param Request $request
-     * @param string $id
-     * @return Response
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified calendar from storage.
-     *
-     * @param string $id
-     * @return Response
-     */
-    public function destroy(string $id)
-    {
-        //
     }
 }
