@@ -14,11 +14,6 @@ use App\Models\Set;
 
 class CalendarController extends Controller implements HasMiddleware
 {
-    const DATE_FORMAT = [
-        "en" => "Y-m-d H:i",
-        "es" => "d/m/Y H:i",
-    ];
-
     /**
      * Get the middleware that should be assigned to the controller.
      */
@@ -40,7 +35,7 @@ class CalendarController extends Controller implements HasMiddleware
     public function index()
     {
         return view("calendar.index", [
-            "dateFormat" => self::DATE_FORMAT[app() -> getLocale()],
+            "dateFormat" => HomeController::DATE_FORMAT[app() -> getLocale()],
             "workdays" => Workday::select("id", "name_" . app() -> getLocale() . " AS name", "abbr") -> get(),
         ]);
     }
@@ -54,7 +49,7 @@ class CalendarController extends Controller implements HasMiddleware
     public function show(string $id)
     {
         return view("calendar.show", [
-            "dateFormat" => self::DATE_FORMAT[app() -> getLocale()],
+            "dateFormat" => HomeController::DATE_FORMAT[app() -> getLocale()],
             "set" => Set::findOrFail(Crypt::decrypt($id)),
         ]);
     }

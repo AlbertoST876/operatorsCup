@@ -14,11 +14,6 @@ use App\Models\Set;
 
 class TeamsController extends Controller implements HasMiddleware
 {
-    const DATE_FORMAT = [
-        "en" => "Y-m-d H:i",
-        "es" => "d/m/Y H:i",
-    ];
-
     /**
      * Get the middleware that should be assigned to the controller.
      */
@@ -64,7 +59,7 @@ class TeamsController extends Controller implements HasMiddleware
                     if (count($set -> games) > 0) {
                         if ($set -> games[0] -> overtime)
                         {
-                            if ($set -> games[0] -> teams[0] -> pivot -> team_id == $id)
+                            if ($set -> games[0] -> teams[0] -> pivot -> team_id == $team -> id)
                             {
                                 $points += $set -> games[0] -> teams[0] -> pivot -> winner ? 2 : 1;
                             }
@@ -75,7 +70,7 @@ class TeamsController extends Controller implements HasMiddleware
                         }
                         else
                         {
-                            if ($set -> games[0] -> teams[0] -> pivot -> team_id == $id)
+                            if ($set -> games[0] -> teams[0] -> pivot -> team_id == $team -> id)
                             {
                                 $points += $set -> games[0] -> teams[0] -> pivot -> winner ? 3 : 0;
                             }
@@ -92,7 +87,7 @@ class TeamsController extends Controller implements HasMiddleware
         $team -> points = $points;
 
         return view("teams.show", [
-            "dateFormat" => self::DATE_FORMAT[app() -> getLocale()],
+            "dateFormat" => HomeController::DATE_FORMAT[app() -> getLocale()],
             "team" => $team,
         ]);
     }
