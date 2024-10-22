@@ -92,7 +92,6 @@ return [
     "privacy_policy11" => "Contact: If the user has questions, concerns or requests related to this Privacy Policy, they can contact the organization through the contact details provided on the website.",
     "privacy_policy_footer1" => "By accepting this Privacy Policy, the user acknowledges having read, understood and accepted all the terms and conditions established in it.",
 
-
     // LICENSE
     "end_user_license_terms" => "End User License Terms (EULA)",
     "last_update" => "Last update",
