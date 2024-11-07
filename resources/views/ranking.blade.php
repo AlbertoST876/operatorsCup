@@ -32,7 +32,7 @@
                                 <td class="p-4 text-3xl font-bold">{{ "#" . $rank++ }}</td>
 
                                 <td class="min-w-[400px] sm:min-w-[500px] p-4">
-                                    <a class="inline-flex flex-nowrap items-center w-full" href="{{ route("teams.show", Crypt::encrypt($team["id"])) }}">
+                                    <a class="inline-flex flex-nowrap items-center w-full" href="{{ route("teams.show", $team["abbr"]) }}">
                                         <img class="mr-4 w-24 h-24" src="{{ asset($team["logo"]) }}" alt="{{ $team["name"] }} Logo">
                                         <span class="text-2xl sm:text-4xl font-black">{{ $team["name"] }}</span>
                                     </a>

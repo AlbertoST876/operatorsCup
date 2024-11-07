@@ -1,6 +1,6 @@
 <div class="flex px-4 py-2 flex-wrap items-center justify-center bg-gray-100 rounded-lg">
     <div class="flex w-full my-2 flex-nowrap items-center justify-center space-x-2">
-        <a href="{{ route("teams.show", Crypt::encrypt($set -> teams[0] -> id)) }}"><img class="inline-block w-16 sm:w-24 h-16 sm:h-24" src="{{ asset($set -> teams[0] -> logo) }}" alt="{{ $set -> teams[0] -> name }} Logo"></a>
+        <a href="{{ route("teams.show", $set -> teams[0] -> abbr) }}"><img class="inline-block w-16 sm:w-24 h-16 sm:h-24" src="{{ asset($set -> teams[0] -> logo) }}" alt="{{ $set -> teams[0] -> name }} Logo"></a>
 
         <a class="px-4 text-2xl font-bold" href="{{ route("calendar.show", Crypt::encrypt($set -> id)) }}">
             @php
@@ -34,7 +34,7 @@
             {{ $teamAResult }} - {{ $teamBResult }}
         </a>
 
-        <a href="{{ route("teams.show", Crypt::encrypt($set -> teams[1] -> id)) }}"><img class="inline-block w-16 sm:w-24 h-16 sm:h-24" src="{{ asset($set -> teams[1] -> logo) }}" alt="{{ $set -> teams[1] -> name }} Logo"></a>
+        <a href="{{ route("teams.show", $set -> teams[1] -> abbr) }}"><img class="inline-block w-16 sm:w-24 h-16 sm:h-24" src="{{ asset($set -> teams[1] -> logo) }}" alt="{{ $set -> teams[1] -> name }} Logo"></a>
     </div>
 
     <span class="block text-2xl text-center font-bold">{{ $set -> datetime -> format($dateFormat) }}</span>

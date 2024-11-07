@@ -47,7 +47,7 @@ class TeamsController extends Controller implements HasMiddleware
      */
     public function show(string $id)
     {
-        $team = Team::findOrFail(Crypt::decrypt($id));
+        $team = Team::where("abbr", $id) -> firstOrFail();
         $points = 0;
 
         if (count($team -> sets) > 0)
