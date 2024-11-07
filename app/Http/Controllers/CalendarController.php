@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Routing\Controllers\HasMiddleware;
-use Illuminate\Support\Facades\Crypt;
 use App\Models\GameMember;
 use App\Models\Workday;
 use App\Models\Team;
@@ -50,7 +49,7 @@ class CalendarController extends Controller implements HasMiddleware
     {
         return view("calendar.show", [
             "dateFormat" => HomeController::DATE_FORMAT[app() -> getLocale()],
-            "set" => Set::findOrFail(Crypt::decrypt($id)),
+            "set" => Set::findOrFail($id),
         ]);
     }
 }

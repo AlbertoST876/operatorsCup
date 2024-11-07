@@ -2,7 +2,7 @@
     <div class="flex w-full my-2 flex-nowrap items-center justify-center space-x-2">
         <a href="{{ route("teams.show", $set -> teams[0] -> abbr) }}"><img class="inline-block w-16 sm:w-24 h-16 sm:h-24" src="{{ asset($set -> teams[0] -> logo) }}" alt="{{ $set -> teams[0] -> name }} Logo"></a>
 
-        <a class="px-4 text-2xl font-bold" href="{{ route("calendar.show", Crypt::encrypt($set -> id)) }}">
+        <a class="px-4 text-2xl font-bold" href="{{ route("calendar.show", $set -> id) }}">
             @php
                 $teamAResult = 0;
                 $teamBResult = 0;
