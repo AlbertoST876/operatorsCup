@@ -34,7 +34,7 @@ class CalendarController extends Controller implements HasMiddleware
     public function index()
     {
         return view("calendar.index", [
-            "dateFormat" => HomeController::DATE_FORMAT[app() -> getLocale()],
+            "dateFormat" => self::getDateTimeFormat(),
             "workdays" => Workday::select("id", "name_" . app() -> getLocale() . " AS name", "abbr") -> get(),
         ]);
     }
@@ -48,7 +48,7 @@ class CalendarController extends Controller implements HasMiddleware
     public function show(string $id)
     {
         return view("calendar.show", [
-            "dateFormat" => HomeController::DATE_FORMAT[app() -> getLocale()],
+            "dateFormat" => self::getDateTimeFormat(),
             "set" => Set::findOrFail($id),
         ]);
     }

@@ -86,7 +86,7 @@ class TeamsController extends Controller implements HasMiddleware
         $team -> points = $points;
 
         return view("teams.show", [
-            "dateFormat" => HomeController::DATE_FORMAT[app() -> getLocale()],
+            "dateFormat" => self::getDateTimeFormat(),
             "team" => $team,
         ]);
     }

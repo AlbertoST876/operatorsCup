@@ -74,6 +74,7 @@
                             @include("layouts.calendar.set", [
                                 "set" => $set,
                                 "games" => $set -> games,
+                                "dateFormat" => $dateFormat,
                             ])
                         @endforeach
                     </div>

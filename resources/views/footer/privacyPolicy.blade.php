@@ -8,10 +8,8 @@
 
         <main class="block w-full p-4">
             <div class="max-w-screen-xl mx-auto">
-                @php $date = new DateTime("2023-05-30"); @endphp
-
                 <h1 class="block mt-8 mb-4 text-4xl font-black">{{ mb_strtoupper(__("app.privacy_policy")) }}</h1>
-                <h2 class="block mb-8 text-2xl font-black">@lang("app.last_update"): {{ $date -> format($dateFormat) }}</h2>
+                <h2 class="block mb-8 text-2xl font-black">@lang("app.last_update"): {{ $date }}</h2>
 
                 <hr>
 
@@ -24,7 +22,7 @@
                         <li class="my-4 text-justify text-lg">
                             @lang("app.privacy_policy2")
 
-                            <ol class="block ml-8 list-disc list-inside">
+                            <ul class="block ml-8 list-disc list-inside">
                                 <li class="my-4 text-justify text-lg">@lang("app.privacy_policy2a")</li>
                                 <li class="my-4 text-justify text-lg">@lang("app.privacy_policy2b")</li>
                                 <li class="my-4 text-justify text-lg">@lang("app.privacy_policy2c")</li>
@@ -32,17 +30,17 @@
                                 <li class="my-4 text-justify text-lg">@lang("app.privacy_policy2e")</li>
                                 <li class="my-4 text-justify text-lg">@lang("app.privacy_policy2f")</li>
                                 <li class="my-4 text-justify text-lg">@lang("app.privacy_policy2g")</li>
-                            </ol>
+                            </ul>
                         </li>
 
                         <li class="my-4 text-justify text-lg">
                             @lang("app.privacy_policy3")
 
-                            <ol class="block ml-8 list-disc list-inside">
+                            <ul class="block ml-8 list-disc list-inside">
                                 <li class="my-4 text-justify text-lg">@lang("app.privacy_policy3a")</li>
                                 <li class="my-4 text-justify text-lg">@lang("app.privacy_policy3b")</li>
                                 <li class="my-4 text-justify text-lg">@lang("app.privacy_policy3c")</li>
-                            </ol>
+                            </ul>
                         </li>
 
                         <li class="my-4 text-justify text-lg">@lang("app.privacy_policy4")</li>

@@ -8,10 +8,8 @@
 
         <main class="block w-full p-4">
             <div class="max-w-screen-xl mx-auto">
-                @php $date = new DateTime("2023-05-30"); @endphp
-
                 <h1 class="block mt-8 mb-4 text-4xl font-black">{{ mb_strtoupper(__("app.end_user_license_terms")) }}</h1>
-                <h2 class="block mb-8 text-2xl font-black">@lang("app.last_update"): {{ $date -> format($dateFormat) }}</h2>
+                <h2 class="block mb-8 text-2xl font-black">@lang("app.last_update"): {{ $date }}</h2>
 
                 <hr>
 
@@ -25,12 +23,12 @@
                         <li class="my-4 text-justify text-lg">
                             @lang("app.license3")
 
-                            <ol class="block ml-8 list-disc list-inside">
+                            <ul class="block ml-8 list-disc list-inside">
                                 <li class="my-4 text-justify text-lg">@lang("app.license3a")</li>
                                 <li class="my-4 text-justify text-lg">@lang("app.license3b")</li>
                                 <li class="my-4 text-justify text-lg">@lang("app.license3c")</li>
                                 <li class="my-4 text-justify text-lg">@lang("app.license3d")</li>
-                            </ol>
+                            </ul>
                         </li>
 
                         <li class="my-4 text-justify text-lg">@lang("app.license4")</li>

@@ -7,11 +7,6 @@ use Illuminate\Http\Response;
 
 class HomeController extends Controller
 {
-    public const DATE_FORMAT = [
-        "en" => "Y-m-d",
-        "es" => "d/m/Y",
-    ];
-
     /**
      * Return view index
      *
@@ -50,7 +45,7 @@ class HomeController extends Controller
     public function license()
     {
         return view("footer.license", [
-            "dateFormat" => self::DATE_FORMAT[app() -> getLocale()],
+            "date" => self::getDateFormatted("2023-05-30"),
         ]);
     }
 
@@ -62,7 +57,7 @@ class HomeController extends Controller
     public function privacyPolicy()
     {
         return view("footer.privacyPolicy", [
-            "dateFormat" => self::DATE_FORMAT[app() -> getLocale()],
+            "date" => self::getDateFormatted("2023-05-30"),
         ]);
     }
 }
