@@ -68,8 +68,8 @@ return [
     "staff" => "Personal",
 
     // PRIVACY POLICY
-    "privacy_policy_header" => "La presente Política de Privacidad describe cómo la organización recopila, utiliza y protege la información personal proporcionada por los usuarios al utilizar el sitio web de la Operator's Cup. Al acceder y utilizar el sitio web, el usuario acepta los términos y condiciones establecidos en esta Política de Privacidad.",
-    "privacy_policy1" => "Información recopilada: La organización puede recopilar información personal del usuario, como nombre, dirección de correo electrónico, información de contacto y fecha de nacimiento, siempre y cuando el usuario proporciona dicha información voluntariamente al participar en actividades relacionadas con la Operator's Cup.",
+    "privacy_policy_header" => "La presente Política de Privacidad describe cómo la organización recopila, utiliza y protege la información personal proporcionada por los usuarios al utilizar el sitio web de la " . config("app.name") . ". Al acceder y utilizar el sitio web, el usuario acepta los términos y condiciones establecidos en esta Política de Privacidad.",
+    "privacy_policy1" => "Información recopilada: La organización puede recopilar información personal del usuario, como nombre, dirección de correo electrónico, información de contacto y fecha de nacimiento, siempre y cuando el usuario proporciona dicha información voluntariamente al participar en actividades relacionadas con la " . config("app.name") . ".",
     "privacy_policy2" => "Uso de la información: La organización utiliza la información recopilada para los siguientes propósitos:",
     "privacy_policy2a" => "Crear y gestionar la cuenta del usuario en el sitio web.",
     "privacy_policy2b" => "Proporcionar acceso y funcionalidades específicas.",
@@ -95,7 +95,7 @@ return [
     // LICENSE
     "end_user_license_terms" => "Condiciones de Licencia del Usuario Final (EULA)",
     "last_update" => "Última actualización",
-    "license_header" => "Estas condiciones de licencia del usuario final (EULA) establecen los términos y condiciones legales entre usted como usuario y la Operator's Cup como organización para el uso de la página web relacionada con el esport Rainbow Six Siege. Al acceder y utilizar el sitio web, usted acepta cumplir con los términos y condiciones establecidos en este EULA.",
+    "license_header" => "Estas condiciones de licencia del usuario final (EULA) establecen los términos y condiciones legales entre usted como usuario y la " . config("app.name") . " como organización para el uso de la página web relacionada con el esport Rainbow Six Siege. Al acceder y utilizar el sitio web, usted acepta cumplir con los términos y condiciones establecidos en este EULA.",
     "license1" => "Licencia limitada: La organización otorga al usuario una licencia limitada, no exclusiva y no transferible para acceder y utilizar el sitio web, sujeto a las restricciones establecidas en este EULA. Esta licencia se concede únicamente para uso personal y no comercial.",
     "license2" => "Propiedad intelectual: El sitio web, incluyendo, pero no limitado a, su contenido, diseño, logotipos, imágenes, gráficos, textos y cualquier otro material relacionado, están protegidos por derechos de autor y otras leyes de propiedad intelectual. El usuario reconoce y acepta que la organización o sus licenciantes son los propietarios exclusivos de todos los derechos, títulos e intereses en el sitio web.",
     "license3" => "Restricciones de uso: El usuario se compromete a no utilizar el sitio web de ninguna manera que infrinja las leyes aplicables o vulnere los derechos de terceros. Además, el usuario acepta no realizar las siguientes acciones:",

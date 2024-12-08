@@ -68,8 +68,8 @@ return [
     "staff" => "Staff",
 
     // PRIVACY POLICY
-    "privacy_policy_header" => "This Privacy Policy describes how the organization collects, uses and protects personal information provided by users when using the Operator's Cup website. By accessing and using the website, the user agrees to the terms and conditions established in this Privacy Policy.",
-    "privacy_policy1" => "Information Collected: The organization may collect personal information from the user, such as name, email address, contact information, and date of birth, as long as the user voluntarily provides such information when engaging in privacy-related activities. Operator's Cup.",
+    "privacy_policy_header" => "This Privacy Policy describes how the organization collects, uses and protects personal information provided by users when using the " . config("app.name") . " website. By accessing and using the website, the user agrees to the terms and conditions established in this Privacy Policy.",
+    "privacy_policy1" => "Information Collected: The organization may collect personal information from the user, such as name, email address, contact information, and date of birth, as long as the user voluntarily provides such information when engaging in privacy-related activities. " . config("app.name") . ".",
     "privacy_policy2" => "Use of information: The organization uses the information collected for the following purposes:",
     "privacy_policy2a" => "Create and manage user account on the website.",
     "privacy_policy2b" => "Provide access and specific functionality.",
@@ -95,7 +95,7 @@ return [
     // LICENSE
     "end_user_license_terms" => "End User License Terms (EULA)",
     "last_update" => "Last update",
-    "license_header" => "These End User License Terms (EULA) set forth the legal terms and conditions between you as a user and the Operator's Cup as an organization for the use of the Rainbow Six Siege esports related website. By accessing and using the Website, you agree to be bound by the terms and conditions set forth in this EULA.",
+    "license_header" => "These End User License Terms (EULA) set forth the legal terms and conditions between you as a user and the " . config("app.name") . " as an organization for the use of the Rainbow Six Siege esports related website. By accessing and using the Website, you agree to be bound by the terms and conditions set forth in this EULA.",
     "license1" => "Limited License: The organization grants you a limited, non-exclusive, non-transferable license to access and use the Website, subject to the restrictions set forth in this EULA. This license is granted for personal use only and does not commercial.",
     "license2" => "Intellectual Property: The Website, including, but not limited to, its content, design, logos, images, graphics, text and any other related materials, are protected by copyright and other intellectual property laws The user acknowledges and agrees that the organization or its licensors are the exclusive owners of all rights, title and interest in the website.",
     "license3" => "Restrictions on use: The user agrees not to use the website in any way that violates applicable laws or violates the rights of third parties. In addition, the user agrees not to perform the following actions:",

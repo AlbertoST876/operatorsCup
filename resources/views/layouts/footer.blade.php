@@ -9,7 +9,7 @@
 
     <div class="block lg:flex lg:items-center lg:justify-between">
         <div class="block mr-8">
-            <span class="inline-block text-lg font-medium text-black">&copy;{{ date("Y") }} <a href="{{ route("index") }}" class="hover:underline">Operator's Cup</a>.</span>
+            <span class="inline-block text-lg font-medium text-black">&copy;{{ date("Y") }} <a href="{{ route("index") }}" class="hover:underline">{{ config("app.name") }}</a>.</span>
             <span class="inline-block text-lg font-medium text-black">@lang("app.all_rights_reserved").</span>
         </div>
 

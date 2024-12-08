@@ -14,7 +14,7 @@
 
             <aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-80 h-screen transition-transform -translate-x-full lg:translate-x-0" aria-label="Sidebar">
                 <nav class="h-full overflow-y-auto bg-black">
-                    <a href="{{ route("index") }}" class="flex mt-8 mb-2 items-center justify-center"><img src="{{ asset("icon.png") }}" class="h-56 sm:h-64" alt="Operator's Cup Logo"></a>
+                    <a href="{{ route("index") }}" class="flex mt-8 mb-2 items-center justify-center"><img src="{{ asset("icon.png") }}" class="h-56 sm:h-64" alt="{{ config("app.name") }} Logo"></a>
 
                     <div>
                         <button id="languageButton" data-dropdown-toggle="language" class="flex mx-auto px-4 py-2 items-center text-white font-medium rounded-lg text-sm text-center hover:bg-white hover:text-black focus:ring-4 focus:outline-none focus:ring-white" type="button">
@@ -56,11 +56,11 @@
 
         <main class="lg:ml-80">
             <div class="px-4 py-2 bg-gradient-to-b from-black from-25% to-white">
-                <h1 class="block mt-4 mb-8 text-white text-center text-4xl sm:text-6xl font-black">OPERATOR'S CUP</h1>
+                <h1 class="block mt-4 mb-8 text-white text-center text-4xl sm:text-6xl font-black">{{ mb_strtoupper(config("app.name")) }}</h1>
 
                 <div id="carousel" class="relative w-auto h-36 sm:h-52 md:h-64 lg:h-80 xl:h-96 2xl:h-[500px]" data-carousel="slide">
                     <div class="relative h-full overflow-hidden rounded-lg">
-                        <div class="hidden duration-700 ease-in-out" data-carousel-item><img src="{{ asset("storage/images/banners/Banner1.jpg") }}" class="absolute block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Operator's Cup Banner"></div>
+                        <div class="hidden duration-700 ease-in-out" data-carousel-item><img src="{{ asset("storage/images/banners/Banner1.jpg") }}" class="absolute block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="{{ config("app.name") }} Banner"></div>
                         <div class="hidden duration-700 ease-in-out" data-carousel-item><img src="{{ asset("storage/images/banners/Banner2.jpg") }}" class="absolute block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Rainbow Six Siege"></div>
                         <div class="hidden duration-700 ease-in-out" data-carousel-item><img src="{{ asset("storage/images/banners/Banner3.jpg") }}" class="absolute block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Operation Heavy Mettle"></div>
                         <div class="hidden duration-700 ease-in-out" data-carousel-item><img src="{{ asset("storage/images/banners/Banner4.jpg") }}" class="absolute block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Ram"></div>

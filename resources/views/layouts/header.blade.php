@@ -1,6 +1,6 @@
 <header class="block w-full p-4 bg-black">
     <nav class="flex max-w-screen-xl mx-auto flex-wrap items-center justify-between">
-        <a href="{{ route("index") }}"><img class="w-16 h-16" src="{{ asset("icon.png") }}" alt="Operator's Cup Logo"></a>
+        <a href="{{ route("index") }}"><img class="w-16 h-16" src="{{ asset("icon.png") }}" alt="{{ config("app.name") }} Logo"></a>
 
         <div class="flex lg:order-2">
             <div class="inline-flex items-center justify-between">

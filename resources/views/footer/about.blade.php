@@ -12,7 +12,7 @@
 
                 <hr>
 
-                <img class="block w-full my-8 rounded-lg" src="{{ asset("storage/images/banners/Banner1.jpg") }}" alt="Operator's Cup Banner">
+                <img class="block w-full my-8 rounded-lg" src="{{ asset("storage/images/banners/Banner1.jpg") }}" alt="{{ config("app.name") }} Banner">
 
                 <p class="block my-8 text-justify text-lg font-bold">@lang("app.history_about")</p>
 
