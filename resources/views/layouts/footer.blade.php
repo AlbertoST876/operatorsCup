@@ -4,7 +4,7 @@
 
 <footer class="block w-auto mt-8 {{ $fullWidth ? "" : "lg:ml-80" }} p-4 bg-gray-100">
     @if ($fullWidth)
-        <div class="max-w-screen-xl mx-auto">
+        <div class="max-w-7xl mx-auto">
     @endif
 
     <div class="block lg:flex lg:items-center lg:justify-between">

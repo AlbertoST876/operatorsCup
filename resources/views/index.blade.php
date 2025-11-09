@@ -45,8 +45,8 @@
                     </ul>
 
                     <div class="flex mb-16 lg:mb-0 px-8 py-4 items-center justify-between">
-                        <a class="w-8 h-8" target="_blank" href="https://discord.gg/STsX48JgJa"><img class="rounded-md" src="{{ asset("storage/images/social-networks/discord.png") }}" alt="Twitter"></a>
-                        <a class="w-8 h-8" target="_blank" href="https://twitter.com/OperatorsCup"><img class="rounded-md" src="{{ asset("storage/images/social-networks/twitter.png") }}" alt="Twitter"></a>
+                        <a class="w-8 h-8" target="_blank" href="https://discord.gg/STsX48JgJa"><img class="rounded-md" src="{{ asset("storage/images/social-networks/discord.png") }}" alt="Discord"></a>
+                        <a class="w-8 h-8" target="_blank" href="https://x.com/OperatorsCup"><img class="rounded-md" src="{{ asset("storage/images/social-networks/x.png") }}" alt="X"></a>
                         <a class="w-8 h-8" target="_blank" href="https://twitch.tv/operatorscupr6"><img class="rounded-md" src="{{ asset("storage/images/social-networks/twitch.png") }}" alt="Twitch"></a>
                         <a class="w-8 h-8" target="_blank" href="https://youtube.com/@OperatorsCup"><img class="rounded-md" src="{{ asset("storage/images/social-networks/youtube.png") }}" alt="Youtube"></a>
                     </div>
@@ -55,7 +55,7 @@
         </header>
 
         <main class="lg:ml-80">
-            <div class="px-4 py-2 bg-gradient-to-b from-black from-25% to-white">
+            <div class="px-4 py-2 bg-linear-to-b from-black from-25% to-white">
                 <h1 class="block mt-4 mb-8 text-white text-center text-4xl sm:text-6xl font-black">{{ mb_strtoupper(config("app.name")) }}</h1>
 
                 <div id="carousel" class="relative w-auto h-36 sm:h-52 md:h-64 lg:h-80 xl:h-96 2xl:h-[500px]" data-carousel="slide">

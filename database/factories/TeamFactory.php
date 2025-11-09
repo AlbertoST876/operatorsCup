@@ -23,7 +23,7 @@ class TeamFactory extends Factory
             "email" => fake() -> email(),
             "tel" => fake() -> phoneNumber(),
             "discord" => "https://discord.gg/",
-            "twitter" => "https://twitter.com/",
+            "x" => "https://x.com/",
             "twitch" => "https://twitch.tv/",
             "youtube" => "https://youtube.com/",
             "active" => fake() -> boolean(),

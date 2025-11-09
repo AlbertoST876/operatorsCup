@@ -15,23 +15,23 @@ class TeamSeeder extends Seeder
     {
         // SEASON 2
         $teams = [
-            ["ZeroPain",       "ZP",  "storage/images/teams/ZP.png",  null, null, null, null,                                  null, null, 1],
-            ["Awaken Militia", "AM",  "storage/images/teams/AM.png",  null, null, null, "https://twitter.com/AwakenMilitia",   null, null, 1],
-            ["Lynx eSports",   "LXS", "storage/images/teams/LXS.png", null, null, null, "https://twitter.com/LynxEsports22",   null, null, 1],
-            ["Xperience",      "XP",  "storage/images/teams/XP.png",  null, null, null, "https://twitter.com/Xperiencexp1",    null, null, 1],
-            ["BlackHole",      "BH",  "storage/images/teams/BH.png",  null, null, null, "https://twitter.com/BlackholeSports", null, null, 1],
+            ["ZeroPain",       "ZP",  "storage/images/teams/ZP.png",  null, null, null, null,                            null, null, 1],
+            ["Awaken Militia", "AM",  "storage/images/teams/AM.png",  null, null, null, "https://x.com/AwakenMilitia",   null, null, 1],
+            ["Lynx eSports",   "LXS", "storage/images/teams/LXS.png", null, null, null, "https://x.com/LynxEsports22",   null, null, 1],
+            ["Xperience",      "XP",  "storage/images/teams/XP.png",  null, null, null, "https://x.com/Xperiencexp1",    null, null, 1],
+            ["BlackHole",      "BH",  "storage/images/teams/BH.png",  null, null, null, "https://x.com/BlackholeSports", null, null, 1],
         ];
 
         // SEASON 3
         // $teams = [
-        //     ["Xperience",        "XP",   "storage/images/teams/XP.png",   null, null, null, "https://twitter.com/Xperiencexp1",   null, null, 1],
-        //     ["Luna Esport",      "LUNA", "storage/images/teams/LUNA.png", null, null, null, "https://twitter.com/Luna__Esport",   null, null, 1],
-        //     ["ZeroPain",         "ZP",   "storage/images/teams/ZP.png",   null, null, null, null,                                 null, null, 1],
-        //     ["ETERNITY",         "ETY",  "storage/images/teams/ETY.png",  null, null, null, null,                                 null, null, 1],
-        //     ["Benny Boys",       "BB",   "storage/images/teams/BB.png",   null, null, null, "https://twitter.com/Bennysboys_LFO", null, null, 1],
-        //     ["Guardians Alpha",  "GRDX", "storage/images/teams/GRDX.png", null, null, null, "https://twitter.com/bRainbowTeam",   null, null, 1],
-        //     ["Alfa Wolf eSport", "AWS",  "storage/images/teams/AWS.png",  null, null, null, null,                                 null, null, 1],
-        //     ["Astony",           "ASTO", "storage/images/teams/ASTO.png", null, null, null, "https://twitter.com/TeamASTONY",     null, null, 1],
+        //     ["Xperience",        "XP",   "storage/images/teams/XP.png",   null, null, null, "https://x.com/Xperiencexp1",   null, null, 1],
+        //     ["Luna Esport",      "LUNA", "storage/images/teams/LUNA.png", null, null, null, "https://x.com/Luna__Esport",   null, null, 1],
+        //     ["ZeroPain",         "ZP",   "storage/images/teams/ZP.png",   null, null, null, null,                           null, null, 1],
+        //     ["ETERNITY",         "ETY",  "storage/images/teams/ETY.png",  null, null, null, null,                           null, null, 1],
+        //     ["Benny Boys",       "BB",   "storage/images/teams/BB.png",   null, null, null, "https://x.com/Bennysboys_LFO", null, null, 1],
+        //     ["Guardians Alpha",  "GRDX", "storage/images/teams/GRDX.png", null, null, null, "https://x.com/bRainbowTeam",   null, null, 1],
+        //     ["Alfa Wolf eSport", "AWS",  "storage/images/teams/AWS.png",  null, null, null, null,                           null, null, 1],
+        //     ["Astony",           "ASTO", "storage/images/teams/ASTO.png", null, null, null, "https://x.com/TeamASTONY",     null, null, 1],
         // ];
 
         foreach ($teams as $team)
@@ -43,7 +43,7 @@ class TeamSeeder extends Seeder
                 "email" => $team[3],
                 "tel" => $team[4],
                 "discord" => $team[5],
-                "twitter" => $team[6],
+                "x" => $team[6],
                 "twitch" => $team[7],
                 "youtube" => $team[8],
                 "active" => $team[9],

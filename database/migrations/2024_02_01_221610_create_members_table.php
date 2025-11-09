@@ -18,7 +18,7 @@ return new class extends Migration
             $table -> foreignId("team_id") -> references("id") -> on("teams");
             $table -> string("nickname", 50);
             $table -> string("discord", 50) -> nullable() -> default(null);
-            $table -> string("twitter", 50) -> nullable() -> default(null);
+            $table -> string("x", 50) -> nullable() -> default(null);
             $table -> string("twitch", 50) -> nullable() -> default(null);
             $table -> string("youtube", 50) -> nullable() -> default(null);
             $table -> date("birthday") -> nullable() -> default(null);

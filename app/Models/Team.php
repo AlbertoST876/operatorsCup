@@ -31,7 +31,7 @@ class Team extends Model
         "email",
         "tel",
         "discord",
-        "twitter",
+        "x",
         "twitch",
         "youtube",
         "active",

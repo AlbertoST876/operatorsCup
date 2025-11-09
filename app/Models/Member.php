@@ -24,7 +24,7 @@ class Member extends Model
         "team_id",
         "nickname",
         "discord",
-        "twitter",
+        "x",
         "twitch",
         "youtube",
         "birthday",

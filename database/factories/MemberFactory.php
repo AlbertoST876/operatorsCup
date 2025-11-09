@@ -21,7 +21,7 @@ class MemberFactory extends Factory
             "team_id" => fake() -> randomNumber(),
             "nickname" => fake() -> name(),
             "discord" => "https://discord.com/",
-            "twitter" => "https://twitter.com/",
+            "x" => "https://x.com/",
             "twitch" => "https://twitch.com/",
             "youtube" => "https://youtube.com/",
             "birthday" => fake() -> date(),

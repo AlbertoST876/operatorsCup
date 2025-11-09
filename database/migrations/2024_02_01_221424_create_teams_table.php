@@ -20,7 +20,7 @@ return new class extends Migration
             $table -> string("email", 50) -> nullable() -> default(null);
             $table -> string("tel", 20) -> nullable() -> default(null);
             $table -> string("discord", 50) -> nullable() -> default(null);
-            $table -> string("twitter", 50) -> nullable() -> default(null);
+            $table -> string("x", 50) -> nullable() -> default(null);
             $table -> string("twitch", 50) -> nullable() -> default(null);
             $table -> string("youtube", 50) -> nullable() -> default(null);
             $table -> boolean("active") -> default(1);

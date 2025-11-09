@@ -7,7 +7,7 @@
         @include("layouts.header")
 
         <main class="block w-full p-4">
-            <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-7xl mx-auto">
                 <h1 class="block mt-8 mb-4 text-4xl font-black">{{ mb_strtoupper(__("app.end_user_license_terms")) }}</h1>
                 <h2 class="block mb-8 text-2xl font-black">@lang("app.last_update"): {{ $date }}</h2>
 

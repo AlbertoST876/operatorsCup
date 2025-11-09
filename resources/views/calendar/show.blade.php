@@ -7,7 +7,7 @@
         @include("layouts.header")
 
         <main class="block w-full p-4">
-            <div class="max-w-screen-xl mx-auto">
+            <div class="max-w-7xl mx-auto">
                 <div class="flex my-2 flex-wrap items-center justify-between">
                     <h1 class="block my-8 text-4xl sm:text-6xl font-black">{{ mb_strtoupper(__("app.match")) }}</h1>
 
