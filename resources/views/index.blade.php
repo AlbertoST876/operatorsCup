@@ -58,7 +58,7 @@
             <div class="px-4 py-2 bg-linear-to-b from-black from-25% to-white">
                 <h1 class="block mt-4 mb-8 text-white text-center text-4xl sm:text-6xl font-black">{{ mb_strtoupper(config("app.name")) }}</h1>
 
-                <div id="carousel" class="relative w-auto h-36 sm:h-52 md:h-64 lg:h-80 xl:h-96 2xl:h-[500px]" data-carousel="slide">
+                <div id="carousel" class="relative w-auto h-36 sm:h-52 md:h-64 lg:h-80 xl:h-96 2xl:h-125" data-carousel="slide">
                     <div class="relative h-full overflow-hidden rounded-lg">
                         <div class="hidden duration-700 ease-in-out" data-carousel-item><img src="{{ asset("storage/images/banners/Banner1.jpg") }}" class="absolute block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="{{ config("app.name") }} Banner"></div>
                         <div class="hidden duration-700 ease-in-out" data-carousel-item><img src="{{ asset("storage/images/banners/Banner2.jpg") }}" class="absolute block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Rainbow Six Siege"></div>

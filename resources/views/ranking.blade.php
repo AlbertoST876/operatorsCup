@@ -14,7 +14,7 @@
                     <thead class="border-b-2 border-black">
                         <tr>
                             <th class="p-4"></th>
-                            <th class="min-w-[400px] sm:min-w-[500px] p-4"></th>
+                            <th class="min-w-100 sm:min-w-125 p-4"></th>
                             <th class="p-4 text-xl text-center align-bottom font-bold">@lang("app.points")</th>
                             <th class="p-4 text-xl text-center align-bottom font-bold">@lang("app.won")</th>
                             <th class="p-4 text-xl text-center align-bottom font-bold">@lang("app.won_overtime")</th>
@@ -31,7 +31,7 @@
                             <tr class="border-b">
                                 <td class="p-4 text-3xl font-bold">{{ "#" . $rank++ }}</td>
 
-                                <td class="min-w-[400px] sm:min-w-[500px] p-4">
+                                <td class="min-w-100 sm:min-w-125 p-4">
                                     <a class="inline-flex flex-nowrap items-center w-full" href="{{ route("teams.show", $team["abbr"]) }}">
                                         <img class="mr-4 w-24 h-24" src="{{ asset($team["logo"]) }}" alt="{{ $team["name"] }} Logo">
                                         <span class="text-2xl sm:text-4xl font-black">{{ $team["name"] }}</span>

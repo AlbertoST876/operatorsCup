@@ -91,7 +91,7 @@
                                         <tr class="border-b-2 border-black">
                                             <th class="w-3/12 p-4"></th>
                                             <th class="w-2/12 p-4"></th>
-                                            <th class="min-w-[250px] md:w-3/12 p-4 text-xl align-bottom font-bold">@lang("app.player")</th>
+                                            <th class="min-w-62.5 md:w-3/12 p-4 text-xl align-bottom font-bold">@lang("app.player")</th>
                                             <th class="w-1/12 p-4 text-xl text-center align-bottom font-bold">@lang("app.kills")</th>
                                             <th class="w-1/12 p-4 text-xl text-center align-bottom font-bold">@lang("app.deaths")</th>
                                             <th class="w-1/12 p-4 text-xl text-center align-bottom font-bold">@lang("app.assists")</th>
